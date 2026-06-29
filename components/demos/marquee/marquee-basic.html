@@ -1,0 +1,36 @@
+<!-- Add this to your <style> or CSS file -->
+<style>
+  @keyframes marquee-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    animation: marquee-left 25s linear infinite;
+  }
+  .marquee-wrap:hover .marquee-track {
+    animation-play-state: paused;
+  }
+</style>
+
+<div class="overflow-hidden w-full marquee-wrap">
+  <div class="flex gap-4 w-max marquee-track">
+    <!-- Items duplicated for seamless loop -->
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">HTML</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">Tailwind CSS</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">CSS</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">JavaScript</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">Vite</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">Webpack</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">PostCSS</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">Alpine.js</span>
+    <!-- Duplicate set for seamless loop -->
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">HTML</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">Tailwind CSS</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">CSS</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">JavaScript</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">Vite</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">Webpack</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">PostCSS</span>
+    <span class="whitespace-nowrap rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm text-slate-600">Alpine.js</span>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<style>
+  @keyframes marquee-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-right {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .marquee-left {
+    animation: marquee-left 20s linear infinite;
+  }
+
+  .marquee-right {
+    animation: marquee-right 20s linear infinite;
+  }
+
+  .marquee-wrap:hover .marquee-left,
+  .marquee-wrap:hover .marquee-right {
+    animation-play-state: paused;
+  }
+</style>
+
+<div class="w-full overflow-hidden rounded-lg border marquee-wrap">
+  <!-- Row 1 -->
+  <div class="overflow-hidden bg-yellow-400 py-3">
+    <div class="flex w-max marquee-left">
+      <div class="flex">
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap">Residents</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap">Welcome</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap">Arise UI</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap">Tailwind CSS</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap">Components</span>
+      </div>
+
+      <!-- Duplicate -->
+      <div class="flex">
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap">Residents</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap">Welcome</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap">Arise UI</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap">Tailwind CSS</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap">Components</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="overflow-hidden bg-blue-500 py-3">
+    <div class="flex w-max marquee-right">
+      <div class="flex">
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap text-white">HTML</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap text-white">CSS</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap text-white">JavaScript</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap text-white">React</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap text-white">Next.js</span>
+      </div>
+
+      <!-- Duplicate -->
+      <div class="flex">
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap text-white">HTML</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap text-white">CSS</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap text-white">JavaScript</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap text-white">React</span>
+        <span class="px-8 text-2xl font-bold uppercase whitespace-nowrap text-white">Next.js</span>
+      </div>
+    </div>
+  </div>
+</div>
