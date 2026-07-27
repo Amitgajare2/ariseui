@@ -3,7 +3,7 @@
 **Suggestions that fit this collection's style** — physics, spring animation, Apple-flavored, unusual:
 
 **Input / Form**
-- **Liquid Slider** — a range slider where the thumb leaves a fluid trail that stretches and snaps back as you drag
+
 - **Morphing Search** — a search pill that expands into a full input with results, morphing border radius as it opens
 - **Haptic Toggle** — a switch that physically overshoots and snaps, with a squish animation on the thumb
 
