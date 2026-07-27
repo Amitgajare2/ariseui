@@ -785,7 +785,116 @@ export function Demo() {
     />
   )
 }`,
-  }
+  },
+  {
+    name: "Liquid Slider",
+    href: "/components/liquidslider",
+    registry: "liquid-slider",
+    description:
+      "A range slider where the thumb leaves a fluid blob that stretches as you drag and snaps back on release.",
+    introduction:
+      "Liquid Slider is a native range input replacement built entirely with Motion springs. Dragging the thumb pulls a fluid blob up from the track — the blob stretches horizontally with drag velocity and snaps back with a spring once you let go. A gooey connector bridges the blob and thumb while they're apart. No extra dependencies beyond motion.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/liquid-slider.tsx`,
+    dependencies: [
+      { name: "motion", icon: createElement(MotionIcon, { className: "h-4 w-4" }) },
+    ],
+    interaction:
+      "Click or drag anywhere on the track to move the thumb. The blob rises above the thumb while dragging, stretches with velocity, and snaps back on release. Arrow keys move by one step, Page Up/Down by ten.",
+    props: [
+      {
+        name: "value",
+        type: "number",
+        description:
+          "Controlled value. Pair with onChange to manage state yourself. Leave it out to let the component manage its own state.",
+      },
+      {
+        name: "defaultValue",
+        type: "number",
+        default: "50",
+        description: "Starting value for uncontrolled usage. Ignored when value is provided.",
+      },
+      {
+        name: "min",
+        type: "number",
+        default: "0",
+        description: "Minimum value of the range.",
+      },
+      {
+        name: "max",
+        type: "number",
+        default: "100",
+        description: "Maximum value of the range.",
+      },
+      {
+        name: "step",
+        type: "number",
+        default: "1",
+        description: "Snapping interval. Accepts decimals for fine-grained ranges.",
+      },
+      {
+        name: "color",
+        type: "string",
+        default: '"#F75001"',
+        options: ["#F75001", "#1A73F2", "#34C759", "#FF3B30"],
+        control: "swatch",
+        optionColors: {
+          "#F75001": "#F75001",
+          "#1A73F2": "#1A73F2",
+          "#34C759": "#34C759",
+          "#FF3B30": "#FF3B30",
+        },
+        description:
+          "Any hex color applied to the fill, thumb, and blob. The whole fluid effect inherits from this single value.",
+      },
+      {
+        name: "showValue",
+        type: "boolean",
+        default: "true",
+        description: "Shows the current numeric value inside the floating blob while dragging.",
+      },
+      {
+        name: "disabled",
+        type: "boolean",
+        default: "false",
+        description: "Dims the slider and blocks all interaction.",
+      },
+      {
+        name: "onChange",
+        type: "(value: number) => void",
+        description: "Fires with the snapped value on every change, including keyboard navigation.",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Extra classes merged onto the root element.",
+      },
+    ],
+    usage: `"use client"
+
+import { useState } from "react"
+import LiquidSlider from "@/components/ui/liquid-slider"
+
+export function Demo() {
+  const [volume, setVolume] = useState(50)
+
+  return (
+    <div className="w-72">
+      <LiquidSlider
+        value={volume}
+        onChange={setVolume}
+        min={0}
+        max={100}
+        step={1}
+        color="#F75001"
+      />
+      <p>{volume}%</p>
+    </div>
+  )
+}
+
+// Uncontrolled — fires onChange but manages its own state:
+// <LiquidSlider defaultValue={30} onChange={(v) => console.log(v)} />`,
+  },
   // {
   //   name: "Family drawer",
   //   href: "/components/familydrawer",
