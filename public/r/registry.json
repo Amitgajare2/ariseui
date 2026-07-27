@@ -142,6 +142,20 @@
       ]
     },
     {
+      "name": "liquid-slider",
+      "type": "registry:ui",
+      "title": "Liquid Slider",
+      "description": "A range slider where the thumb leaves a fluid blob that stretches as you drag and snaps back on release.",
+      "dependencies": ["motion"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/liquid-slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "gravity-letters",
       "type": "registry:ui",
       "title": "Gravity Letters",
