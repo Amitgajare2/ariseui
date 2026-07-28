@@ -87,10 +87,10 @@ export default function InstallingPage() {
 }
 
 const PM_VARIANTS = [
-  { label: "npm", command: `npx shadcn add ${REGISTRY_REPO}/fluid-orb` },
-  { label: "pnpm", command: `pnpm dlx shadcn add ${REGISTRY_REPO}/fluid-orb` },
-  { label: "yarn", command: `yarn dlx shadcn add ${REGISTRY_REPO}/fluid-orb` },
-  { label: "bun", command: `bunx --bun shadcn add ${REGISTRY_REPO}/fluid-orb` },
+  { label: "npm", command: `npx shadcn add ${REGISTRY_REPO}/scroll-progress` },
+  { label: "pnpm", command: `pnpm dlx shadcn add ${REGISTRY_REPO}/scroll-progress` },
+  { label: "yarn", command: `yarn dlx shadcn add ${REGISTRY_REPO}/scroll-progress` },
+  { label: "bun", command: `bunx --bun shadcn add ${REGISTRY_REPO}/scroll-progress` },
 ];
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
