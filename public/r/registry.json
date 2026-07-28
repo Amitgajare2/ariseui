@@ -113,6 +113,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+     {
+      "name": "magnetic-dock",
+      "type": "registry:ui",
+      "title": "Magnetic Dock",
+      "description": "A dock that responds to cursor movement with a magnetic effect.",
+      "dependencies": ["motion"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/magnetic-dock.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
