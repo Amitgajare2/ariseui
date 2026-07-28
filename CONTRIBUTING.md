@@ -3,7 +3,7 @@
 Arise UI is a [shadcn registry](https://ui.shadcn.com/docs/registry). Every component in this repo can be installed into any project with a single command:
 
 ```bash
-npx shadcn@latest add swamimalode07/arise-ui/<component-name>
+npx shadcn@latest add amitgajare2/ariseui/<component-name>
 ```
 
 This guide walks through adding a new component, from the first file to a working install command.
@@ -65,7 +65,7 @@ Add an entry to the `items` array in `registry.json` at the repo root. This is w
   "type": "registry:ui",
   "title": "Glow Badge",
   "description": "A badge with a soft glow.",
-  "registryDependencies": ["swamimalode07/arise-ui/utils"],
+  "registryDependencies": ["amitgajare2/ariseui/utils"],
   "files": [
     {
       "path": "components/ui/glow-badge.tsx",
@@ -79,10 +79,10 @@ Field reference:
 
 | Field                   | What it does                                                                                                                                                                                                   |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`                  | The install name: `npx shadcn add swamimalode07/arise-ui/glow-badge`                                                                                                                                           |
+| `name`                  | The install name: `npx shadcn amitgajare2/ariseui/glow-badge`                                                                                                                                           |
 | `title` / `description` | Shown in `shadcn search` and `shadcn view`                                                                                                                                                                     |
 | `dependencies`          | npm packages your component imports (e.g. `"framer-motion"`). The CLI installs them in the consumer's project automatically.                                                                                   |
-| `registryDependencies`  | Other registry items your component imports, as full addresses. Almost always includes `swamimalode07/arise-ui/utils` (for `cn`). If your component renders our `Button`, add `swamimalode07/arise-ui/button`. |
+| `registryDependencies`  | Other registry items your component imports, as full addresses. Almost always includes `amitgajare2/ariseui/utils` (for `cn`). If your component renders our `Button`, add `amitgajare2/ariseui/button`. |
 | `files`                 | The files that ship with the item. Multi-file components (component + hook) just add more entries.                                                                                                             |
 | `css`                   | Extra CSS to inject into the consumer's stylesheet — used for keyframes. See the `shimmer-button` item in `registry.json` for an example.                                                                      |
 
@@ -124,7 +124,7 @@ git push
 The GitHub repository **is** the registry — there is no separate publish step. As soon as the commit is on the default branch, the component is installable:
 
 ```bash
-npx shadcn@latest add swamimalode07/arise-ui/glow-badge
+npx shadcn@latest add amitgajare2/ariseui/glow-badge
 ```
 
 ## Step 6: Verify the install
@@ -136,10 +136,10 @@ Confirm the live registry resolves:
 npx shadcn@latest registry validate amitgajare2/ariseui
 
 # inspect the item payload the CLI will deliver
-npx shadcn@latest view swamimalode07/arise-ui/glow-badge
+npx shadcn@latest view amitgajare2/ariseui/glow-badge
 
 # dry-run an install in any other project
-npx shadcn@latest add swamimalode07/arise-ui/glow-badge --dry-run
+npx shadcn@latest add amitgajare2/ariseui/glow-badge --dry-run
 ```
 
 ## Checklist

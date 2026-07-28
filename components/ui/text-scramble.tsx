@@ -316,7 +316,7 @@ const TextScramble = React.forwardRef<HTMLSpanElement, TextScrambleProps>(
         data-slot="text-scramble"
         data-state={isScrambling ? "scrambling" : "idle"}
         className={cn(
-          "relative inline-block max-w-full whitespace-pre-wrap break-words align-middle",
+          "relative inline-block max-w-full whitespace-pre-wrap wrap-break-word align-middle",
           className,
         )}
         onPointerEnter={(event) => {

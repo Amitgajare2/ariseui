@@ -480,24 +480,49 @@ export function Demo() {
     usage: `import TextScramble from "@/components/ui/text-scramble"
 
   export function Demo() {
-    return <TextScramble />
+    return <TextScramble
+            trigger="in-view"
+            duration={1100}
+            speed={28}
+            revealDirection="center"
+          >
+            Built to stand out.
+          </TextScramble>
   }`,
   },
-  // {
-  //   name: "Family drawer",
-  //   href: "/components/familydrawer",
-  //   registry: "family drawer",
-  //   description:
-  //     "A bottom drawer with smooth, morphing transitions between stacked views, inspired by the Family app. Built on Vaul.",
-  //   source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/family-drawer.tsx`,
-  //   dependencies: [{ name: "motion" }, { name: "vaul" }],
-  //   interaction: "Click the trigger to open the drawer and step between views.",
-  //   usage: `import FamilyDrawer from "@/components/ui/family-drawer"
+  {
+    name: "Magnetic Dock",
+    href: "/components/magneticdock",
+    registry: "magnetic-dock",
+    description:
+      "A dock that responds to cursor movement with a magnetic effect.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/magnetic-dock.tsx`,
+    dependencies: [{ name: "motion" }, { name: "vaul" }],
+    interaction: "Click the trigger to open the drawer and step between views.",
+    usage: `import MagneticDock from "@/components/ui/magnetic-dock"
 
-  // export function Demo() {
-  //   return <FamilyDrawer />
-  // }`,
-  // },
+  export function Demo() {
+    return <MagneticDock
+        baseSize={52}
+        magnification={82}
+        distance={155}
+        gap={9}
+      >
+        {apps.map(({ label, icon: Icon, active }) => (
+          <MagneticDockItem key={label} label={label} active={active}>
+            <Icon strokeWidth={1.7} />
+          </MagneticDockItem>
+        ))}
+
+        <div aria-hidden="true" className="mx-0.5 h-10 w-px bg-white/15" />
+
+        <MagneticDockItem label="Trash">
+          <Trash2 strokeWidth={1.7} />
+        </MagneticDockItem>
+      </MagneticDock>
+  }`,
+  },
+ 
 ];
 
 export type PackageManager = "npm" | "pnpm" | "yarn" | "bun";

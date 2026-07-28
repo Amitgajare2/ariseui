@@ -4,7 +4,7 @@ import { TextScramble } from "@/components/ui/text-scramble";
 
 export default function TextScrambleDemo() {
   return (
-    <div className="flex min-h-[420px] items-center justify-center rounded-3xl border bg-background px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+    <div className="flex min-h-105 items-center justify-center rounded-3xl border bg-background px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
       <div className="w-full max-w-4xl text-center">
         <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground sm:mb-5 sm:text-xs">
           Arise UI / Text effect

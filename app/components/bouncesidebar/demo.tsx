@@ -124,7 +124,7 @@ export default function BounceSidebarPage() {
 
       <div
         ref={scrollRef}
-        className="min-h-0 flex-1 overflow-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        className="min-h-0 flex-1 overflow-auto scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
       >
         <motion.article
           className="max-w-2xl"
