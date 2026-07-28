@@ -133,7 +133,7 @@ Confirm the live registry resolves:
 
 ```bash
 # validate the whole registry
-npx shadcn@latest registry validate swamimalode07/arise-ui
+npx shadcn@latest registry validate amitgajare2/ariseui
 
 # inspect the item payload the CLI will deliver
 npx shadcn@latest view swamimalode07/arise-ui/glow-badge
