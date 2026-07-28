@@ -37,7 +37,7 @@
     "eslint": "^10.8.0",
     "eslint-config-next": "^0.2.4",
     "prettier": "3.8.4",
-    "shadcn": "^3.8.3",
+    "shadcn": "^4.16.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
