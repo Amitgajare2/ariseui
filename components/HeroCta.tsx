@@ -9,7 +9,7 @@ import CopyButton from "@/components/CopyButton";
 import { REGISTRY_REPO } from "@/lib/components";
 import { cn } from "@/lib/utils";
 
-const INSTALL_COMMAND = `npx shadcn add ${REGISTRY_REPO}/scroll-progress`;
+const INSTALL_COMMAND = `npx shadcn add ${REGISTRY_REPO}/otp-input`;
 
 const spring = { type: "spring", stiffness: 300, damping: 22 } as const;
 
@@ -73,7 +73,7 @@ export default function HeroCta() {
         >
           <code className="overflow-x-auto whitespace-nowrap font-mono text-xs font-semibold text-white sm:text-sm">
             npx shadcn add {REGISTRY_REPO}
-            <span className="font-normal text-white/50">/scroll-progress</span>
+            <span className="font-normal text-white/50">/otp-input</span>
           </code>
         </CopyButton>
       </motion.div>
