@@ -7,7 +7,7 @@
     "motion"
   ],
   "registryDependencies": [
-    "utils"
+    "amitgajare2/ariseui/utils"
   ],
   "files": [
     {

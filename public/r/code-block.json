@@ -9,7 +9,7 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "utils"
+    "amitgajare2/ariseui/utils"
   ],
   "files": [
     {
