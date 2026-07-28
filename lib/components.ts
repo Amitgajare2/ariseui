@@ -468,6 +468,21 @@ export function Demo() {
   )
 }`,
   },
+  {
+    name: "Text Scramble",
+    href: "/components/textscramble",
+    registry: "text-scramble",
+    description:
+      "A text element that scrambles its content before revealing the final text.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/text-scramble.tsx`,
+    dependencies: [{ name: "motion" }, { name: "vaul" }],
+    interaction: "Click the trigger to open the drawer and step between views.",
+    usage: `import TextScramble from "@/components/ui/text-scramble"
+
+  export function Demo() {
+    return <TextScramble />
+  }`,
+  },
   // {
   //   name: "Family drawer",
   //   href: "/components/familydrawer",

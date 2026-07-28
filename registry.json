@@ -99,6 +99,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "text-scramble",
+      "type": "registry:ui",
+      "title": "Text Scramble",
+      "description": "A text element that scrambles its content before revealing the final text.",
+      "dependencies": ["motion"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "components/ui/text-scramble.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
