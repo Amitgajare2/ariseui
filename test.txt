@@ -1,0 +1,55 @@
+for new component adding process
+
+/conponents/ui
+
+create file 
+ex(flickering-grid.tsx) 
+
+then open
+/app/components/
+
+create new folder
+ex(flickeringgrid)
+
+/app/components/flickeringgrid
+
+create 2 new files
+demo.tsx = show demo of your component
+
+paga.tsx = "
+
+import { componentPageMetadata } from "@/lib/seo";
+import Demo from "./demo";
+
+export const metadata = componentPageMetadata("/components/flickeringgrid");
+
+export default function Page() {
+  return <Demo />;
+}
+
+"
+
+then open 
+/lib
+
+components.ts file and add
+
+then open registry.json
+and add 
+
+
+and after this now verify
+
+npm run registry:build
+
+npx shadcn@latest registry validate amitgajare2/ariseui
+
+npx shadcn@latest view amitgajare2/ariseui/flickering-grid
+
+npm run build
+
+done
+
+
+
+

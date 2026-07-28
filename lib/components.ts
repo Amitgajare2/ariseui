@@ -522,6 +522,29 @@ export function Demo() {
       </MagneticDock>
   }`,
   },
+  {
+    name: "Flickering Grid",
+    href: "/components/flickeringgrid",
+    registry: "flickering-grid",
+    description:
+      "A grid that flickers with a subtle animation.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/flickering-grid.tsx`,
+    dependencies: [{ name: "motion" }, { name: "vaul" }],
+    interaction: "Click the trigger to open the drawer and step between views.",
+    usage: `import FlickeringGrid from "@/components/ui/flickering-grid"
+
+  export function Demo() {
+    return <FlickeringGrid
+        className="absolute inset-0 z-0 [mask-image:radial-gradient(450px_circle_at_center,white,transparent)]"
+        squareSize={4}
+        gridGap={6}
+        color="var(--foreground)"
+        maxOpacity={0.35}
+        flickerChance={0.8}
+        fps={30}
+      />
+  }`,
+  },
  
 ];
 

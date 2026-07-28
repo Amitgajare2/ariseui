@@ -127,6 +127,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+     {
+      "name": "flickering-grid",
+      "type": "registry:ui",
+      "title": "Flickering Grid",
+      "description": "A grid that flickers with a subtle animation.",
+      "dependencies": ["motion"],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
+      "files": [
+        {
+          "path": "components/ui/flickering-grid.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
