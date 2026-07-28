@@ -84,9 +84,9 @@ export default function IntroductionPage() {
             <p className="text-sm leading-relaxed text-foreground/70">
               Then install any component in one command:
             </p>
-            <CodeLine command={`npx shadcn add ${REGISTRY_REPO}/fluid-orb`} />
+            <CodeLine command={`npx shadcn add ${REGISTRY_REPO}/scroll-progress`} />
             <p className="text-sm leading-relaxed text-foreground/70">
-              Replace <InlineCode>fluid-orb</InlineCode> with any component slug
+              Replace <InlineCode>scroll-progress</InlineCode> with any component slug
               from the{" "}
               <a
                 href="/components/installing"

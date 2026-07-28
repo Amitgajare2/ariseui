@@ -25,6 +25,6 @@
 **Creative**
 - **Noise Card** — card with a live Perlin noise background that shifts on hover
 - **Spotlight Card** — card with a radial gradient spotlight that tracks the cursor across the surface
-- **Text Scramble** — heading text that scrambles through random characters before landing on the real value
+
 
 The ones that would fit most naturally given what's already here: **Magnetic Dock**, **Elastic Tabs**, **Morphing Number**, **Spotlight Card**, and **Haptic Toggle** — they all share the same spring-physics + single-prop-to-customize pattern the existing components follow.

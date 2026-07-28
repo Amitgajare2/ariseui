@@ -30,10 +30,10 @@ Arise UI is a shadcn registry built with Next.js, Tailwind CSS, and TypeScript. 
 Install a component from the registry with the shadcn CLI:
 
 ```bash
-npx shadcn add amitgajare2/ariseui/fluid-orb
+npx shadcn add amitgajare2/ariseui/bounce-sidebar
 ```
 
-You can replace `fluid-orb` with any available component name from the registry.
+You can replace `bounce-sidebar` with any available component name from the registry.
 
 ## Run the project locally
 

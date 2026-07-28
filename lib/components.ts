@@ -51,50 +51,6 @@ export const PANEL_INFO = {
 
 export const components: ComponentItem[] = [
   {
-    name: "Folder component",
-    href: "/components/foldercomponent",
-    registry: "folder-component",
-    description:
-      "An animated folder whose cards fan out on hover and lift open on click, with a 3D-tilted flap. Supports color and size (sm/md/lg) props.",
-    introduction:
-      "Folder component is a fully animated SVG folder built with Motion. Cards fan out on hover to reveal the stack, then the flap lifts on click to show an open state. Color and size are exposed as props so it slots into any design system with one import.",
-    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/folder-component.tsx`,
-    dependencies: [
-      { name: "motion", icon: createElement(MotionIcon, { className: "h-4 w-4" }) },
-    ],
-    interaction:
-      "Hover to fan the cards out, then click to lift the folder open.",
-    props: [
-      {
-        name: "color",
-        type: '"black" | "white" | "blue"',
-        default: '"black"',
-        options: ["black", "white", "blue"],
-        control: "swatch",
-        optionColors: {
-          black: "#000000",
-          white: "#ffffff",
-          blue: "#50B1FD",
-        },
-        description:
-          "Color theme of the folder, flap, and cards. Each theme sets matching fills, strokes, and inner shadows.",
-      },
-      {
-        name: "size",
-        type: '"sm" | "md" | "lg"',
-        default: '"md"',
-        options: ["sm", "md", "lg"],
-        description:
-          "Overall scale of the folder. Maps to 0.65× (sm), 1× (md), and 1.35× (lg).",
-      },
-    ],
-    usage: `import { Folder } from "@/components/ui/folder-component",
-
-export function Demo() {
-  return <Folder color="blue" size="md" />
-}`,
-  },
-  {
     name: "Bounce sidebar",
     href: "/components/bouncesidebar",
     registry: "bounce-sidebar",
@@ -217,173 +173,6 @@ export function Demo() {
 }`,
     credits: [
       "Inspired by devouringdetails.com",
-    ],
-  },
-  {
-    name: "Duration Picker",
-    href: "/components/durationpicker",
-    registry: "duration-picker",
-    description:
-      "A gooey, spring-animated picker for entering a duration in hours and minutes.",
-    introduction:
-      "Duration Picker is a morphing pill that splits into two editable segments when you click the pen icon. The hours and minutes fields clamp their input and shake to signal overflow. On confirm the segments merge back into one pill with a gooey spring. Works controlled and uncontrolled.",
-    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/duration-picker.tsx`,
-    dependencies: [
-      { name: "motion", icon: createElement(MotionIcon, { className: "h-4 w-4" }) },
-      { name: "figma-squircle" },
-      { name: "flubber" },
-      { name: "react-use-measure" },
-      { name: "@radix-ui/react-slot" },
-    ],
-    interaction:
-      "Click the pen to spring the segments apart and start editing — the hours field is focused for you. Type your values; anything past the ceiling (24 hr / 60 min by default) clamps to the max and shakes so you know it was corrected. Click the tick to confirm and watch the pill merge back into one piece.",
-    props: [
-      {
-        name: "value",
-        type: "{ hours: number; minutes: number }",
-        description:
-          "Controlled value. Pair with onChange and the picker will mirror whatever you pass in. Leave it out to let the component manage its own state.",
-      },
-      {
-        name: "defaultValue",
-        type: "{ hours: number; minutes: number }",
-        default: "{ hours: 0, minutes: 0 }",
-        description:
-          "Starting value for uncontrolled usage. Ignored when value is provided.",
-      },
-      {
-        name: "onChange",
-        type: "(value: DurationValue) => void",
-        description:
-          "Fires on every keystroke with the current clamped value — listen here if you want to react while the user types.",
-      },
-      {
-        name: "onConfirm",
-        type: "(value: DurationValue) => void",
-        description:
-          "Fires once with the final value when the tick is clicked. This is usually the one you want for saving.",
-      },
-      {
-        name: "onEditingChange",
-        type: "(editing: boolean) => void",
-        description:
-          "Notifies you when the picker enters or leaves edit mode — handy for blocking navigation or dimming surrounding UI while open.",
-      },
-      {
-        name: "defaultEditing",
-        type: "boolean",
-        default: "false",
-        description: "Render the picker already open in edit mode.",
-      },
-      {
-        name: "maxHours",
-        type: "number",
-        default: "24",
-        description:
-          "Ceiling for the hours field. Typing past it clamps to this value and shakes the input.",
-      },
-      {
-        name: "maxMinutes",
-        type: "number",
-        default: "60",
-        description:
-          "Ceiling for the minutes field. Same clamp-and-shake behavior as maxHours.",
-      },
-      {
-        name: "hoursLabel",
-        type: "string",
-        default: '"Hr."',
-        description:
-          "Text rendered after the hours field — swap it for a translation or a terser 'h'.",
-      },
-      {
-        name: "minutesLabel",
-        type: "string",
-        default: '"Min."',
-        description: "Text rendered after the minutes field.",
-      },
-      {
-        name: "disabled",
-        type: "boolean",
-        default: "false",
-        description:
-          "Dims the control and blocks entering edit mode. Standard form-field behavior.",
-      },
-      {
-        name: "className",
-        type: "string",
-        description:
-          "Extra classes merged onto the root. Every inner part also carries a data-slot attribute (duration-picker, -segment, -input, -toggle) plus data-editing / data-disabled states, so you can restyle from CSS alone.",
-      },
-    ],
-    usage: `"use client"
-
-import DurationPicker, { type DurationValue } from "@/components/ui/duration-picker"
-import { useState } from "react"
-
-export function Demo() {
-  const [duration, setDuration] = useState<DurationValue>({ hours: 1, minutes: 30 })
-
-  return (
-    <DurationPicker
-      value={duration}
-      onChange={setDuration}                     // fires while typing
-      onConfirm={(d) => console.log("saved", d)} // fires when the tick is clicked
-    />
-  )
-}
-
-// Zero-config: it also works fully uncontrolled
-// <DurationPicker onConfirm={(d) => console.log("saved", d)} />`,
-  },
-  {
-    name: "Fluid Orb",
-    href: "/components/fluidorb",
-    registry: "fluid-orb",
-    description:
-      "An animated WebGL orb with drifting fluid shading, inspired by ChatGPT's voice mode.",
-    introduction:
-      "Fluid Orb renders a WebGL canvas that simulates drifting color patches blending over a sphere. The color is configurable via a single hex prop: the shader derives tints and shading from it automatically. Motion is paused when prefers-reduced-motion is active.",
-    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/fluid-orb.tsx`,
-    interaction:
-      "Ambient — the color patches drift left, right, up, down and diagonally on their own, blending and reforming with no interaction required. Honors prefers-reduced-motion by holding a still frame.",
-    props: [
-      {
-        name: "color",
-        type: "string",
-        default: '"#1A73F2"',
-        options: ["#1A73F2", "#FF3B30", "#F75001", "#34C759"],
-        control: "swatch",
-        optionColors: {
-          "#1A73F2": "#1A73F2",
-          "#FF3B30": "#FF3B30",
-          "#F75001": "#F75001",
-          "#34C759": "#34C759",
-        },
-        description:
-          "Any hex color for the fluid. The middle and bottom bands are derived from it (a pale tint and the full color), while the top stays white. Defaults to the original blue.",
-      },
-      {
-        name: "size",
-        type: "number",
-        default: "240",
-        description:
-          "Diameter of the orb in pixels. Also drives the canvas resolution (clamped to 2x device pixel ratio).",
-      },
-      {
-        name: "className",
-        type: "string",
-        description:
-          "Extra classes merged onto the root element (data-slot=\"fluid-orb\").",
-      },
-    ],
-    usage: `import FluidOrb from "@/components/ui/fluid-orb"
-
-export function Demo() {
-  return <FluidOrb size={280} color="#F75001" />
-}`,
-    credits: [
-      "Inspired by chatgpt.com",
     ],
   },
   {
@@ -566,113 +355,6 @@ export function Demo() {
 }`,
   },
   {
-    name: "Gravity Letters",
-    href: "/components/gravityletters",
-    registry: "gravity-letters",
-    description:
-      "A playful gravity field where letters, numbers, emoji, or any components you pass fall and pile up like real objects.",
-    introduction:
-      "Gravity Letters runs a Matter.js physics simulation inside a resizable container. Each click or hold drops a glyph that tumbles, bounces, and stacks with the others. You can supply your own drop pool: emoji, icons, or any React nodes. Device tilt steers the pile on mobile, and the whole thing pauses on prefers-reduced-motion.",
-    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/gravity-letters.tsx`,
-    interaction:
-      "Click or tap anywhere to drop a glyph, or press and hold to pour a steady stream. Glyphs tumble as they fall, bounce softly when they land, and pile up into rounded hills. On phones, tilt the device to spill the pile toward the low side. Honors prefers-reduced-motion.",
-    props: [
-      {
-        name: "type",
-        type: '"letters" | "numbers" | "both"',
-        default: '"letters"',
-        options: ["letters", "numbers", "both"],
-        description:
-          "Which pool to draw from: letters, digits, or both. Ignored when items is set.",
-      },
-      {
-        name: "items",
-        type: "React.ReactNode[]",
-        description:
-          "Your own drop pool: emoji, icons, or any components. Each drop picks a random entry. Overrides type.",
-      },
-      {
-        name: "gravity",
-        type: "number",
-        default: "800",
-        description:
-          "Downward acceleration in px/s². Lower is floatier, higher is heavier.",
-      },
-      {
-        name: "size",
-        type: "number",
-        default: "28",
-        description:
-          "Base glyph size in pixels. Each drop varies slightly around it.",
-      },
-      {
-        name: "color",
-        type: "string",
-        default: '"currentColor"',
-        options: [
-          "#1A73F2",
-          "#5856D6",
-          "#AF52DE",
-          "#FF2D92",
-          "#FF3B30",
-          "#F75001",
-          "#FFB800",
-          "#34C759",
-        ],
-        control: "swatch",
-        optionColors: {
-          "#1A73F2": "#1A73F2",
-          "#5856D6": "#5856D6",
-          "#AF52DE": "#AF52DE",
-          "#FF2D92": "#FF2D92",
-          "#FF3B30": "#FF3B30",
-          "#F75001": "#F75001",
-          "#FFB800": "#FFB800",
-          "#34C759": "#34C759",
-        },
-        description:
-          "Glyph color. Defaults to currentColor so it follows your theme.",
-      },
-      {
-        name: "maxGlyphs",
-        type: "number",
-        default: "Infinity",
-        description:
-          "Max glyphs kept in the field; past the cap the oldest fade out. Unlimited by default.",
-      },
-      {
-        name: "deviceTilt",
-        type: "boolean",
-        default: "true",
-        description:
-          "Tilting a phone spills the pile toward the low side. iOS asks for motion permission on the first tap.",
-      },
-      {
-        name: "className",
-        type: "string",
-        description: "Extra classes for the root element. Use it to size the field.",
-      },
-    ],
-    usage: `import GravityLetters from "@/components/ui/gravity-letters"
-
-export function Demo() {
-  return (
-    <GravityLetters type="letters" className="h-96 w-full rounded-3xl border">
-      {/* anything you render inside stays clickable-through */}
-      <p className="absolute inset-0 grid place-items-center text-sm text-muted-foreground">
-        Click anywhere
-      </p>
-    </GravityLetters>
-  )
-}
-
-// Digits instead:
-// <GravityLetters type="numbers" />
-
-// Or drop your own content: emoji, icons, any component:
-// <GravityLetters items={["🍎", "🍊", "🍇", <Sparkles key="s" className="size-7" />]} />`,
-  },
-  {
     name: "OTP Input",
     href: "/components/otpinput",
     registry: "otp-input",
@@ -787,129 +469,60 @@ export function Demo() {
 }`,
   },
   {
-    name: "Liquid Slider",
-    href: "/components/liquidslider",
-    registry: "liquid-slider",
+    name: "Text Scramble",
+    href: "/components/textscramble",
+    registry: "text-scramble",
     description:
-      "A range slider where the thumb leaves a fluid blob that stretches as you drag and snaps back on release.",
-    introduction:
-      "Liquid Slider is a native range input replacement built entirely with Motion springs. Dragging the thumb pulls a fluid blob up from the track — the blob stretches horizontally with drag velocity and snaps back with a spring once you let go. A gooey connector bridges the blob and thumb while they're apart. No extra dependencies beyond motion.",
-    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/liquid-slider.tsx`,
-    dependencies: [
-      { name: "motion", icon: createElement(MotionIcon, { className: "h-4 w-4" }) },
-    ],
-    interaction:
-      "Click or drag anywhere on the track to move the thumb. The blob rises above the thumb while dragging, stretches with velocity, and snaps back on release. Arrow keys move by one step, Page Up/Down by ten.",
-    props: [
-      {
-        name: "value",
-        type: "number",
-        description:
-          "Controlled value. Pair with onChange to manage state yourself. Leave it out to let the component manage its own state.",
-      },
-      {
-        name: "defaultValue",
-        type: "number",
-        default: "50",
-        description: "Starting value for uncontrolled usage. Ignored when value is provided.",
-      },
-      {
-        name: "min",
-        type: "number",
-        default: "0",
-        description: "Minimum value of the range.",
-      },
-      {
-        name: "max",
-        type: "number",
-        default: "100",
-        description: "Maximum value of the range.",
-      },
-      {
-        name: "step",
-        type: "number",
-        default: "1",
-        description: "Snapping interval. Accepts decimals for fine-grained ranges.",
-      },
-      {
-        name: "color",
-        type: "string",
-        default: '"#F75001"',
-        options: ["#F75001", "#1A73F2", "#34C759", "#FF3B30"],
-        control: "swatch",
-        optionColors: {
-          "#F75001": "#F75001",
-          "#1A73F2": "#1A73F2",
-          "#34C759": "#34C759",
-          "#FF3B30": "#FF3B30",
-        },
-        description:
-          "Any hex color applied to the fill, thumb, and blob. The whole fluid effect inherits from this single value.",
-      },
-      {
-        name: "showValue",
-        type: "boolean",
-        default: "true",
-        description: "Shows the current numeric value inside the floating blob while dragging.",
-      },
-      {
-        name: "disabled",
-        type: "boolean",
-        default: "false",
-        description: "Dims the slider and blocks all interaction.",
-      },
-      {
-        name: "onChange",
-        type: "(value: number) => void",
-        description: "Fires with the snapped value on every change, including keyboard navigation.",
-      },
-      {
-        name: "className",
-        type: "string",
-        description: "Extra classes merged onto the root element.",
-      },
-    ],
-    usage: `"use client"
+      "A text element that scrambles its content before revealing the final text.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/text-scramble.tsx`,
+    dependencies: [{ name: "motion" }, { name: "vaul" }],
+    interaction: "Click the trigger to open the drawer and step between views.",
+    usage: `import TextScramble from "@/components/ui/text-scramble"
 
-import { useState } from "react"
-import LiquidSlider from "@/components/ui/liquid-slider"
-
-export function Demo() {
-  const [volume, setVolume] = useState(50)
-
-  return (
-    <div className="w-72">
-      <LiquidSlider
-        value={volume}
-        onChange={setVolume}
-        min={0}
-        max={100}
-        step={1}
-        color="#F75001"
-      />
-      <p>{volume}%</p>
-    </div>
-  )
-}
-
-// Uncontrolled — fires onChange but manages its own state:
-// <LiquidSlider defaultValue={30} onChange={(v) => console.log(v)} />`,
+  export function Demo() {
+    return <TextScramble
+            trigger="in-view"
+            duration={1100}
+            speed={28}
+            revealDirection="center"
+          >
+            Built to stand out.
+          </TextScramble>
+  }`,
   },
-  // {
-  //   name: "Family drawer",
-  //   href: "/components/familydrawer",
-  //   registry: "family drawer",
-  //   description:
-  //     "A bottom drawer with smooth, morphing transitions between stacked views, inspired by the Family app. Built on Vaul.",
-  //   source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/family-drawer.tsx`,
-  //   dependencies: [{ name: "motion" }, { name: "vaul" }],
-  //   interaction: "Click the trigger to open the drawer and step between views.",
-  //   usage: `import FamilyDrawer from "@/components/ui/family-drawer"
+  {
+    name: "Magnetic Dock",
+    href: "/components/magneticdock",
+    registry: "magnetic-dock",
+    description:
+      "A dock that responds to cursor movement with a magnetic effect.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/magnetic-dock.tsx`,
+    dependencies: [{ name: "motion" }, { name: "vaul" }],
+    interaction: "Click the trigger to open the drawer and step between views.",
+    usage: `import MagneticDock from "@/components/ui/magnetic-dock"
 
-  // export function Demo() {
-  //   return <FamilyDrawer />
-  // }`,
-  // },
+  export function Demo() {
+    return <MagneticDock
+        baseSize={52}
+        magnification={82}
+        distance={155}
+        gap={9}
+      >
+        {apps.map(({ label, icon: Icon, active }) => (
+          <MagneticDockItem key={label} label={label} active={active}>
+            <Icon strokeWidth={1.7} />
+          </MagneticDockItem>
+        ))}
+
+        <div aria-hidden="true" className="mx-0.5 h-10 w-px bg-white/15" />
+
+        <MagneticDockItem label="Trash">
+          <Trash2 strokeWidth={1.7} />
+        </MagneticDockItem>
+      </MagneticDock>
+  }`,
+  },
+ 
 ];
 
 export type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
