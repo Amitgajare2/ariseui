@@ -349,7 +349,7 @@ export default function Page() {
         <ProximitySidebar side="left" sections={sections} />
       </aside>
 
-      <main className="min-h-0 flex-1 overflow-auto px-8 py-20 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:px-14 ml-20">
+      <main className="min-h-0 flex-1 overflow-auto px-8 py-20 [scrollbar-none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:px-14 ml-20">
         <article className="max-w-2xl">
           {docs.map((group, groupIndex) => (
             <section
