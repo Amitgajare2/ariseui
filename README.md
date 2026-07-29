@@ -13,7 +13,7 @@
 <img src="https://img.shields.io/badge/TypeScript-0a0a0a?logo=typescript&logoColor=fcd601" alt="TypeScript" />
 <img src="https://img.shields.io/badge/shadcn-registry-fcd601?labelColor=0a0a0a" alt="shadcn registry" />
 
-[**ariseui.com**](https://ariseui.com) &nbsp;&middot;&nbsp; [Components](https://ariseui.com/components) &nbsp;&middot;&nbsp; [Follow on X](https://x.com/AmitGajare4)
+[**ariseui**](https://ariseui.vercel.app/) &nbsp;&middot;&nbsp; [Components](https://ariseui.vercel.app/components/bouncesidebar) &nbsp;&middot;&nbsp; [Follow on X](https://x.com/AmitGajare4)
 
 </div>
 
