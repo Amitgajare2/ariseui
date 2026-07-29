@@ -141,6 +141,21 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "youtube-embed",
+      "type": "registry:ui",
+      "title": "Youtube Embed",
+      "description": "A component to embed YouTube videos with customizable options.",
+      "dependencies": [],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
+      "files": [
+        {
+          "path": "components/ui/youtube-embed.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
+
   ]
 }

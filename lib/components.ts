@@ -545,6 +545,108 @@ export function Demo() {
       />
   }`,
   },
+  {
+  name: "YouTube Embed",
+  href: "/components/youtubeembed",
+  registry: "youtube-embed",
+  description:
+    "A responsive YouTube embed with autoplay, looping, customizable controls, and an optional masked presentation.",
+  introduction:
+    "YouTube Embed wraps the YouTube iframe player in a responsive container with a configurable aspect ratio. It supports autoplay, looping, muting, branding controls, and an optional radial mask for a more cinematic presentation. Built to drop into landing pages, hero sections, and product showcases with minimal setup.",
+  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/youtube-embed.tsx`,
+  dependencies: [],
+  interaction:
+    "The video begins automatically when autoplay is enabled. Since the embed is intended for decorative or showcase content, pointer interaction is disabled by default.",
+  props: [
+    {
+      name: "videoId",
+      type: "string",
+      required: true,
+      description:
+        "The YouTube video ID to embed. For example, 'DUV0KxkaIQU'.",
+    },
+    {
+      name: "autoPlay",
+      type: "boolean",
+      default: "true",
+      description:
+        "Starts playback automatically when the component mounts.",
+    },
+    {
+      name: "mute",
+      type: "boolean",
+      default: "true",
+      description:
+        "Mutes the video. Autoplay generally requires this to be enabled.",
+    },
+    {
+      name: "controls",
+      type: "boolean",
+      default: "false",
+      description:
+        "Shows or hides the YouTube player controls.",
+    },
+    {
+      name: "loop",
+      type: "boolean",
+      default: "true",
+      description:
+        "Repeats the video continuously after it finishes.",
+    },
+    {
+      name: "modestBranding",
+      type: "boolean",
+      default: "true",
+      description:
+        "Reduces YouTube branding within the player when supported.",
+    },
+    {
+      name: "rel",
+      type: "boolean",
+      default: "false",
+      description:
+        "Shows related videos after playback ends when enabled.",
+    },
+    {
+      name: "aspectRatio",
+      type: "string",
+      default: '"16 / 9"',
+      description:
+        "CSS aspect-ratio applied to the container. Accepts any valid aspect ratio value.",
+    },
+    {
+      name: "mask",
+      type: "boolean",
+      default: "true",
+      description:
+        "Applies the built-in radial mask effect to the embedded video.",
+    },
+    {
+      name: "className",
+      type: "string",
+      description:
+        "Additional classes merged onto the outer container.",
+    },
+    {
+      name: "iframeClassName",
+      type: "string",
+      description:
+        "Additional classes merged onto the iframe element.",
+    },
+  ],
+  usage: `import YoutubeEmbed from "@/components/ui/youtube-embed"
+
+export function Demo() {
+  return (
+    <YoutubeEmbed
+      videoId="DUV0KxkaIQU"
+      autoPlay
+      mute
+      loop
+    />
+  )
+}`,
+},
  
 ];
 
