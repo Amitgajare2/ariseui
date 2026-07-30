@@ -4,18 +4,46 @@
 
 <div align="center">
 
-# Arise UI
+# ✨ Arise UI
 
-**A shadcn registry of polished, animated UI components for modern Next.js apps.**
+### Beautiful animated UI components for Next.js, React & Tailwind CSS.
 
-<img src="https://img.shields.io/badge/Next.js-0a0a0a?logo=nextdotjs&logoColor=fcd601" alt="Next.js" />
-<img src="https://img.shields.io/badge/Tailwind_CSS-0a0a0a?logo=tailwindcss&logoColor=fcd601" alt="Tailwind CSS" />
-<img src="https://img.shields.io/badge/TypeScript-0a0a0a?logo=typescript&logoColor=fcd601" alt="TypeScript" />
-<img src="https://img.shields.io/badge/shadcn-registry-fcd601?labelColor=0a0a0a" alt="shadcn registry" />
+A growing **shadcn/ui registry** featuring premium-quality components designed for modern web applications.
 
-[**ariseui**](https://ariseui.vercel.app/) &nbsp;&middot;&nbsp; [Components](https://ariseui.vercel.app/components/bouncesidebar) &nbsp;&middot;&nbsp; [Follow on X](https://x.com/AmitGajare4)
+<p>
+  <a href="https://ariseui.vercel.app">
+    <img src="https://img.shields.io/badge/Website-ariseui.vercel.app-fcd601?style=for-the-badge&labelColor=0a0a0a" />
+  </a>
+  <a href="https://github.com/amitgajare2/ariseui">
+    <img src="https://img.shields.io/github/stars/amitgajare2/ariseui?style=for-the-badge&labelColor=0a0a0a" />
+  </a>
+  <a href="https://github.com/amitgajare2/ariseui/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/amitgajare2/ariseui?style=for-the-badge&labelColor=0a0a0a" />
+  </a>
+</p>
+
+<p>
+
+<img src="https://img.shields.io/badge/Next.js-black?logo=nextdotjs" />
+<img src="https://img.shields.io/badge/React-20232A?logo=react" />
+<img src="https://img.shields.io/badge/Tailwind_CSS-38BDF8?logo=tailwindcss&logoColor=white" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/shadcn/ui-Registry-black" />
+
+</p>
+
+### 🌐 Links
+
+[Website](https://ariseui.vercel.app)
+•
+[Components](https://ariseui.vercel.app/components)
+•
+[Docs](https://ariseui.vercel.app/components/introduction)
+•
+[Twitter/X](https://x.com/AmitGajare4)
 
 </div>
+
 
 Arise UI is a shadcn registry built with Next.js, Tailwind CSS, and TypeScript. Each component is designed to feel premium, animate smoothly, and install into any app with a single command. You own the resulting code, so it is easy to restyle and adapt.
 
