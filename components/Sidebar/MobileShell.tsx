@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { activeComponent } from "@/lib/components";
+import { activeComponent, isDocPage } from "@/lib/components";
 import { cn } from "@/lib/utils";
 import MobileSidebar from "./MobileSidebar";
 import DescriptionContent from "../Description/DescriptionContent";
@@ -16,6 +16,7 @@ export default function MobileShell({
 }) {
   const pathname = usePathname();
   const item = activeComponent(pathname);
+  const docPage = isDocPage(pathname);
 
   return (
     <div className="no-scrollbar h-full overflow-y-auto">
@@ -25,14 +26,18 @@ export default function MobileShell({
           {children}
         </div>
 
-        <div className={cn(CARD, "p-6")}>
-          <DescriptionContent item={item} showSourceHint={false} />
-        </div>
+        {!docPage && (
+          <>
+            <div className={cn(CARD, "p-6")}>
+              <DescriptionContent item={item} showSourceHint={false} />
+            </div>
 
-        {item?.registry && (
-          <div className={cn(CARD, "p-6")}>
-            <SourceSection key={item.registry} registry={item.registry} />
-          </div>
+            {item?.registry && (
+              <div className={cn(CARD, "p-6")}>
+                <SourceSection key={item.registry} registry={item.registry} />
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

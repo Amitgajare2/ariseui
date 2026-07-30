@@ -11,20 +11,19 @@ export default function IntroductionPage() {
       <div className="mx-auto max-w-xl px-8 pb-24 pt-20">
         <div className="flex flex-col gap-12">
 
-          {/* header */}
           <div className="flex flex-col gap-4">
             <SectionLabel>Introduction</SectionLabel>
             <p className="text-2xl font-semibold leading-relaxed font-sans text-foreground/90">
-              A shadcn registry of rare, animated components — built with
-              Tailwind CSS and Motion. Free to use, yours to own.
+              A curated registry of animated React components, built with
+              Tailwind CSS and Motion. Install source you own, refine it to
+              match your product.
             </p>
           </div>
 
-          {/* what is arise ui */}
           <div className="flex flex-col gap-3">
             <SectionLabel>What is Arise UI?</SectionLabel>
             <p className="text-sm leading-relaxed text-foreground/70">
-              Arise UI is built on the{" "}
+              Arise UI follows the{" "}
               <a
                 href="https://ui.shadcn.com/docs/registry"
                 target="_blank"
@@ -33,23 +32,22 @@ export default function IntroductionPage() {
               >
                 shadcn registry
               </a>{" "}
-              protocol. Every component installs directly into your project as a
-              real file — not a package. You copy it in, you own it. Style it,
-              gut it, or extend it however you want.
+              protocol. Each component installs as source in your repository,
+              not as a package dependency. You retain full control over
+              styling, structure, and behavior.
             </p>
           </div>
 
-          {/* what's included */}
           <div className="flex flex-col gap-3">
             <SectionLabel>What&apos;s included</SectionLabel>
             <ul className="flex flex-col gap-2.5">
               {[
-                "Spring-physics animations via Motion (Framer Motion)",
-                "Full dark and light mode — follows your theme tokens",
-                "Controlled and uncontrolled variants where it makes sense",
-                "Honors prefers-reduced-motion across all components",
-                "Tailwind CSS only — no extra stylesheets or CSS-in-JS",
-                "TypeScript with full prop types exported",
+                "Physics-based spring animations powered by Motion",
+                "Dark and light mode support via your theme tokens",
+                "Controlled and uncontrolled APIs where appropriate",
+                "Respects prefers-reduced-motion across all components",
+                "Tailwind CSS only: no runtime CSS-in-JS",
+                "TypeScript with exported prop types",
               ].map((item) => (
                 <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-foreground/70">
                   <span className="mt-0.5 shrink-0 text-foreground/30">•</span>
@@ -59,34 +57,31 @@ export default function IntroductionPage() {
             </ul>
           </div>
 
-          {/* how it works */}
           <div className="flex flex-col gap-3">
             <SectionLabel>How it works</SectionLabel>
             <p className="text-sm leading-relaxed text-foreground/70">
               The shadcn CLI reads the registry, resolves dependencies, and
-              writes the component file straight into{" "}
-              <InlineCode>components/ui/</InlineCode> in your project. Any npm
-              packages the component needs (e.g.{" "}
-              <InlineCode>motion</InlineCode>,{" "}
+              writes component files into{" "}
+              <InlineCode>components/ui/</InlineCode>. Required packages
+              (such as <InlineCode>motion</InlineCode> or{" "}
               <InlineCode>prism-react-renderer</InlineCode>) are installed
-              automatically. Nothing is imported from Arise UI at runtime.
+              automatically. Nothing imports from Arise UI at runtime.
             </p>
           </div>
 
-          {/* quickstart */}
           <div className="flex flex-col gap-3">
             <SectionLabel>Quickstart</SectionLabel>
             <p className="text-sm leading-relaxed text-foreground/70">
-              You need a React or Next.js project with shadcn already set up. If
-              you haven&apos;t done that yet, run:
+              Arise UI requires a React or Next.js project with shadcn
+              configured. If you have not initialized shadcn yet, run:
             </p>
             <CodeLine command="npx shadcn@latest init" />
             <p className="text-sm leading-relaxed text-foreground/70">
-              Then install any component in one command:
+              Then add any component with a single command:
             </p>
             <CodeLine command={`npx shadcn add ${REGISTRY_REPO}/scroll-progress`} />
             <p className="text-sm leading-relaxed text-foreground/70">
-              Replace <InlineCode>scroll-progress</InlineCode> with any component slug
+              Replace <InlineCode>scroll-progress</InlineCode> with any slug
               from the{" "}
               <a
                 href="/components/installing"
@@ -98,7 +93,6 @@ export default function IntroductionPage() {
             </p>
           </div>
 
-          {/* keep in mind */}
           <div className="flex flex-col gap-3">
             <SectionLabel>Keep in mind</SectionLabel>
             <p className="text-sm leading-relaxed text-foreground/70">
@@ -106,7 +100,6 @@ export default function IntroductionPage() {
             </p>
           </div>
 
-          {/* license */}
           <div className="flex flex-col gap-3">
             <SectionLabel>License &amp; Usage</SectionLabel>
             <ul className="flex flex-col gap-2">

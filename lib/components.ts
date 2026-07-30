@@ -34,6 +34,15 @@ export type ComponentItem = {
 export const REGISTRY_HOMEPAGE = "https://github.com/amitgajare2/ariseui";
 export const REGISTRY_REPO = "amitgajare2/ariseui";
 
+export const DOC_PAGES = [
+  "/components/introduction",
+  "/components/installing",
+] as const;
+
+export function isDocPage(pathname: string): boolean {
+  return DOC_PAGES.some((page) => pathname === page);
+}
+
 export const PANEL_INFO = {
   sourceHint:
     "Click the code icon in the top-right corner to view the source code.",
