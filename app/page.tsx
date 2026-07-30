@@ -4,6 +4,7 @@ import { fetchStarCount } from "@/lib/github";
 import HeroCta from "@/components/HeroCta";
 import HomeDemos from "@/components/HomeDemos";
 import Footer from "@/components/Footer";
+import HeroWrapper from "@/components/HeroWrapper";
 
 export const metadata: Metadata = {
   alternates: {
@@ -17,10 +18,7 @@ export default async function Home() {
   return (
     <>
       <section className="relative w-full p-1.5 md:p-2.5">
-        <div
-          className="relative flex w-full justify-start overflow-hidden rounded-t-[45px]"
-          style={{ cornerShape: "squircle" } as React.CSSProperties}
-        >
+        <HeroWrapper>
           <img
             src="/assets/landing/herobg.webp"
             alt=""
@@ -43,7 +41,7 @@ export default async function Home() {
             <HeroCta />
             <HomeDemos />
           </div>
-        </div>
+        </HeroWrapper>
       </section>
 
       <DemoSection />
