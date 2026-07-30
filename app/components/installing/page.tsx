@@ -12,42 +12,38 @@ export default function InstallingPage() {
       <div className="mx-auto max-w-xl px-8 pb-24 pt-20">
         <div className="flex flex-col gap-12">
 
-          {/* header */}
           <div className="flex flex-col gap-4">
             <SectionLabel>Installation</SectionLabel>
             <p className="text-2xl font-semibold leading-relaxed font-sans text-foreground/90">
-              Install any component with a single command. No package to
-              manage — the file is yours the moment it lands.
+              Add components to your project in one command. Source files
+              land in your codebase with no package lock-in.
             </p>
           </div>
 
-          {/* step 1 */}
           <div className="flex flex-col gap-3">
-            <SectionLabel>Step 1 — Set up shadcn</SectionLabel>
+            <SectionLabel>Step 1: Set up shadcn</SectionLabel>
             <p className="text-sm leading-relaxed text-foreground/70">
-              Skip this if shadcn is already configured in your project. This
-              only needs to run once.
+              Initialize shadcn in your project. Skip this step if shadcn is
+              already configured.
             </p>
             <CodeLine command="npx shadcn@latest init" />
           </div>
 
-          {/* step 2 */}
           <div className="flex flex-col gap-3">
-            <SectionLabel>Step 2 — Add a component</SectionLabel>
+            <SectionLabel>Step 2: Add a component</SectionLabel>
             <p className="text-sm leading-relaxed text-foreground/70">
-              Pick any component from the sidebar and run its install command.
-              The CLI copies the file into{" "}
-              <InlineCode>components/ui/</InlineCode> and installs any required
-              npm packages automatically.
+              Select a component from the sidebar and run its install command.
+              The CLI copies the source into{" "}
+              <InlineCode>components/ui/</InlineCode> and installs peer
+              dependencies automatically.
             </p>
             <CodeLine command={`npx shadcn add ${REGISTRY_REPO}/<slug>`} />
           </div>
 
-          {/* package managers */}
           <div className="flex flex-col gap-3">
             <SectionLabel>Package managers</SectionLabel>
             <p className="text-sm leading-relaxed text-foreground/70">
-              The shadcn CLI works with all major package managers.
+              The shadcn CLI supports npm, pnpm, yarn, and bun.
             </p>
             <div className="flex flex-col gap-2">
               {PM_VARIANTS.map(({ label, command }) => (
@@ -59,12 +55,11 @@ export default function InstallingPage() {
             </div>
           </div>
 
-          {/* all components */}
           <div className="flex flex-col gap-3">
             <SectionLabel>All components</SectionLabel>
             <p className="text-sm leading-relaxed text-foreground/70">
-              Every component available in the registry. Click the copy button
-              to grab the install command.
+              Every component in the registry. Use the copy button to grab the
+              install command.
             </p>
             <div className="flex flex-col gap-3">
               {components

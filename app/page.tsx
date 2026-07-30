@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import GooeyNavbar from "@/components/GooeyNavbar";
 import { fetchStarCount } from "@/lib/github";
 import HeroCta from "@/components/HeroCta";
+import HomeDemos from "@/components/HomeDemos";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export default async function Home() {
     <>
       <section className="relative w-full p-1.5 md:p-2.5">
         <div
-          className="relative flex min-h-[calc(100svh-0.75rem)] w-full items-center justify-center overflow-hidden rounded-t-[45px] md:min-h-[calc(100svh-1.25rem)]"
+          className="relative flex w-full justify-start overflow-hidden rounded-t-[45px]"
           style={{ cornerShape: "squircle" } as React.CSSProperties}
         >
           <img
@@ -27,7 +28,7 @@ export default async function Home() {
             className="pointer-events-none absolute inset-0 size-full rounded-[inherit]"
           />
           <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-linear-to-t from-background from-6% to-transparent" />
-          <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-3 px-4 pb-32 pt-24 text-center sm:gap-4 sm:px-6">
+          <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-4 pb-12 pt-24 text-center sm:gap-4 sm:px-6 md:pb-16">
             <div>
               <GooeyNavbar stars={stars} />
             </div>
@@ -40,6 +41,7 @@ export default async function Home() {
               component instantly with the shadcn CLI.
             </p>
             <HeroCta />
+            <HomeDemos />
           </div>
         </div>
       </section>
@@ -55,7 +57,7 @@ const GITHUB_URL = "https://github.com/amitgajare2/ariseui";
 
 function DemoSection() {
   return (
-    <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center justify-center gap-4 px-6 py-24 text-center">
+    <section className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 px-6 py-16 text-center md:py-20">
       <span className="flex items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-xs font-medium text-muted-foreground">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#fcd601] opacity-60" />
