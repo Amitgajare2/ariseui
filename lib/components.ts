@@ -656,6 +656,174 @@ export function Demo() {
   )
 }`,
 },
+{
+  name: "GitHub Calendar",
+  href: "/components/github-calendar",
+  registry: "github-calendar",
+  description:
+    "A fully customizable GitHub-style contributions heatmap for React.",
+  introduction:
+    "GitHub Calendar renders a live contributions heatmap for any GitHub username, styled after the profile activity graph. It supports preset and custom color palettes, adjustable cell size, shape, and spacing, staggered mount animation, and an interactive tooltip. Built for portfolio sites, dashboards, and developer profile pages.",
+  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/github-calendar.tsx`,
+  dependencies: [],
+  interaction:
+    "Hovering a cell shows a tooltip with the contribution count and date when showTooltip is enabled. Clicking a cell fires onCellClick with the underlying day data.",
+  props: [
+    {
+      name: "username",
+      type: "string",
+      required: true,
+      description: "GitHub username to fetch and display contributions for.",
+    },
+    {
+      name: "colorScheme",
+      type: '"green" | "blue" | "purple" | "orange" | "pink" | "dracula" | "halloween"',
+      default: '"blue"',
+      description: "Preset theme palette for the contribution levels.",
+    },
+    {
+      name: "colors",
+      type: "[string, string, string, string, string]",
+      description:
+        "Custom 5-stop color array override, ordered [empty, level1, level2, level3, level4].",
+    },
+    {
+      name: "cellSize",
+      type: "number",
+      default: "16",
+      description: "Width and height of each grid cell in pixels.",
+    },
+    {
+      name: "cellGap",
+      type: "number",
+      default: "4",
+      description: "Spacing between grid cells in pixels.",
+    },
+    {
+      name: "cellShape",
+      type: '"square" | "circle" | "rounded"',
+      default: '"circle"',
+      description: "Shape styling for each contribution cell.",
+    },
+    {
+      name: "showTooltip",
+      type: "boolean",
+      default: "true",
+      description: "Toggle displaying the hover information tooltip.",
+    },
+    {
+      name: "showMonthLabels",
+      type: "boolean",
+      default: "true",
+      description: "Toggle showing month names above columns.",
+    },
+    {
+      name: "showDayLabels",
+      type: "boolean",
+      default: "true",
+      description: "Toggle showing day of week labels on the left (Mon, Wed, Fri).",
+    },
+    {
+      name: "weekStart",
+      type: '"sun" | "mon"',
+      default: '"sun"',
+      description: "Determines which day of the week to start the columns on.",
+    },
+    {
+      name: "animate",
+      type: "boolean",
+      default: "false",
+      description: "Enable staggered mounting scale animation for cells.",
+    },
+    {
+      name: "timeRange",
+      type: '"3-months" | "6-months" | "1-year"',
+      default: '"3-months"',
+      description: "Adjusts the historical date limit shown in the calendar.",
+    },
+    {
+      name: "onCellClick",
+      type: "(day: ContributionDay) => void",
+      description: "Callback fired when a contribution cell is clicked.",
+    },
+    {
+      name: "className",
+      type: "string",
+      description: "Additional classes merged onto the outer container.",
+    },
+  ],
+  usage: `import GithubCalendar from "@/components/ui/github-calendar"
+
+export function Demo() {
+  return (
+    <GithubCalendar
+      username="amitgajare2"
+      colorScheme="blue"
+      animate
+    />
+  )
+}`,
+},
+{
+  name: "Spotlight Card",
+  href: "/components/spotlight-card",
+  registry: "spotlight-card",
+  description:
+    "A card component with a radial gradient spotlight that follows the mouse cursor.",
+  introduction:
+    "Spotlight Card creates an interactive spotlight effect that tracks mouse movement across the card surface. Perfect for feature grids, pricing cards, and dashboard widgets where you want to add premium interactivity without external dependencies.",
+  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/spotlight-card.tsx`,
+  dependencies: [],
+  interaction:
+    "Hover over the card to reveal a radial gradient spotlight that follows your cursor. The effect fades smoothly when the mouse leaves.",
+  props: [
+    {
+      name: "spotlightColor",
+      type: "string",
+      default: '"rgba(255, 255, 255, 0.1)"',
+      description:
+        "The color of the radial gradient spotlight. Accepts any valid CSS color value.",
+    },
+    {
+      name: "spotlightSize",
+      type: "number",
+      default: "300",
+      description: "The size of the spotlight circle in pixels.",
+    },
+    {
+      name: "border",
+      type: "boolean",
+      default: "true",
+      description: "Whether to render a subtle border around the card.",
+    },
+    {
+      name: "background",
+      type: "string",
+      description: "Optional inline background style for the card container.",
+    },
+    {
+      name: "className",
+      type: "string",
+      description: "Additional classes merged onto the card container.",
+    },
+    {
+      name: "children",
+      type: "ReactNode",
+      description: "The content to render inside the card.",
+    },
+  ],
+  usage: `import SpotlightCard from "@/components/ui/spotlight-card"
+
+export function Demo() {
+  return (
+    <SpotlightCard className="p-8 bg-white dark:bg-neutral-900">
+      <h3>Hover me</h3>
+      <p>Move your cursor to see the spotlight effect.</p>
+    </SpotlightCard>
+  )
+}`,
+}
+
  
 ];
 
