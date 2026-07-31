@@ -231,6 +231,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+  "name": "lightboard",
+  "type": "registry:ui",
+  "title": "Light Board",
+  "description": "A scrolling dot-matrix LED board that supports drawing and sketching.",
+  "dependencies": [],
+  "registryDependencies": ["amitgajare2/ariseui/utils"],
+  "files": [
+    {
+      "path": "components/ui/lightboard.tsx",
+      "type": "registry:ui"
     }
+  ]
+}
   ]
 }
