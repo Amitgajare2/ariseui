@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-card",
+  "title": "Spotlight Card",
+  "description": "A card component with a radial gradient spotlight that follows the mouse cursor.",
+  "dependencies": [],
+  "registryDependencies": [
+    "amitgajare2/ariseui/utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/spotlight-card.tsx",
+      "content": "\"use client\";\r\n\r\nimport { ComponentProps, useRef, useState } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nexport type SpotlightCardProps = ComponentProps<\"div\"> & {\r\n  spotlightColor?: string;\r\n  spotlightSize?: number;\r\n  border?: boolean;\r\n  background?: string;\r\n};\r\n\r\nexport default function SpotlightCard({\r\n  children,\r\n  className,\r\n  spotlightColor = \"rgba(255, 255, 255, 0.1)\",\r\n  spotlightSize = 300,\r\n  border = true,\r\n  background,\r\n  style,\r\n  ...props\r\n}: SpotlightCardProps) {\r\n  const ref = useRef<HTMLDivElement>(null);\r\n  const [position, setPosition] = useState({ x: 0, y: 0 });\r\n  const [opacity, setOpacity] = useState(0);\r\n\r\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\r\n    if (!ref.current) return;\r\n    const rect = ref.current.getBoundingClientRect();\r\n    setPosition({\r\n      x: e.clientX - rect.left,\r\n      y: e.clientY - rect.top,\r\n    });\r\n  };\r\n\r\n  const handleMouseEnter = () => setOpacity(1);\r\n  const handleMouseLeave = () => setOpacity(0);\r\n\r\n  return (\r\n    <div\r\n      ref={ref}\r\n      data-slot=\"spotlight-card\"\r\n      onMouseMove={handleMouseMove}\r\n      onMouseEnter={handleMouseEnter}\r\n      onMouseLeave={handleMouseLeave}\r\n      className={cn(\r\n        \"relative overflow-hidden rounded-xl\",\r\n        border && \"border border-black/10 dark:border-white/10\",\r\n        className\r\n      )}\r\n      style={{ background, ...style }}\r\n      {...props}\r\n    >\r\n      <div\r\n        data-slot=\"spotlight-card-glow\"\r\n        className=\"pointer-events-none absolute -inset-px transition-opacity duration-300 ease-out\"\r\n        style={{\r\n          opacity,\r\n          background: `radial-gradient(${spotlightSize}px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 80%)`,\r\n        }}\r\n      />\r\n      <div data-slot=\"spotlight-card-content\" className=\"relative\">\r\n        {children}\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
