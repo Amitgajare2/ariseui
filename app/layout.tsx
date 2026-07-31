@@ -3,6 +3,7 @@ import { Inter, Geist_Mono, Cal_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Databuddy } from '@databuddy/sdk/react';
+import { Analytics } from '@vercel/analytics/next';
 import { SITE_URL } from "@/lib/site";
 import { SITE_KEYWORDS } from "@/lib/seo";
 import "./globals.css";
@@ -111,6 +112,7 @@ export default function RootLayout({
             trackWebVitals={true}
             trackErrors={true}
           />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
