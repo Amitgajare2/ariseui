@@ -5,6 +5,7 @@ import HeroCta from "@/components/HeroCta";
 import HomeDemos from "@/components/HomeDemos";
 import Footer from "@/components/Footer";
 import HeroWrapper from "@/components/HeroWrapper";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   alternates: {
@@ -17,6 +18,7 @@ export default async function Home() {
 
   return (
     <>
+    <Analytics/>
       <section className="relative w-full p-1.5 md:p-2.5">
         <HeroWrapper>
           <img

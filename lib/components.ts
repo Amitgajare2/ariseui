@@ -822,7 +822,104 @@ export function Demo() {
     </SpotlightCard>
   )
 }`,
-}
+},
+{
+  name: "Light Board",
+  href: "/components/lightboard",
+  registry: "lightboard",
+  description:
+    "A scrolling dot-matrix LED board with an optional draw/sketch overlay.",
+  introduction:
+    "LightBoard renders a grid of round 'lights' that display scrolling text using a built-in 5x7 dot-matrix font. The board automatically fills the width of its container and can double as a sketchpad — users can click-and-drag (or hover, in interactive mode) to draw over the lit text. Drawing state and hover state can be used as controlled or uncontrolled.",
+  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/lightboard.tsx`,
+  dependencies: [],
+  interaction:
+    "When disableDrawing is false, clicking and dragging over the board paints cells using the current draw pen (controlledDrawState). When hover state is active, moving the pointer alone paints without needing to hold the mouse down, and the text scroll pauses while the board is being interacted with.",
+  props: [
+    {
+      name: "text",
+      type: "string",
+      default: '""',
+      description:
+        "Text to scroll across the board using the built-in dot-matrix font. Leave empty to use the board purely as a sketchpad.",
+    },
+    {
+      name: "rows",
+      type: "number",
+      default: "10",
+      description: "Number of light rows in the board.",
+    },
+    {
+      name: "lightSize",
+      type: "number",
+      default: "5",
+      description: "Diameter in pixels of each individual light.",
+    },
+    {
+      name: "gap",
+      type: "number",
+      default: "2",
+      description: "Spacing in pixels between lights. Columns are computed automatically from the container width.",
+    },
+    {
+      name: "font",
+      type: '"default"',
+      default: '"default"',
+      description: "Font used to render scrolling text.",
+    },
+    {
+      name: "updateInterval",
+      type: "number",
+      default: "150",
+      description: "Milliseconds between each scroll step.",
+    },
+    {
+      name: "disableDrawing",
+      type: "boolean",
+      default: "true",
+      description: "Disables click/drag/hover drawing on the board.",
+    },
+    {
+      name: "colors",
+      type: "{ background?, textDim?, textBright?, drawLine? }",
+      description: "Overrides for the board background and light colors.",
+    },
+    {
+      name: "controlledDrawState",
+      type: '"0" | "1" | "2" | "3"',
+      description:
+        "The currently selected draw pen. '0' erases; '1'-'3' paint with increasing intensity. Omit to manage internally.",
+    },
+    {
+      name: "onDrawStateChange",
+      type: "(state: PatternCell) => void",
+      description: "Called when the draw pen should change.",
+    },
+    {
+      name: "controlledHoverState",
+      type: "boolean",
+      description:
+        "Whether the board is in interactive mode (pauses scroll, enables hover-to-paint). Omit to manage internally from real pointer hover.",
+    },
+    {
+      name: "onHoverStateChange",
+      type: "(state: boolean) => void",
+      description: "Called when the board's hover/interactive state changes.",
+    },
+  ],
+  usage: `import { LightBoard } from "@/components/ui/lightboard"
+
+export function Demo() {
+  return (
+    <LightBoard
+      text="HELLO WORLD"
+      rows={10}
+      lightSize={5}
+      gap={2}
+    />
+  )
+}`,
+},
 
  
 ];
