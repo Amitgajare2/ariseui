@@ -764,65 +764,7 @@ export function Demo() {
   )
 }`,
 },
-{
-  name: "Spotlight Card",
-  href: "/components/spotlight-card",
-  registry: "spotlight-card",
-  description:
-    "A card component with a radial gradient spotlight that follows the mouse cursor.",
-  introduction:
-    "Spotlight Card creates an interactive spotlight effect that tracks mouse movement across the card surface. Perfect for feature grids, pricing cards, and dashboard widgets where you want to add premium interactivity without external dependencies.",
-  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/spotlight-card.tsx`,
-  dependencies: [],
-  interaction:
-    "Hover over the card to reveal a radial gradient spotlight that follows your cursor. The effect fades smoothly when the mouse leaves.",
-  props: [
-    {
-      name: "spotlightColor",
-      type: "string",
-      default: '"rgba(255, 255, 255, 0.1)"',
-      description:
-        "The color of the radial gradient spotlight. Accepts any valid CSS color value.",
-    },
-    {
-      name: "spotlightSize",
-      type: "number",
-      default: "300",
-      description: "The size of the spotlight circle in pixels.",
-    },
-    {
-      name: "border",
-      type: "boolean",
-      default: "true",
-      description: "Whether to render a subtle border around the card.",
-    },
-    {
-      name: "background",
-      type: "string",
-      description: "Optional inline background style for the card container.",
-    },
-    {
-      name: "className",
-      type: "string",
-      description: "Additional classes merged onto the card container.",
-    },
-    {
-      name: "children",
-      type: "ReactNode",
-      description: "The content to render inside the card.",
-    },
-  ],
-  usage: `import SpotlightCard from "@/components/ui/spotlight-card"
 
-export function Demo() {
-  return (
-    <SpotlightCard className="p-8 bg-white dark:bg-neutral-900">
-      <h3>Hover me</h3>
-      <p>Move your cursor to see the spotlight effect.</p>
-    </SpotlightCard>
-  )
-}`,
-},
 {
   name: "Light Board",
   href: "/components/lightboard",
