@@ -1,142 +1,85 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "motion/react";
-import { ChevronDown } from "lucide-react";
 import { components } from "@/lib/components";
 import { cn } from "@/lib/utils";
 
 const GETTING_STARTED = [
-  { label: "Home", href: "/" },
   { label: "Introduction", href: "/components/introduction" },
-  { label: "Installing",   href: "/components/installing" },
+  { label: "Installing", href: "/components/installing" },
 ] as const;
 
-// ─── shared primitives ───────────────────────────────────────────────────────
-
-function GroupHeader({
-  label,
-  open,
-  isGroupActive,
-  onToggle,
-}: {
-  label: string;
-  open: boolean;
-  isGroupActive: boolean;
-  onToggle: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onToggle}
-      className={cn(
-        "flex w-full items-center justify-between rounded-lg px-1 py-1.5 text-left transition-colors duration-200",
-        isGroupActive ? "text-foreground" : "text-foreground/50 hover:text-foreground",
-      )}
-    >
-      <span className="text-sm font-semibold">{label}</span>
-      <motion.span
-        initial={false}
-        animate={{ rotate: open ? 0 : -90 }}
-        transition={{ type: "spring", stiffness: 300, damping: 28 }}
-        className="text-foreground/40"
-      >
-        <ChevronDown className="h-3.5 w-3.5" />
-      </motion.span>
-    </button>
-  );
-}
-
-function NavItem({
-  label,
-  href,
-  isActive,
-  hasDot,
-  onClick,
-}: {
+type DashRowProps = {
   label: string;
   href: string;
+  number?: string;
   isActive: boolean;
-  hasDot?: boolean;
+  isHeader?: boolean;
   onClick?: () => void;
-}) {
+};
+
+function DashRow({ label, href, number, isActive, isHeader, onClick }: DashRowProps) {
   return (
-    <li className="relative flex items-center">
-      {hasDot && (
-        <span
-          aria-hidden
-          className="absolute left-0 h-1.5 w-1.5 rounded-full bg-[#fcd601]"
-        />
+    <Link
+      href={href}
+      onClick={onClick}
+      className={cn(
+        "group flex items-center gap-4 py-[7px] transition-colors duration-150",
+        isActive
+          ? "text-[#38bdf8]"
+          : isHeader
+            ? "text-foreground"
+            : "text-foreground/40 hover:text-foreground/70",
       )}
-      <Link
-        href={href}
-        onClick={onClick}
+    >
+      <span
         className={cn(
-          "w-full rounded-lg py-1 pl-4 pr-1 text-sm transition-colors duration-200",
-          isActive ? "text-foreground" : "text-foreground/50 hover:text-foreground",
+          "block h-px w-7 shrink-0 transition-colors duration-150",
+          isActive
+            ? "bg-[#38bdf8]"
+            : isHeader
+              ? "bg-foreground/70"
+              : "bg-foreground/20 group-hover:bg-foreground/40",
         )}
-      >
-        {label}
-      </Link>
-    </li>
-  );
-}
-
-function CollapsibleGroup({
-  label,
-  defaultOpen = true,
-  isGroupActive,
-  children,
-}: {
-  label: string;
-  defaultOpen?: boolean;
-  isGroupActive: boolean;
-  children: React.ReactNode;
-}) {
-  const [open, setOpen] = useState(defaultOpen);
-
-  return (
-    <div className="flex flex-col">
-      <GroupHeader
-        label={label}
-        open={open}
-        isGroupActive={isGroupActive}
-        onToggle={() => setOpen((v) => !v)}
       />
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.ul
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.22, ease: "easeOut" }}
-            className="overflow-hidden"
-          >
-            <div className="flex flex-col gap-0.5 pb-1 pt-0.5">
-              {children}
-            </div>
-          </motion.ul>
+      <span className={cn("truncate text-sm leading-none", isHeader ? "font-bold" : "font-normal")}>
+        {number && (
+          <span className={cn("mr-2 tabular-nums", isActive ? "text-[#38bdf8]" : "opacity-50")}>
+            {number}
+          </span>
         )}
-      </AnimatePresence>
-    </div>
+        {label}
+      </span>
+    </Link>
   );
 }
-
-// ─── main export ─────────────────────────────────────────────────────────────
 
 export default function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
 
-  const isGettingStartedActive = GETTING_STARTED.some((i) => i.href === pathname);
-  const isComponentsActive = components.some((c) => c.href === pathname);
-
   return (
-    <nav className="flex flex-col gap-4 px-2">
-      <CollapsibleGroup label="Getting Started" isGroupActive={isGettingStartedActive}>
+    <nav
+      className="relative flex h-full flex-col"
+      aria-label="Site navigation"
+    >
+      {/* bottom fade */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-card to-transparent"
+      />
+
+      <div className="no-scrollbar flex flex-col overflow-y-auto px-4 pb-16 pt-2">
+        <DashRow
+          label="Getting Started"
+          href="/components/introduction"
+          isActive={false}
+          isHeader
+          onClick={onNavigate}
+        />
+
         {GETTING_STARTED.map(({ label, href }) => (
-          <NavItem
+          <DashRow
             key={href}
             label={label}
             href={href}
@@ -144,23 +87,28 @@ export default function SidebarContent({ onNavigate }: { onNavigate?: () => void
             onClick={onNavigate}
           />
         ))}
-      </CollapsibleGroup>
 
-      <CollapsibleGroup label="Components" isGroupActive={isComponentsActive}>
-        {components.map((c) => {
-          const isActive = pathname === c.href;
-          return (
-            <NavItem
-              key={c.href}
-              label={c.name}
-              href={c.href}
-              isActive={isActive}
-              hasDot={isActive}
-              onClick={onNavigate}
-            />
-          );
-        })}
-      </CollapsibleGroup>
+        <div className="my-2 ml-11 h-px bg-foreground/10" />
+
+        <DashRow
+          label="All Components"
+          href="/components"
+          isActive={pathname === "/components"}
+          isHeader
+          onClick={onNavigate}
+        />
+
+        {components.map((c, i) => (
+          <DashRow
+            key={c.href}
+            label={c.name}
+            href={c.href}
+            number={String(i + 1).padStart(2, "0")}
+            isActive={pathname === c.href}
+            onClick={onNavigate}
+          />
+        ))}
+      </div>
     </nav>
   );
 }
