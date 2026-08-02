@@ -1,13 +1,14 @@
-import GithubCalendar from "@/components/ui/github-calendar";
+import GithubActivityCard from "@/components/ui/github-calendar";
+
 
 export default function Demo() {
   return (
-    <div className="mx-auto max-w-5xl pt-12">
-      <GithubCalendar
+    <div className="mx-auto flex max-w-5xl justify-center pt-12">
+      <GithubActivityCard
         username="amitgajare2"
-        colorScheme="halloween"
-        animate
-        timeRange="3-months"
+        colorScheme="pink"
+        months={6}
+        defaultReposOpen
       />
     </div>
   );

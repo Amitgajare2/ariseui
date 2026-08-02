@@ -217,22 +217,6 @@
       ]
     },
     {
-      "name": "spotlight-card",
-      "type": "registry:ui",
-      "title": "Spotlight Card",
-      "description": "A card component with a radial gradient spotlight that follows the mouse cursor.",
-      "dependencies": [],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
-      "files": [
-        {
-          "path": "components/ui/spotlight-card.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
   "name": "lightboard",
   "type": "registry:ui",
   "title": "Light Board",
