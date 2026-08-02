@@ -1,68 +1,26 @@
 "use client";
 
 import * as React from "react";
-import { useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, type HTMLMotionProps } from "motion/react";
 import { cn } from "@/lib/utils";
 
 const DEFAULT_CHARACTERS =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}<>?/";
 
 type TextScrambleTrigger = "mount" | "hover" | "in-view" | "manual";
-type RevealDirection = "left" | "right" | "center";
 
-export type TextScrambleProps = Omit<
-  React.ComponentPropsWithoutRef<"span">,
-  "children"
-> & {
+export type TextScrambleProps = Omit<HTMLMotionProps<"span">, "children"> & {
   children: string;
   trigger?: TextScrambleTrigger;
   play?: boolean;
   once?: boolean;
   duration?: number;
-  delay?: number;
   speed?: number;
   characters?: string;
-  revealDirection?: RevealDirection;
-  onScrambleStart?: () => void;
   onScrambleComplete?: () => void;
 };
 
-type ScrambleConfig = {
-  text: string;
-  duration: number;
-  delay: number;
-  speed: number;
-  characters: string;
-  revealDirection: RevealDirection;
-  once: boolean;
-  reducedMotion: boolean | null;
-  onStart?: () => void;
-  onComplete?: () => void;
-};
-
-function getRevealOrder(text: string[], direction: RevealDirection) {
-  const indices = text.flatMap((character, index) =>
-    /\s/u.test(character) ? [] : [index],
-  );
-
-  if (direction === "right") return indices.reverse();
-
-  if (direction === "center") {
-    const center = (text.length - 1) / 2;
-
-    return indices.sort(
-      (a, b) => Math.abs(a - center) - Math.abs(b - center),
-    );
-  }
-
-  return indices;
-}
-
-function getRandomCharacter(characters: string[]) {
-  if (characters.length === 0) return "";
-
-  return characters[Math.floor(Math.random() * characters.length)] ?? "";
-}
+const MotionSpan = motion.span;
 
 const TextScramble = React.forwardRef<HTMLSpanElement, TextScrambleProps>(
   (
@@ -71,284 +29,149 @@ const TextScramble = React.forwardRef<HTMLSpanElement, TextScrambleProps>(
       trigger = "mount",
       play = false,
       once,
-      duration = 900,
-      delay = 0,
-      speed = 32,
+      duration = 0.8,
+      speed = 0.04,
       characters = DEFAULT_CHARACTERS,
-      revealDirection = "left",
-      onScrambleStart,
       onScrambleComplete,
       className,
       onPointerEnter,
       onFocus,
       ...props
     },
-    forwardedRef,
+    ref,
   ) => {
     const prefersReducedMotion = useReducedMotion();
-    const rootRef = React.useRef<HTMLSpanElement | null>(null);
-    const valueRef = React.useRef<HTMLSpanElement | null>(null);
-    const frameRef = React.useRef<number | null>(null);
-    const delayRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
-    const isRunningRef = React.useRef(false);
-    const hasPlayedRef = React.useRef(false);
+    const [displayText, setDisplayText] = React.useState(children);
     const [isScrambling, setIsScrambling] = React.useState(false);
+    const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
+    const hasPlayedRef = React.useRef(false);
+    const rootRef = React.useRef<HTMLSpanElement | null>(null);
 
     const playOnce = once ?? trigger === "in-view";
-
-    const configRef = React.useRef<ScrambleConfig>({
-      text: children,
-      duration,
-      delay,
-      speed,
-      characters,
-      revealDirection,
-      once: playOnce,
-      reducedMotion: prefersReducedMotion,
-      onStart: onScrambleStart,
-      onComplete: onScrambleComplete,
-    });
-
-    configRef.current = {
-      text: children,
-      duration,
-      delay,
-      speed,
-      characters,
-      revealDirection,
-      once: playOnce,
-      reducedMotion: prefersReducedMotion,
-      onStart: onScrambleStart,
-      onComplete: onScrambleComplete,
-    };
 
     const setRefs = React.useCallback(
       (node: HTMLSpanElement | null) => {
         rootRef.current = node;
-
-        if (typeof forwardedRef === "function") {
-          forwardedRef(node);
-        } else if (forwardedRef) {
-          forwardedRef.current = node;
-        }
+        if (typeof ref === "function") ref(node);
+        else if (ref) ref.current = node;
       },
-      [forwardedRef],
+      [ref],
     );
 
-    const setVisibleText = React.useCallback((value: string) => {
-      if (valueRef.current) valueRef.current.textContent = value;
-    }, []);
+    const scramble = React.useCallback(() => {
+      if (isScrambling) return;
+      if (playOnce && hasPlayedRef.current) return;
 
-    const cancelScramble = React.useCallback(
-      (restoreText = false) => {
-        if (frameRef.current !== null) {
-          cancelAnimationFrame(frameRef.current);
-          frameRef.current = null;
-        }
-
-        if (delayRef.current !== null) {
-          clearTimeout(delayRef.current);
-          delayRef.current = null;
-        }
-
-        isRunningRef.current = false;
-        setIsScrambling(false);
-
-        if (restoreText) setVisibleText(configRef.current.text);
-      },
-      [setVisibleText],
-    );
-
-    const startScramble = React.useCallback(() => {
-      const config = configRef.current;
-
-      if (isRunningRef.current) return;
-      if (config.once && hasPlayedRef.current) return;
-
-      const target = Array.from(config.text);
-      const characterPool = Array.from(config.characters || DEFAULT_CHARACTERS);
-      const revealOrder = getRevealOrder(target, config.revealDirection);
-      const safeDuration = Math.max(0, config.duration);
-      const safeDelay = Math.max(0, config.delay);
-      const safeSpeed = Math.max(16, config.speed);
-
-      isRunningRef.current = true;
-      hasPlayedRef.current = true;
-
-      const begin = () => {
-        delayRef.current = null;
-        config.onStart?.();
-
-        if (
-          config.reducedMotion ||
-          target.length === 0 ||
-          revealOrder.length === 0 ||
-          safeDuration === 0
-        ) {
-          setVisibleText(config.text);
-          isRunningRef.current = false;
-          setIsScrambling(false);
-          config.onComplete?.();
-          return;
-        }
-
-        setIsScrambling(true);
-
-        const startedAt = performance.now();
-        let previousFrameAt = 0;
-
-        const renderFrame = (now: number) => {
-          const elapsed = now - startedAt;
-          const progress = Math.min(elapsed / safeDuration, 1);
-
-          if (now - previousFrameAt >= safeSpeed || progress === 1) {
-            const revealCount = Math.floor(progress * revealOrder.length);
-            const revealed = new Set(revealOrder.slice(0, revealCount));
-
-            const frame = target
-              .map((character, index) => {
-                if (/\s/u.test(character) || revealed.has(index)) {
-                  return character;
-                }
-
-                return getRandomCharacter(characterPool);
-              })
-              .join("");
-
-            setVisibleText(progress === 1 ? config.text : frame);
-            previousFrameAt = now;
-          }
-
-          if (progress < 1) {
-            frameRef.current = requestAnimationFrame(renderFrame);
-            return;
-          }
-
-          frameRef.current = null;
-          isRunningRef.current = false;
-          setIsScrambling(false);
-          config.onComplete?.();
-        };
-
-        frameRef.current = requestAnimationFrame(renderFrame);
-      };
-
-      if (safeDelay > 0) {
-        delayRef.current = setTimeout(begin, safeDelay);
-      } else {
-        begin();
+      if (prefersReducedMotion) {
+        setDisplayText(children);
+        onScrambleComplete?.();
+        return;
       }
-    }, [setVisibleText]);
+
+      hasPlayedRef.current = true;
+      setIsScrambling(true);
+
+      const steps = duration / speed;
+      let step = 0;
+
+      intervalRef.current = setInterval(() => {
+        const progress = step / steps;
+        let scrambled = "";
+
+        for (let i = 0; i < children.length; i++) {
+          if (children[i] === " ") {
+            scrambled += " ";
+            continue;
+          }
+          if (progress * children.length > i) {
+            scrambled += children[i];
+          } else {
+            scrambled +=
+              characters[Math.floor(Math.random() * characters.length)];
+          }
+        }
+
+        setDisplayText(scrambled);
+        step++;
+
+        if (step > steps) {
+          if (intervalRef.current) clearInterval(intervalRef.current);
+          setDisplayText(children);
+          setIsScrambling(false);
+          onScrambleComplete?.();
+        }
+      }, speed * 1000);
+    }, [children, characters, duration, speed, isScrambling, playOnce, prefersReducedMotion, onScrambleComplete]);
 
     React.useEffect(() => {
-      cancelScramble();
+      if (intervalRef.current) clearInterval(intervalRef.current);
       hasPlayedRef.current = false;
-      setVisibleText(children);
-    }, [children, cancelScramble, setVisibleText]);
+      setIsScrambling(false);
+      setDisplayText(children);
+    }, [children]);
 
     React.useEffect(() => {
-      if (trigger === "mount") startScramble();
-    }, [children, trigger, startScramble]);
+      if (trigger === "mount") scramble();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [trigger]);
 
     React.useEffect(() => {
       if (trigger !== "manual") return;
-
-      if (play) {
-        startScramble();
-      } else {
-        cancelScramble(true);
-      }
-    }, [children, play, trigger, cancelScramble, startScramble]);
+      if (play) scramble();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [play, trigger]);
 
     React.useEffect(() => {
       if (trigger !== "in-view") return;
-
       const element = rootRef.current;
       if (!element) return;
 
       if (!("IntersectionObserver" in window)) {
-        startScramble();
+        scramble();
         return;
       }
 
-      let wasVisible = false;
-
       const observer = new IntersectionObserver(
         ([entry]) => {
-          const isVisible = entry?.isIntersecting ?? false;
-
-          if (isVisible && !wasVisible) {
-            startScramble();
-
+          if (entry?.isIntersecting) {
+            scramble();
             if (playOnce) observer.disconnect();
           }
-
-          wasVisible = isVisible;
         },
-        {
-          threshold: 0.2,
-          rootMargin: "0px 0px -10% 0px",
-        },
+        { threshold: 0.2, rootMargin: "0px 0px -10% 0px" },
       );
 
       observer.observe(element);
-
       return () => observer.disconnect();
-    }, [children, playOnce, trigger, startScramble]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [trigger, playOnce]);
 
     React.useEffect(
       () => () => {
-        if (frameRef.current !== null) {
-          cancelAnimationFrame(frameRef.current);
-        }
-
-        if (delayRef.current !== null) {
-          clearTimeout(delayRef.current);
-        }
+        if (intervalRef.current) clearInterval(intervalRef.current);
       },
       [],
     );
 
     return (
-      <span
+      <MotionSpan
         ref={setRefs}
-        {...props}
         data-slot="text-scramble"
         data-state={isScrambling ? "scrambling" : "idle"}
-        className={cn(
-          "relative inline-block max-w-full whitespace-pre-wrap wrap-break-word align-middle",
-          className,
-        )}
+        className={cn(className)}
+        aria-label={children}
         onPointerEnter={(event) => {
           onPointerEnter?.(event);
-
-          if (!event.defaultPrevented && trigger === "hover") {
-            startScramble();
-          }
+          if (!event.defaultPrevented && trigger === "hover") scramble();
         }}
         onFocus={(event) => {
           onFocus?.(event);
-
-          if (!event.defaultPrevented && trigger === "hover") {
-            startScramble();
-          }
+          if (!event.defaultPrevented && trigger === "hover") scramble();
         }}
+        {...props}
       >
-        <span aria-hidden="true" className="invisible">
-          {children}
-        </span>
-
-        <span
-          ref={valueRef}
-          aria-hidden="true"
-          data-slot="text-scramble-value"
-          className="absolute inset-0"
-        >
-          {children}
-        </span>
-
-        <span className="sr-only">{children}</span>
-      </span>
+        {displayText}
+      </MotionSpan>
     );
   },
 );

@@ -179,12 +179,12 @@ export default function GithubActivityCard({
     <div
       data-slot="github-activity-card"
       className={cn(
-        "w-fit rounded-2xl border border-white/10 bg-neutral-950 p-5",
+        "w-full rounded-2xl border border-white/10 bg-neutral-950 p-4 sm:w-fit sm:p-5",
         className
       )}
       {...props}
     >
-      <div className="mb-4 flex items-baseline justify-between gap-4">
+      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
         <div>
           <p className="text-sm font-medium text-white">
             {status === "loading" ? "Loading activity…" : `${total} contributions`}
@@ -213,33 +213,35 @@ export default function GithubActivityCard({
           style={{ width: weeks.length * (cellSize + gap), height: 7 * (cellSize + gap) }}
         />
       ) : (
-        <div>
-          {showMonthLabels && (
-            <div className="mb-1 flex" style={{ gap }}>
-              {labels.map((label, i) => (
-                <div key={i} className="text-[10px] text-white/35" style={{ width: cellSize }}>
-                  {label}
+        <div className="overflow-x-auto">
+          <div className="min-w-0" style={{ width: "max-content" }}>
+            {showMonthLabels && (
+              <div className="mb-1 flex" style={{ gap }}>
+                {labels.map((label, i) => (
+                  <div key={i} className="text-[10px] text-white/35" style={{ width: cellSize }}>
+                    {label}
+                  </div>
+                ))}
+              </div>
+            )}
+            <div className="flex" style={{ gap }}>
+              {weeks.map((week, wi) => (
+                <div key={wi} className="flex flex-col" style={{ gap }}>
+                  {Array.from({ length: 7 }, (_, di) => week[di]).map((day, di) => (
+                    <div
+                      key={di}
+                      className="rounded-[3px] transition-transform duration-150 hover:scale-125"
+                      style={{
+                        width: cellSize,
+                        height: cellSize,
+                        backgroundColor: day ? palette[day.level] : "transparent",
+                      }}
+                      title={day ? `${day.count} contributions on ${day.date}` : undefined}
+                    />
+                  ))}
                 </div>
               ))}
             </div>
-          )}
-          <div className="flex" style={{ gap }}>
-            {weeks.map((week, wi) => (
-              <div key={wi} className="flex flex-col" style={{ gap }}>
-                {Array.from({ length: 7 }, (_, di) => week[di]).map((day, di) => (
-                  <div
-                    key={di}
-                    className="rounded-[3px] transition-transform duration-150 hover:scale-125"
-                    style={{
-                      width: cellSize,
-                      height: cellSize,
-                      backgroundColor: day ? palette[day.level] : "transparent",
-                    }}
-                    title={day ? `${day.count} contributions on ${day.date}` : undefined}
-                  />
-                ))}
-              </div>
-            ))}
           </div>
         </div>
       )}

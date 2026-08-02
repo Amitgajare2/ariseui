@@ -13,9 +13,8 @@ export default function TextScrambleDemo() {
         <h1 className="mx-auto max-w-3xl text-balance text-4xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-5xl md:text-6xl lg:text-8xl">
           <TextScramble
             trigger="in-view"
-            duration={1100}
-            speed={28}
-            revealDirection="center"
+            duration={1.1}
+            speed={0.028}
           >
             Built to stand out.
           </TextScramble>

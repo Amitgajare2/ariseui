@@ -1,72 +1,51 @@
 "use client"
 
-import { useState } from "react"
-
-import { LightBoard, PatternCell } from "@/components/ui/lightboard"
+import { LightBoard } from "@/components/ui/lightboard"
 
 export default function LightBoardDemo() {
-  const [controlledDrawState, setControlledDrawState] =
-    useState<PatternCell>("2")
-  const [controlledHoverState, setControlledHoverState] = useState(false)
-
-  const cycleDrawState = () => {
-    setControlledDrawState((prev) => {
-      switch (prev) {
-        case "0":
-          return "1"
-        case "1":
-          return "2"
-        case "2":
-          return "3"
-        case "3":
-          return "0"
-        default:
-          return "0"
-      }
-    })
-  }
-
   return (
-    <div className="space-y-2 lg:space-y-4 p-2 lg:p-8  ">
- 
-      {/* Basic example */}
-      <div className="max-w-md w-full bg-black mt-20">
-        <LightBoard
-          text="Hello World"
-          rows={7}
-          gap={1}
-          lightSize={4}
-          font="default"
-          updateInterval={150}
-          colors={{
-            background: "#1a1a1a",
-            textDim: "#3a3a3a",
-            drawLine: "#7a7a7a",
-            textBright: "#ffffff",
-          }}
-        />
+    <div className="flex min-h-130 flex-col items-center justify-center gap-6 overflow-hidden rounded-3xl border bg-[radial-gradient(ellipse_at_50%_0%,rgba(125,211,252,0.10),transparent_60%),linear-gradient(to_bottom,#0c0c0f,#050507)] px-6 py-16">
+      <div className="w-full max-w-2xl text-center">
+        <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-white/35">
+          Arise UI / Display
+        </p>
+        <h2 className="text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
+          Light Board
+        </h2>
+        <p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-white/45">
+          A dot-matrix LED board that scrolls any text across a responsive grid of lights.
+        </p>
       </div>
 
-      {/* Red Alert */}
-      <div className="max-w-lg w-full bg-black">
+      <div className="w-full max-w-2xl space-y-3">
         <LightBoard
-          text="DANGER ZONE"
-          rows={10}
-          gap={1}
+          text="ARISE UI — BUILD SOMETHING GREAT —"
+          rows={9}
+          gap={2}
           lightSize={5}
-          font="default"
-          updateInterval={100}
+          updateInterval={120}
           colors={{
-            background: "#1a0000",
-            textDim: "#4a0000",
-            drawLine: "#8a0000",
-            textBright: "#ff0000",
+            background: "#0d1117",
+            textDim: "#1e2a35",
+            textBright: "#7dd3fc",
           }}
+          className="rounded-xl"
+        />
+
+        <LightBoard
+          text="HELLO WORLD — OPEN SOURCE COMPONENTS —"
+          rows={9}
+          gap={2}
+          lightSize={5}
+          updateInterval={140}
+          colors={{
+            background: "#0d0d0d",
+            textDim: "#1f1f1f",
+            textBright: "#f0f0f0",
+          }}
+          className="rounded-xl"
         />
       </div>
-
-
-
     </div>
   )
 }
