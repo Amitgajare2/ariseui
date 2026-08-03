@@ -212,6 +212,22 @@
       "type": "registry:ui"
     }
   ]
+},
+{
+  "name": "animated-beam",
+  "type": "registry:ui",
+  "title": "Animated Beam",
+  "description": "An animated SVG beam connecting UI elements with flowing gradient.",
+  "dependencies": ["framer-motion"],
+  "registryDependencies": ["amitgajare2/ariseui/utils"],
+  "files": [
+    {
+      "path": "components/ui/animated-beam.tsx",
+      "type": "registry:ui"
+    }
+  ]
 }
+
+
   ]
 }

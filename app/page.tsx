@@ -19,23 +19,36 @@ export default async function Home() {
   return (
     <>
     <Analytics/>
-      <section className="relative w-full p-1.5 md:p-2.5">
+      <section className="relative w-full bg-black p-1.5 md:p-2.5">
         <HeroWrapper>
-          <img
-            src="/assets/landing/herobg.webp"
-            alt=""
+          {/* main vertical gradient */}
+          <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 size-full rounded-[inherit]"
+            className="absolute inset-0 z-0 rounded-[inherit] bg-[linear-gradient(180deg,#fff9df_0%,#ffdfa0_15%,#ff941f_35%,#b33708_55%,#3a0903_72%,#000000_92%)]"
           />
-          <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-linear-to-t from-background from-6% to-transparent" />
-          <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-4 pb-12 pt-24 text-center sm:gap-4 sm:px-6 md:pb-16">
+          {/* blurred vertical light rays */}
+          <div
+            aria-hidden="true"
+            className="absolute -inset-x-[12%] -top-[8%] z-10 h-[78%] opacity-70 blur-[35px] rounded-[inherit] [background-image:repeating-linear-gradient(90deg,transparent_0%,transparent_5%,rgba(255,250,225,0.5)_7%,rgba(255,157,45,0.25)_10%,transparent_14%)] [mask-image:linear-gradient(to_bottom,black_0%,black_62%,transparent_100%)]"
+          />
+          {/* soft highlights and dark vignette */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 z-20 rounded-[inherit] bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.5)_0%,transparent_38%),radial-gradient(ellipse_at_50%_42%,transparent_20%,rgba(0,0,0,0.15)_52%,rgba(0,0,0,0.95)_100%)]"
+          />
+          {/* grain texture */}
+          <div
+            aria-hidden="true"
+            className="noise absolute inset-0 z-30 rounded-[inherit] opacity-25 mix-blend-soft-light"
+          />
+          <div className="relative z-40 mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-4 pb-12 pt-24 text-center sm:gap-4 sm:px-6 md:pb-16">
             <div>
               <GooeyNavbar stars={stars} />
             </div>
-            <h1 className="max-w-4xl text-balance font-runde text-black text-4xl font-bold tracking-tight dark:text-white sm:text-4xl md:text-6xl lg:text-7xl">
+            <h1 className="max-w-4xl text-balance font-cal text-[#171717] text-4xl font-bold tracking-tight sm:text-4xl md:text-6xl lg:text-7xl">
               Components Designed to Stand Out.
             </h1>
-            <p className="max-w-xl font-medium text-black/80 dark:text-white/80 sm:text-sm">
+            <p className="max-w-xl font-sans text-sm font-normal tracking-wide text-black/60 sm:text-base">
               A curated collection of distinctive, animated UI components built
               for modern interfaces. Explore live previews and install any
               component instantly with the shadcn CLI.
