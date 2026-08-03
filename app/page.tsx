@@ -5,7 +5,7 @@ import HeroCta from "@/components/HeroCta";
 import HomeDemos from "@/components/HomeDemos";
 import Footer from "@/components/Footer";
 import HeroWrapper from "@/components/HeroWrapper";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   alternates: {
@@ -18,7 +18,7 @@ export default async function Home() {
 
   return (
     <>
-    <Analytics/>
+      <Analytics />
       <section className="relative w-full bg-black p-1.5 md:p-2.5">
         <HeroWrapper>
           {/* main vertical gradient */}
@@ -41,14 +41,14 @@ export default async function Home() {
             aria-hidden="true"
             className="noise absolute inset-0 z-30 rounded-[inherit] opacity-25 mix-blend-soft-light"
           />
-          <div className="relative z-40 mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-4 pb-12 pt-24 text-center sm:gap-4 sm:px-6 md:pb-16">
+          <div className="relative z-40 mx-auto flex w-full max-w-6xl flex-col items-center gap-4 px-4 pb-12 pt-24 text-center sm:gap-5 sm:px-6 sm:pb-16 sm:pt-28 md:gap-6 md:pt-32 lg:pt-36">
             <div>
               <GooeyNavbar stars={stars} />
             </div>
-            <h1 className="max-w-4xl text-balance font-cal text-[#171717] text-4xl font-bold tracking-tight sm:text-4xl md:text-6xl lg:text-7xl">
+            <h1 className="max-w-4xl text-balance font-cal text-[#171717] text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               Components Designed to Stand Out.
             </h1>
-            <p className="max-w-xl font-sans text-sm font-normal tracking-wide text-black/60 sm:text-base">
+            <p className="max-w-xl font-sans text-sm font-normal tracking-wide text-black/60 sm:text-base md:text-lg">
               A curated collection of distinctive, animated UI components built
               for modern interfaces. Explore live previews and install any
               component instantly with the shadcn CLI.

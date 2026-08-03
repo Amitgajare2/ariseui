@@ -38,7 +38,7 @@ export default function HomeDemos() {
   const router = useRouter();
 
   return (
-    <div className="mt-50 w-full sm:mt-50">
+    <div className="mt-8 w-full sm:mt-10 md:mt-12">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
         {DEMOS.map(({ name, href, preview }) => (
           <div
