@@ -840,6 +840,113 @@ export function Demo() {
   )
 }`,
 },
+{
+  name: "Animated Beam",
+  href: "/components/animated-beam",
+  registry: "animated-beam",
+  description:
+    "An animated beam of light that travels along a path between two elements.",
+  introduction:
+    "Animated Beam is a visually striking component that creates an animated SVG path between two referenced elements. It is perfect for showcasing integrations, data flows, or connections between different parts of your application. Built with Framer Motion and React, it supports customizable curvature, colors, gradients, and animation timing.",
+  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/animated-beam.tsx`,
+  dependencies: [{ name: "motion" }],
+  interaction:
+    "The beam animates automatically upon mounting. It dynamically recalculates its path when the container or the referenced elements are resized.",
+  props: [
+    {
+      name: "containerRef",
+      type: "React.RefObject<HTMLElement>",
+      required: true,
+      description: "Reference to the container element that wraps both source and target elements.",
+    },
+    {
+      name: "fromRef",
+      type: "React.RefObject<HTMLElement>",
+      required: true,
+      description: "Reference to the source element where the beam starts.",
+    },
+    {
+      name: "toRef",
+      type: "React.RefObject<HTMLElement>",
+      required: true,
+      description: "Reference to the target element where the beam ends.",
+    },
+    {
+      name: "curvature",
+      type: "number",
+      default: "0",
+      description: "The amount of curve in the beam path.",
+    },
+    {
+      name: "reverse",
+      type: "boolean",
+      default: "false",
+      description: "If true, the animation flows from the target to the source.",
+    },
+    {
+      name: "pathColor",
+      type: "string",
+      default: '"gray"',
+      description: "The color of the background path.",
+    },
+    {
+      name: "pathWidth",
+      type: "number",
+      default: "2",
+      description: "The width of the beam path.",
+    },
+    {
+      name: "pathOpacity",
+      type: "number",
+      default: "0.2",
+      description: "The opacity of the background path.",
+    },
+    {
+      name: "gradientStartColor",
+      type: "string",
+      default: '"#ffaa40"',
+      description: "The starting color of the animated gradient.",
+    },
+    {
+      name: "gradientStopColor",
+      type: "string",
+      default: '"#9c40ff"',
+      description: "The ending color of the animated gradient.",
+    },
+    {
+      name: "delay",
+      type: "number",
+      default: "0",
+      description: "Delay before the animation starts.",
+    },
+    {
+      name: "duration",
+      type: "number",
+      default: "random(4-7)",
+      description: "Duration of the beam animation.",
+    },
+  ],
+  usage: `import { useRef } from "react";
+import { AnimatedBeam } from "@/components/ui/animated-beam";
+
+export function Demo() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const fromRef = useRef<HTMLDivElement>(null);
+  const toRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div ref={containerRef} className="relative flex items-center justify-between p-10">
+      <div ref={fromRef} className="z-10 size-12 rounded-full bg-white border-2" />
+      <div ref={toRef} className="z-10 size-12 rounded-full bg-white border-2" />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={fromRef}
+        toRef={toRef}
+      />
+    </div>
+  );
+}`,
+},
 
  
 ];

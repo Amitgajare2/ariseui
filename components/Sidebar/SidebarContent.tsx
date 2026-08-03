@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { components } from "@/lib/components";
 import { cn } from "@/lib/utils";
-import { label } from "motion/react-client";
 
 const GETTING_STARTED = [
   { label: "Home", href: "/" },
@@ -27,27 +26,38 @@ function DashRow({ label, href, number, isActive, isHeader, onClick }: DashRowPr
       href={href}
       onClick={onClick}
       className={cn(
-        "group flex items-center gap-4 py-[7px] transition-colors duration-150",
+        "group flex items-center gap-4 py-[7px] transition-all duration-200",
         isActive
-          ? "text-[#38bdf8]"
+          ? "text-[#fcd601]"
           : isHeader
             ? "text-foreground"
-            : "text-foreground/40 hover:text-foreground/70",
+            : "text-foreground/40 hover:text-[#fcd601]",
       )}
     >
       <span
         className={cn(
-          "block h-px w-7 shrink-0 transition-colors duration-150",
+          "block h-px shrink-0 transition-all duration-200",
           isActive
-            ? "bg-[#38bdf8]"
+            ? "w-9 bg-[#fcd601]"
             : isHeader
-              ? "bg-foreground/70"
-              : "bg-foreground/20 group-hover:bg-foreground/40",
+              ? "w-7 bg-foreground/70"
+              : "w-7 bg-foreground/20 group-hover:w-10 group-hover:bg-[#fcd601]",
         )}
       />
-      <span className={cn("truncate text-sm leading-none", isHeader ? "font-bold" : "font-normal")}>
+      <span
+        className={cn(
+          "truncate text-sm leading-none transition-transform duration-200",
+          isHeader ? "font-bold" : "font-normal",
+          !isActive && !isHeader && "group-hover:translate-x-0.5",
+        )}
+      >
         {number && (
-          <span className={cn("mr-2 tabular-nums", isActive ? "text-[#38bdf8]" : "opacity-50")}>
+          <span
+            className={cn(
+              "mr-2 tabular-nums transition-colors duration-200",
+              isActive ? "text-[#fcd601]" : "opacity-50 group-hover:opacity-100",
+            )}
+          >
             {number}
           </span>
         )}
