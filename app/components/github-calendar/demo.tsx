@@ -7,7 +7,7 @@ export default function Demo() {
       <GithubActivityCard
         username="amitgajare2"
         colorScheme="pink"
-        months={6}
+        months={12}
         defaultReposOpen
       />
     </div>

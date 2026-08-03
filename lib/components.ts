@@ -478,27 +478,6 @@ export function Demo() {
 }`,
   },
   {
-    name: "Text Scramble",
-    href: "/components/textscramble",
-    registry: "text-scramble",
-    description:
-      "A text element that scrambles its content before revealing the final text.",
-    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/text-scramble.tsx`,
-    dependencies: [{ name: "motion" }],
-    interaction: "Hover or scroll into view to watch characters scramble and resolve into the final text.",
-    usage: `import TextScramble from "@/components/ui/text-scramble"
-
-  export function Demo() {
-    return <TextScramble
-            trigger="in-view"
-            duration={1.1}
-            speed={0.028}
-          >
-            Built to stand out.
-          </TextScramble>
-  }`,
-  },
-  {
     name: "Magnetic Dock",
     href: "/components/magneticdock",
     registry: "magnetic-dock",

@@ -148,8 +148,27 @@ export default function GithubActivityCard({
 }: GithubActivityCardProps) {
   const { contributions, repos, status } = useGithubData(username);
   const [reposOpen, setReposOpen] = React.useState(defaultReposOpen);
+  const [viewportWidth, setViewportWidth] = React.useState(0);
   const palette = COLOR_SCHEMES[colorScheme];
-  const gap = Math.max(2, Math.round(cellSize / 4));
+
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const updateViewportWidth = () => setViewportWidth(window.innerWidth);
+    updateViewportWidth();
+    window.addEventListener("resize", updateViewportWidth);
+
+    return () => window.removeEventListener("resize", updateViewportWidth);
+  }, []);
+
+  const responsiveCellSize = React.useMemo(() => {
+    if (viewportWidth === 0) return cellSize;
+    if (viewportWidth < 480) return Math.max(7, Math.min(cellSize, 8));
+    if (viewportWidth < 640) return Math.max(7, Math.min(cellSize, 9));
+    return cellSize;
+  }, [cellSize, viewportWidth]);
+
+  const gap = Math.max(2, Math.round(responsiveCellSize / 4));
 
   const weeks = React.useMemo(() => {
     const all = toWeeks(contributions);
@@ -179,7 +198,7 @@ export default function GithubActivityCard({
     <div
       data-slot="github-activity-card"
       className={cn(
-        "w-full rounded-2xl border border-white/10 bg-neutral-950 p-4 sm:w-fit sm:p-5",
+        "w-full max-w-full overflow-hidden rounded-2xl border border-white/10 bg-neutral-950 p-4 sm:w-fit sm:p-5",
         className
       )}
       {...props}
@@ -218,7 +237,7 @@ export default function GithubActivityCard({
             {showMonthLabels && (
               <div className="mb-1 flex" style={{ gap }}>
                 {labels.map((label, i) => (
-                  <div key={i} className="text-[10px] text-white/35" style={{ width: cellSize }}>
+                  <div key={i} className="text-[10px] text-white/35" style={{ width: responsiveCellSize }}>
                     {label}
                   </div>
                 ))}
@@ -232,8 +251,8 @@ export default function GithubActivityCard({
                       key={di}
                       className="rounded-[3px] transition-transform duration-150 hover:scale-125"
                       style={{
-                        width: cellSize,
-                        height: cellSize,
+                        width: responsiveCellSize,
+                        height: responsiveCellSize,
                         backgroundColor: day ? palette[day.level] : "transparent",
                       }}
                       title={day ? `${day.count} contributions on ${day.date}` : undefined}

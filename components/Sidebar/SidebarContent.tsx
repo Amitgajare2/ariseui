@@ -4,8 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { components } from "@/lib/components";
 import { cn } from "@/lib/utils";
+import { label } from "motion/react-client";
 
 const GETTING_STARTED = [
+  { label: "Home", href: "/" },
   { label: "Introduction", href: "/components/introduction" },
   { label: "Installing", href: "/components/installing" },
 ] as const;

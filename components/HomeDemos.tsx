@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
   AppWindow,
@@ -10,7 +10,7 @@ import {
   Settings,
 } from "lucide-react";
 import OtpInput from "@/components/ui/otp-input";
-import { TextScramble } from "@/components/ui/text-scramble";
+import GithubActivityCard from "@/components/ui/github-calendar";
 import {
   MagneticDock,
   MagneticDockItem,
@@ -23,9 +23,9 @@ const DEMOS = [
     preview: <OtpPreview />,
   },
   {
-    name: "Text Scramble",
-    href: "/components/textscramble",
-    preview: <TextScramblePreview />,
+    name: "GitHub Activity",
+    href: "/components/githubcalendar",
+    preview: <GithubActivityPreview />,
   },
   {
     name: "Magnetic Dock",
@@ -35,14 +35,24 @@ const DEMOS = [
 ] as const;
 
 export default function HomeDemos() {
+  const router = useRouter();
+
   return (
     <div className="mt-50 w-full sm:mt-50">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
         {DEMOS.map(({ name, href, preview }) => (
-          <Link
+          <div
             key={name}
-            href={href}
-            className="group relative flex min-h-52 flex-col overflow-hidden rounded-2xl border border-white/10 bg-black/35 text-left backdrop-blur-sm transition-colors duration-150 ease-out hover:border-white/20 hover:bg-black/45 sm:min-h-56"
+            role="link"
+            tabIndex={0}
+            onClick={() => router.push(href)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                router.push(href);
+              }
+            }}
+            className="group relative flex min-h-52 cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 bg-black/35 text-left backdrop-blur-sm transition-colors duration-150 ease-out hover:border-white/20 hover:bg-black/45 sm:min-h-56"
           >
             <div className="flex flex-1 items-center justify-center p-5 sm:p-6">
               {preview}
@@ -53,7 +63,7 @@ export default function HomeDemos() {
               </span>
               <ArrowIcon />
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>
@@ -74,13 +84,14 @@ function OtpPreview() {
   );
 }
 
-function TextScramblePreview() {
+function GithubActivityPreview() {
   return (
-    <p className="text-balance text-center font-runde text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-      <TextScramble trigger="mount" duration={900} speed={24} once>
-        Stand out.
-      </TextScramble>
-    </p>
+    <GithubActivityCard
+      username="amitgajare2"
+      colorScheme="pink"
+      months={6}
+      defaultReposOpen
+    />
   );
 }
 
