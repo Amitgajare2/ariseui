@@ -3,9 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 export default function HeroWrapper({ children }: { children: React.ReactNode }) {
-  const [scrolled, setScrolled] = useState(() =>
-    typeof window !== "undefined" ? window.scrollY > 10 : false,
-  );
+  const [scrolled, setScrolled] = useState(false);
   const rafRef = useRef<number | null>(null);
 
   useEffect(() => {

@@ -57,7 +57,7 @@ export default function Navbar() {
   );
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-5 z-50">
+    <div className="pointer-events-none sticky top-5 z-50 mt-5">
       <motion.nav
         animate={{ scale: scrolled ? 0.98 : 1, y: scrolled ? -4 : 0 }}
         transition={{ type: "spring", stiffness: 320, damping: 24, mass: 0.8 }}

@@ -19,6 +19,7 @@ export default async function Home() {
   return (
     <>
       <Analytics />
+      <GooeyNavbar stars={stars} />
       <section className="relative w-full bg-black p-1.5 md:p-2.5">
         <HeroWrapper>
           {/* main vertical gradient */}
@@ -42,9 +43,6 @@ export default async function Home() {
             className="noise absolute inset-0 z-30 rounded-[inherit] opacity-25 mix-blend-soft-light"
           />
           <div className="relative z-40 mx-auto flex w-full max-w-6xl flex-col items-center gap-4 px-4 pb-12 pt-24 text-center sm:gap-5 sm:px-6 sm:pb-16 sm:pt-28 md:gap-6 md:pt-32 lg:pt-36">
-            <div>
-              <GooeyNavbar stars={stars} />
-            </div>
             <h1 className="max-w-4xl text-balance font-cal text-[#171717] text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               Components Designed to Stand Out.
             </h1>
