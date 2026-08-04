@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { REGISTRY_REPO, PANEL_INFO } from "@/lib/components";
+import CopyButton from "@/components/CopyButton";
+import Tooltip from "@/components/Tooltip";
 
 export const metadata: Metadata = {
   title: "Introduction",
@@ -41,14 +43,7 @@ export default function IntroductionPage() {
           <div className="flex flex-col gap-3">
             <SectionLabel>What&apos;s included</SectionLabel>
             <ul className="flex flex-col gap-2.5">
-              {[
-                "Physics-based spring animations powered by Motion",
-                "Dark and light mode support via your theme tokens",
-                "Controlled and uncontrolled APIs where appropriate",
-                "Respects prefers-reduced-motion across all components",
-                "Tailwind CSS only: no runtime CSS-in-JS",
-                "TypeScript with exported prop types",
-              ].map((item) => (
+              {PANEL_INFO.whatIsIncluded.map((item) => (
                 <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-foreground/70">
                   <span className="mt-0.5 shrink-0 text-foreground/30">•</span>
                   <span>{item}</span>
@@ -136,8 +131,11 @@ function InlineCode({ children }: { children: React.ReactNode }) {
 
 function CodeLine({ command }: { command: string }) {
   return (
-    <div className="flex items-center rounded-lg bg-muted px-3 py-2.5">
-      <code className="font-mono text-xs text-foreground/80">{command}</code>
+    <div className="flex items-center justify-between rounded-lg bg-muted p-2 pl-3">
+      <code className="flex-1 truncate font-mono text-xs text-foreground/80">{command}</code>
+      <Tooltip label="Copy" align="end">
+        <CopyButton value={command} title="" className="cursor-pointer" />
+      </Tooltip>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { components, REGISTRY_REPO } from "@/lib/components";
+import { components, REGISTRY_REPO, PANEL_INFO } from "@/lib/components";
 import InstallRow from "./InstallRow";
+import CopyButton from "@/components/CopyButton";
+import Tooltip from "@/components/Tooltip";
 
 export const metadata: Metadata = {
   title: "Installing",
@@ -46,7 +48,7 @@ export default function InstallingPage() {
               The shadcn CLI supports npm, pnpm, yarn, and bun.
             </p>
             <div className="flex flex-col gap-2">
-              {PM_VARIANTS.map(({ label, command }) => (
+              {PANEL_INFO.pmVariants.map(({ label, command }) => (
                 <div key={label} className="flex flex-col gap-1.5">
                   <span className="text-xs text-foreground/40">{label}</span>
                   <CodeLine command={command} />
@@ -81,13 +83,6 @@ export default function InstallingPage() {
   );
 }
 
-const PM_VARIANTS = [
-  { label: "npm", command: `npx shadcn add ${REGISTRY_REPO}/scroll-progress` },
-  { label: "pnpm", command: `pnpm dlx shadcn add ${REGISTRY_REPO}/scroll-progress` },
-  { label: "yarn", command: `yarn dlx shadcn add ${REGISTRY_REPO}/scroll-progress` },
-  { label: "bun", command: `bunx --bun shadcn add ${REGISTRY_REPO}/scroll-progress` },
-];
-
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-xs font-medium uppercase tracking-normal text-foreground/40">
@@ -106,8 +101,11 @@ function InlineCode({ children }: { children: React.ReactNode }) {
 
 function CodeLine({ command }: { command: string }) {
   return (
-    <div className="flex items-center rounded-lg bg-muted px-3 py-2.5">
-      <code className="font-mono text-xs text-foreground/80">{command}</code>
+    <div className="flex items-center justify-between rounded-lg bg-muted p-2 pl-3">
+      <code className="flex-1 truncate font-mono text-xs text-foreground/80">{command}</code>
+      <Tooltip label="Copy" align="end">
+        <CopyButton value={command} title="" className="cursor-pointer" />
+      </Tooltip>
     </div>
   );
 }

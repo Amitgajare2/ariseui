@@ -73,7 +73,7 @@ export default function CopyButton({
       aria-label={copied ? "Copied" : label}
       title={title === undefined ? label : title || undefined}
       className={cn(
-        "inline-flex shrink-0 cursor-pointer items-center justify-center rounded-md text-foreground/60 transition-colors hover:text-white",
+        "inline-flex shrink-0 cursor-pointer items-center justify-center rounded-md text-foreground/60 transition-colors hover:text-foreground",
         children ? "h-7 gap-1.5 px-2" : "size-7",
         className,
       )}
