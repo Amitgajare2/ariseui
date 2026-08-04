@@ -27,7 +27,7 @@ export default function HeroWrapper({ children }: { children: React.ReactNode })
 
   return (
     <div
-      className="relative flex w-full justify-start overflow-hidden"
+      className="relative flex w-full justify-center overflow-hidden"
       style={{
         borderRadius: scrolled ? "0px" : "45px 45px 0px 0px",
         transition: "border-radius 500ms cubic-bezier(0.22, 1, 0.36, 1)",
