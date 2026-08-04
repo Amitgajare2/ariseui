@@ -947,6 +947,89 @@ export function Demo() {
   );
 }`,
 },
+{
+  name: "Folder",
+  href: "/components/folder",
+  registry: "folder",
+  description:
+    "An interactive folder component with a smooth 3D opening animation and popping files on hover.",
+  introduction:
+    "The Folder component is a visually engaging UI element designed to represent directories or collections. It features a realistic 3D flap opening animation using Framer Motion, with document previews that pop out when the user hovers over the folder. It's fully customizable in terms of colors, titles, and file counts.",
+  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/folder.tsx`,
+  dependencies: [{ name: "motion" }, { name: "lucide-react" }],
+  interaction:
+    "When a user hovers over the folder, the front flap tilts forward, and multiple file previews rise from inside with a spring animation. The component is responsive and works well in grid layouts.",
+  props: [
+    {
+      name: "title",
+      type: "string",
+      default: '"Design Folder"',
+      description: "The main label displayed on the folder front.",
+    },
+    {
+      name: "fileCount",
+      type: "number",
+      default: "45",
+      description: "The number of files displayed below the title.",
+    },
+    {
+      name: "color",
+      type: "string",
+      default: '"#ff9f1c"',
+      description: "The primary background color of the folder.",
+    },
+    {
+      name: "filesColor",
+      type: "string",
+      default: '"#ffffff"',
+      description: "The background color of the files inside the folder.",
+    },
+    {
+      name: "textColor",
+      type: "string",
+      default: '"text-white"',
+      description: "Tailwind class for the title text color.",
+    },
+    {
+      name: "subTextColor",
+      type: "string",
+      default: '"text-white/70"',
+      description: "Tailwind class for the file count text color.",
+    },
+    {
+      name: "className",
+      type: "string",
+      description: "Additional CSS classes for the folder container.",
+    },
+  ],
+  usage: `import Folder from "@/components/ui/folder"
+
+export function Demo() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <Folder 
+        title="Design Folder" 
+        fileCount={45} 
+        color="#ff9f1c" 
+      />
+      <Folder 
+        title="Assets" 
+        fileCount={12} 
+        color="#1a1a1a" 
+      />
+      <Folder 
+        title="Documents" 
+        fileCount={8} 
+        color="#f0f0f0" 
+        textColor="text-gray-900"
+        subTextColor="text-gray-500"
+      />
+    </div>
+  )
+}`,
+},
+
+
 
  
 ];

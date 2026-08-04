@@ -130,7 +130,6 @@
         }
       ]
     },
-    
     {
       "name": "magnetic-dock",
       "type": "registry:ui",
@@ -200,34 +199,57 @@
       ]
     },
     {
-  "name": "lightboard",
-  "type": "registry:ui",
-  "title": "Light Board",
-  "description": "A scrolling dot-matrix LED board that supports drawing and sketching.",
-  "dependencies": [],
-  "registryDependencies": ["amitgajare2/ariseui/utils"],
-  "files": [
+      "name": "lightboard",
+      "type": "registry:ui",
+      "title": "Light Board",
+      "description": "A scrolling dot-matrix LED board that supports drawing and sketching.",
+      "dependencies": [],
+      "registryDependencies": [
+        "amitgajare2/ariseui/utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/lightboard.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
     {
-      "path": "components/ui/lightboard.tsx",
-      "type": "registry:ui"
-    }
-  ]
-},
-{
-  "name": "animated-beam",
-  "type": "registry:ui",
-  "title": "Animated Beam",
-  "description": "An animated SVG beam connecting UI elements with flowing gradient.",
-  "dependencies": ["framer-motion"],
-  "registryDependencies": ["amitgajare2/ariseui/utils"],
-  "files": [
+      "name": "animated-beam",
+      "type": "registry:ui",
+      "title": "Animated Beam",
+      "description": "An animated SVG beam connecting UI elements with flowing gradient.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "registryDependencies": [
+        "amitgajare2/ariseui/utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/animated-beam.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
     {
-      "path": "components/ui/animated-beam.tsx",
-      "type": "registry:ui"
+      "name": "folder",
+      "type": "registry:ui",
+      "title": "Folder",
+      "description": "An interactive folder component with a smooth 3D opening animation and popping files on hover.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "registryDependencies": [
+        "amitgajare2/ariseui/utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/folder.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
-  ]
-}
-
-
+  
   ]
 }

@@ -33,7 +33,7 @@ export default function Footer() {
   return (
     <footer className="relative w-full p-2.5 pt-20">
       <div
-        className="relative w-full overflow-visible rounded-t-[45px] bg-neutral-950 px-6 pb-10 pt-20 sm:pt-28 text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] sm:px-12"
+        className="relative w-full overflow-visible rounded-[35px] bg-neutral-950 px-6 pb-10 pt-20 sm:pt-28 text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] sm:px-12"
         style={{ cornerShape: "squircle" } as React.CSSProperties}
       >
         {/* logo pops out over the top edge of the card */}
