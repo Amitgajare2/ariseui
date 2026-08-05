@@ -50,6 +50,20 @@ export const PANEL_INFO = {
     "Most components here are recreations of great work from around the web. I don't claim to be the original creator - this is my attempt to reverse-engineer, replicate, and often add a few extra features. I've tried to credit everyone; if I missed someone, let me know.",
   contactEmail: "syntaxamit@proton.me",
   contactNote: "Found a bug or issue? Feel free to drop a DM.",
+  whatIsIncluded: [
+    "Physics-based spring animations powered by Motion",
+    "Dark and light mode support via your theme tokens",
+    "Controlled and uncontrolled APIs where appropriate",
+    "Respects prefers-reduced-motion across all components",
+    "Tailwind CSS only: no runtime CSS-in-JS",
+    "TypeScript with exported prop types",
+  ],
+  pmVariants: [
+    { label: "npm", command: `npx shadcn add ${REGISTRY_REPO}/scroll-progress` },
+    { label: "pnpm", command: `pnpm dlx shadcn add ${REGISTRY_REPO}/scroll-progress` },
+    { label: "yarn", command: `yarn dlx shadcn add ${REGISTRY_REPO}/scroll-progress` },
+    { label: "bun", command: `bunx --bun shadcn add ${REGISTRY_REPO}/scroll-progress` },
+  ],
   license: [
     "Free to use and modify in both personal and commercial projects.",
     "Attribution to Arise UI is appreciated when using a component.",
