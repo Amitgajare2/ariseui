@@ -962,81 +962,145 @@ export function Demo() {
 }`,
 },
 {
-  name: "Folder",
-  href: "/components/folder",
-  registry: "folder",
+  name: "Option Wheel",
+  href: "/components/optionwheel",
+  registry: "option-wheel",
   description:
-    "An interactive folder component with a smooth 3D opening animation and popping files on hover.",
+    "A circular selection wheel with smooth physics-based scrolling, blur effects, and optional sound feedback.",
   introduction:
-    "The Folder component is a visually engaging UI element designed to represent directories or collections. It features a realistic 3D flap opening animation using Framer Motion, with document previews that pop out when the user hovers over the folder. It's fully customizable in terms of colors, titles, and file counts.",
-  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/folder.tsx`,
-  dependencies: [{ name: "motion" }, { name: "lucide-react" }],
+    "Option Wheel is a highly interactive selection component that arranges items along a curved path. It features frame-rate independent exponential smoothing for a heavy, physical feel, along with dynamic blur and opacity fades that respond to the item's distance from the center. Perfect for mode selectors, menu wheels, or any creative list-based interaction.",
+  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/option-wheel.tsx`,
+  dependencies: [],
   interaction:
-    "When a user hovers over the folder, the front flap tilts forward, and multiple file previews rise from inside with a spring animation. The component is responsive and works well in grid layouts.",
+    "Users can interact with the wheel by dragging with a pointer, scrolling with a mouse wheel/touchpad, or using arrow keys. Clicking an item will smoothly rotate the wheel to center that selection.",
   props: [
     {
-      name: "title",
-      type: "string",
-      default: '"Design Folder"',
-      description: "The main label displayed on the folder front.",
+      name: "items",
+      type: "string[]",
+      default: "['Ambient', 'House', 'Techno', ...]",
+      description: "Labels rendered as the wheel options.",
     },
     {
-      name: "fileCount",
+      name: "defaultSelected",
       type: "number",
-      default: "45",
-      description: "The number of files displayed below the title.",
+      default: "3",
+      description: "Index of the option selected on mount.",
     },
     {
-      name: "color",
-      type: "string",
-      default: '"#ff9f1c"',
-      description: "The primary background color of the folder.",
-    },
-    {
-      name: "filesColor",
-      type: "string",
-      default: '"#ffffff"',
-      description: "The background color of the files inside the folder.",
+      name: "onChange",
+      type: "(index: number, item: string) => void",
+      description: "Called whenever the wheel settles on a new option.",
     },
     {
       name: "textColor",
       type: "string",
-      default: '"text-white"',
-      description: "Tailwind class for the title text color.",
+      default: "'#a6a6a6'",
+      description: "Resting color of the option labels.",
     },
     {
-      name: "subTextColor",
+      name: "activeColor",
       type: "string",
-      default: '"text-white/70"',
-      description: "Tailwind class for the file count text color.",
+      default: "'#ffffff'",
+      description: "Color an option blends toward as it reaches the middle of the wheel.",
+    },
+    {
+      name: "side",
+      type: "'left' | 'right'",
+      default: "'left'",
+      description: "Edge of the container the wheel curves around.",
+    },
+    {
+      name: "fontSize",
+      type: "number",
+      default: "3",
+      description: "Font size of the option labels in rem.",
+    },
+    {
+      name: "spacing",
+      type: "number",
+      default: "1.4",
+      description: "Vertical distance between options as a multiple of the font size.",
+    },
+    {
+      name: "curve",
+      type: "number",
+      default: "1",
+      description: "Depth of the circular curve; 0 flattens the wheel into a straight list.",
+    },
+    {
+      name: "tilt",
+      type: "number",
+      default: "6",
+      description: "Angle in degrees between neighboring options; higher values curl the wheel tighter.",
+    },
+    {
+      name: "blur",
+      type: "number",
+      default: "2",
+      description: "Blur in pixels added per step away from the middle.",
+    },
+    {
+      name: "fade",
+      type: "number",
+      default: "0.25",
+      description: "Opacity lost per step away from the middle.",
+    },
+    {
+      name: "minOpacity",
+      type: "number",
+      default: "0.05",
+      description: "Opacity floor for the furthest options.",
+    },
+    {
+      name: "smoothing",
+      type: "number",
+      default: "200",
+      description: "Easing time constant in milliseconds; higher values feel heavier.",
+    },
+    {
+      name: "inset",
+      type: "number",
+      default: "80",
+      description: "Padding in pixels between the anchored edge and the centered option.",
+    },
+    {
+      name: "loop",
+      type: "boolean",
+      default: "false",
+      description: "Wrap around infinitely instead of stopping at the first and last option.",
+    },
+    {
+      name: "draggable",
+      type: "boolean",
+      default: "true",
+      description: "Allow dragging the wheel with a pointer, in addition to scroll and arrow keys.",
+    },
+    {
+      name: "soundUrl",
+      type: "string",
+      default: "''",
+      description: "URL of a short tick sound played when the selection changes; empty disables it.",
+    },
+    {
+      name: "soundVolume",
+      type: "number",
+      default: "0.5",
+      description: "Playback volume of the tick sound.",
     },
     {
       name: "className",
       type: "string",
-      description: "Additional CSS classes for the folder container.",
+      description: "Additional CSS classes for the outer wrapper.",
     },
   ],
-  usage: `import Folder from "@/components/ui/folder"
+  usage: `import OptionWheel from "@/components/ui/option-wheel"
 
 export function Demo() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <Folder 
-        title="Design Folder" 
-        fileCount={45} 
-        color="#ff9f1c" 
-      />
-      <Folder 
-        title="Assets" 
-        fileCount={12} 
-        color="#1a1a1a" 
-      />
-      <Folder 
-        title="Documents" 
-        fileCount={8} 
-        color="#f0f0f0" 
-        textColor="text-gray-900"
-        subTextColor="text-gray-500"
+    <div className="h-[500px] w-full bg-black flex items-center justify-center">
+      <OptionWheel
+        items={['Ambient', 'House', 'Techno', 'Jazz', 'Lo-Fi', 'Synthwave']}
+        onChange={(index, item) => console.log(index, item)}
       />
     </div>
   )

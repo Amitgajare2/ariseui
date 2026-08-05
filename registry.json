@@ -233,23 +233,20 @@
       ]
     },
     {
-      "name": "folder",
-      "type": "registry:ui",
-      "title": "Folder",
-      "description": "An interactive folder component with a smooth 3D opening animation and popping files on hover.",
-      "dependencies": [
-        "framer-motion"
-      ],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
-      "files": [
-        {
-          "path": "components/ui/folder.tsx",
-          "type": "registry:ui"
-        }
-      ]
+  "name": "option-wheel",
+  "type": "registry:ui",
+  "title": "Option Wheel",
+  "description": "A circular selection wheel with smooth physics-based scrolling and dynamic effects.",
+  "dependencies": ["lucide-react"],
+  "registryDependencies": ["amitgajare2/ariseui/utils"],
+  "files": [
+    {
+      "path": "components/ui/option-wheel.tsx",
+      "type": "registry:ui"
     }
+  ]
+}
+
   
   ]
 }
