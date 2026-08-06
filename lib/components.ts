@@ -1106,6 +1106,42 @@ export function Demo() {
   )
 }`,
 },
+{
+  name: "Year in Dots",
+  href: "/components/yearindots",
+  registry: "year-in-dots",
+  description: "A year progress card that maps every day to an animated dot.",
+  introduction:
+    "Year in Dots turns the current year into a compact visual calendar. Reached days appear dark, future days appear bright, and the first future day pulses to mark the boundary.",
+  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/year-in-dots.tsx`,
+  dependencies: [],
+  interaction:
+    "Click the card to replay the staggered dot animation. The calendar refreshes when the date changes.",
+  props: [
+    {
+      name: "elapsedColor",
+      type: "string",
+      default: '"#303033"',
+      description: "Color used for reached days.",
+    },
+    {
+      name: "remainingColor",
+      type: "string",
+      default: '"#f7f7f7"',
+      description: "Color used for future days.",
+    },
+    {
+      name: "className",
+      type: "string",
+      description: "Additional CSS classes for the card.",
+    },
+  ],
+  usage: `import YearInDots from "@/components/ui/year-in-dots"
+
+export function Demo() {
+  return <YearInDots />
+}`,
+},
 
 
 

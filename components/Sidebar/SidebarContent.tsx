@@ -20,42 +20,40 @@ type DashRowProps = {
   onClick?: () => void;
 };
 
-function DashRow({ label, href, number, isActive, isHeader, onClick }: DashRowProps) {
+function DashRow({
+  label,
+  href,
+  number,
+  isActive,
+  isHeader,
+  onClick,
+}: DashRowProps) {
   return (
     <Link
       href={href}
       onClick={onClick}
+      style={{
+        backgroundImage: `linear-gradient(${isActive ? "#00aaff" : isHeader ? "#71717a" : "#3f3f46"}, ${isActive ? "#00aaff" : isHeader ? "#71717a" : "#3f3f46"})`,
+        backgroundPosition: "left center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: `${isActive ? 56 : 32}px 1px`,
+      }}
       className={cn(
-        "group flex items-center gap-4 py-[7px] transition-all duration-200",
+        "group relative flex h-[27px] items-center text-base leading-none transition-colors duration-150",
+        isActive ? "pl-[68px]" : "pl-11",
         isActive
-          ? "text-[#fcd601]"
+          ? "text-[#00aaff]"
           : isHeader
-            ? "text-foreground"
-            : "text-foreground/40 hover:text-[#fcd601]",
+            ? "text-zinc-100"
+            : "text-zinc-500 hover:text-zinc-200",
       )}
     >
-      <span
-        className={cn(
-          "block h-px shrink-0 transition-all duration-200",
-          isActive
-            ? "w-9 bg-[#fcd601]"
-            : isHeader
-              ? "w-7 bg-foreground/70"
-              : "w-7 bg-foreground/20 group-hover:w-10 group-hover:bg-[#fcd601]",
-        )}
-      />
-      <span
-        className={cn(
-          "truncate text-sm leading-none transition-transform duration-200",
-          isHeader ? "font-bold" : "font-normal",
-          !isActive && !isHeader && "group-hover:translate-x-0.5",
-        )}
-      >
+      <span className="truncate font-normal tracking-[-0.015em]">
         {number && (
           <span
             className={cn(
-              "mr-2 tabular-nums transition-colors duration-200",
-              isActive ? "text-[#fcd601]" : "opacity-50 group-hover:opacity-100",
+              "mr-1 tabular-nums transition-colors duration-150",
+              isActive ? "text-[#00aaff]" : "text-zinc-500",
             )}
           >
             {number}
@@ -67,21 +65,24 @@ function DashRow({ label, href, number, isActive, isHeader, onClick }: DashRowPr
   );
 }
 
-export default function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
+export default function SidebarContent({
+  onNavigate,
+}: {
+  onNavigate?: () => void;
+}) {
   const pathname = usePathname();
 
   return (
     <nav
       className="relative flex h-full flex-col"
-      aria-label="Site navigation"
+      aria-label="Component navigation"
     >
-      {/* bottom fade */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-card to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-[#111] via-[#111]/85 to-transparent"
       />
 
-      <div className="no-scrollbar flex flex-col overflow-y-auto px-4 pb-16 pt-2">
+      <div className="no-scrollbar flex flex-col overflow-y-auto px-[10px] pb-24 pt-[7px]">
         <DashRow
           label="Getting Started"
           href="/components/introduction"
@@ -100,7 +101,7 @@ export default function SidebarContent({ onNavigate }: { onNavigate?: () => void
           />
         ))}
 
-        <div className="my-2 ml-11 h-px bg-foreground/10" />
+        <div className="my-2 ml-11 h-px bg-zinc-800" />
 
         <DashRow
           label="All Components"

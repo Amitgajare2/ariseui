@@ -45,7 +45,7 @@ export default function MobileSidebar() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 320, damping: 34 }}
-              className="no-scrollbar fixed inset-y-0 left-0 z-50 flex w-72 flex-col overflow-y-auto rounded-r-3xl bg-card px-2 pb-8 pt-20"
+              className="no-scrollbar fixed inset-y-0 left-0 z-50 flex w-72 flex-col overflow-y-auto rounded-r-3xl bg-[#111] pb-8 pt-20"
             >
               <SidebarContent onNavigate={() => setOpen(false)} />
             </motion.div>

@@ -245,7 +245,22 @@
       "type": "registry:ui"
     }
   ]
-}
+},
+{
+      "name": "year-in-dots",
+      "type": "registry:ui",
+      "title": "Year in Dots",
+      "description": "A year progress card that maps every day to an animated dot.",
+      "registryDependencies": [
+        "amitgajare2/ariseui/utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/year-in-dots.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
 
   
   ]
