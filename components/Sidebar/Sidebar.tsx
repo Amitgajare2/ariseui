@@ -30,7 +30,7 @@ const Sidebar = ({
           initial={false}
           animate={{ x: open ? 0 : -PANEL_SHIFT }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="no-scrollbar pointer-events-auto flex h-full w-75 flex-col overflow-y-auto bg-card px-2 pb-8 pt-20"
+          className="no-scrollbar pointer-events-auto flex h-full w-75 flex-col overflow-y-auto bg-[#111] pb-8 pt-20"
         >
           <SidebarContent />
         </motion.div>
