@@ -8,10 +8,7 @@
       "type": "registry:lib",
       "title": "Utils",
       "description": "The cn helper for merging Tailwind classes.",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
           "path": "lib/utils.ts",
@@ -24,12 +21,8 @@
       "type": "registry:ui",
       "title": "Bounce Sidebar",
       "description": "A vertical navigation list with a bouncy, spring-animated active indicator.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/bounce-sidebar.tsx",
@@ -42,13 +35,8 @@
       "type": "registry:ui",
       "title": "Family Drawer",
       "description": "A drawer that opens from the right side of the screen, with a family tree structure inside. It supports color and size (sm/md/lg) props.",
-      "dependencies": [
-        "motion",
-        "vaul"
-      ],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "dependencies": ["motion", "vaul"],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/family-drawer.tsx",
@@ -61,12 +49,8 @@
       "type": "registry:ui",
       "title": "Proximity Sidebar",
       "description": "A dash-style scroll sidebar whose items expand as the pointer approaches.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/proximity-sidebar.tsx",
@@ -79,12 +63,8 @@
       "type": "registry:ui",
       "title": "Scroll Progress",
       "description": "A scroll progress pill that tracks reading position and expands into a squircle menu of sections you can jump to.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/scroll-progress.tsx",
@@ -97,14 +77,8 @@
       "type": "registry:ui",
       "title": "Code Block",
       "description": "A clean code block that builds its entire theme from a single accent color. Pass code and a hex, it does the rest.",
-      "dependencies": [
-        "motion",
-        "prism-react-renderer",
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "dependencies": ["motion", "prism-react-renderer", "lucide-react"],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/code-block.tsx",
@@ -117,12 +91,8 @@
       "type": "registry:ui",
       "title": "OTP Input",
       "description": "A one-time-code input whose characters roll into place behind a caret that slides from slot to slot.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/otp-input.tsx",
@@ -135,12 +105,8 @@
       "type": "registry:ui",
       "title": "Magnetic Dock",
       "description": "A dock that responds to cursor movement with a magnetic effect.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/magnetic-dock.tsx",
@@ -153,12 +119,8 @@
       "type": "registry:ui",
       "title": "Flickering Grid",
       "description": "A grid that flickers with a subtle animation.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/flickering-grid.tsx",
@@ -172,9 +134,7 @@
       "title": "Youtube Embed",
       "description": "A component to embed YouTube videos with customizable options.",
       "dependencies": [],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/youtube-embed.tsx",
@@ -188,9 +148,7 @@
       "title": "GitHub Calendar",
       "description": "A fully customizable GitHub-style contributions heatmap for React.",
       "dependencies": [],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/github-calendar.tsx",
@@ -204,9 +162,7 @@
       "title": "Light Board",
       "description": "A scrolling dot-matrix LED board that supports drawing and sketching.",
       "dependencies": [],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/lightboard.tsx",
@@ -219,12 +175,8 @@
       "type": "registry:ui",
       "title": "Animated Beam",
       "description": "An animated SVG beam connecting UI elements with flowing gradient.",
-      "dependencies": [
-        "framer-motion"
-      ],
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "dependencies": ["framer-motion"],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/animated-beam.tsx",
@@ -233,27 +185,39 @@
       ]
     },
     {
-  "name": "option-wheel",
-  "type": "registry:ui",
-  "title": "Option Wheel",
-  "description": "A circular selection wheel with smooth physics-based scrolling and dynamic effects.",
-  "dependencies": ["lucide-react"],
-  "registryDependencies": ["amitgajare2/ariseui/utils"],
-  "files": [
+      "name": "option-wheel",
+      "type": "registry:ui",
+      "title": "Option Wheel",
+      "description": "A circular selection wheel with smooth physics-based scrolling and dynamic effects.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
+      "files": [
+        {
+          "path": "components/ui/option-wheel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
     {
-      "path": "components/ui/option-wheel.tsx",
-      "type": "registry:ui"
-    }
-  ]
-},
-{
+      "name": "motion-tabs",
+      "type": "registry:ui",
+      "title": "Motion Tabs",
+      "description": "A tabbed story card with staged headings and animated navigation states.",
+      "dependencies": ["motion"],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
+      "files": [
+        {
+          "path": "components/ui/motion-tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "year-in-dots",
       "type": "registry:ui",
       "title": "Year in Dots",
       "description": "A year progress card that maps every day to an animated dot.",
-      "registryDependencies": [
-        "amitgajare2/ariseui/utils"
-      ],
+      "registryDependencies": ["amitgajare2/ariseui/utils"],
       "files": [
         {
           "path": "components/ui/year-in-dots.tsx",
@@ -261,7 +225,5 @@
         }
       ]
     }
-
-  
   ]
 }

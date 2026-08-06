@@ -59,17 +59,28 @@ export const PANEL_INFO = {
     "TypeScript with exported prop types",
   ],
   pmVariants: [
-    { label: "npm", command: `npx shadcn add ${REGISTRY_REPO}/scroll-progress` },
-    { label: "pnpm", command: `pnpm dlx shadcn add ${REGISTRY_REPO}/scroll-progress` },
-    { label: "yarn", command: `yarn dlx shadcn add ${REGISTRY_REPO}/scroll-progress` },
-    { label: "bun", command: `bunx --bun shadcn add ${REGISTRY_REPO}/scroll-progress` },
+    {
+      label: "npm",
+      command: `npx shadcn add ${REGISTRY_REPO}/scroll-progress`,
+    },
+    {
+      label: "pnpm",
+      command: `pnpm dlx shadcn add ${REGISTRY_REPO}/scroll-progress`,
+    },
+    {
+      label: "yarn",
+      command: `yarn dlx shadcn add ${REGISTRY_REPO}/scroll-progress`,
+    },
+    {
+      label: "bun",
+      command: `bunx --bun shadcn add ${REGISTRY_REPO}/scroll-progress`,
+    },
   ],
   license: [
     "Free to use and modify in both personal and commercial projects.",
     "Attribution to Arise UI is appreciated when using a component.",
     "Please don't resell the components as your own kit.",
   ],
-
 } as const;
 
 export const components: ComponentItem[] = [
@@ -82,7 +93,12 @@ export const components: ComponentItem[] = [
     introduction:
       "Bounce sidebar is a vertical nav component powered by a single spring animation. A colored dot tracks the active item, physically overshooting and settling each time you switch. Works in both controlled and uncontrolled mode, and the dot color is fully customizable.",
     source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/bounce-sidebar.tsx`,
-    dependencies: [{ name: "motion", icon: createElement(MotionIcon, { className: "h-4 w-4" }) }],
+    dependencies: [
+      {
+        name: "motion",
+        icon: createElement(MotionIcon, { className: "h-4 w-4" }),
+      },
+    ],
     interaction: "Click any item to spring the bouncing marker over to it.",
     props: [
       {
@@ -142,13 +158,18 @@ export const components: ComponentItem[] = [
     introduction:
       "Proximity Sidebar is a minimap-style table of contents that stays out of your way until you need it. Dashes expand as your pointer approaches them, the active section label appears while you scroll, and clicking any dash smooth-scrolls you there. Inspired by devouringdetails.com.",
     source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/proximity-sidebar.tsx`,
-    dependencies: [{ name: "motion", icon: createElement(MotionIcon, { className: "h-4 w-4" }) }],
+    dependencies: [
+      {
+        name: "motion",
+        icon: createElement(MotionIcon, { className: "h-4 w-4" }),
+      },
+    ],
     interaction:
       "Scroll through content to track the current section, then move the pointer near dashes to expand them and click to smooth-scroll to a section.",
     props: [
       {
         name: "sections",
-        type: "Array<{ id: string; label: string; kind?: \"title\" | \"subtitle\" | \"section\" | \"body\"; level?: 1 | 2 | 3 | 4 | 5 | 6 }>",
+        type: 'Array<{ id: string; label: string; kind?: "title" | "subtitle" | "section" | "body"; level?: 1 | 2 | 3 | 4 | 5 | 6 }>',
         required: true,
         description:
           "Ordered section map used for rendering dashes and scroll targeting. Each id must match an element id present in the page.",
@@ -194,9 +215,7 @@ export function Demo() {
     </aside>
   )
 }`,
-    credits: [
-      "Inspired by devouringdetails.com",
-    ],
+    credits: ["Inspired by devouringdetails.com"],
   },
   {
     name: "Scroll Progress",
@@ -208,7 +227,10 @@ export function Demo() {
       "Scroll Progress is a fixed pill that fills a ring as the reader scrolls and crossfades the active section label. Clicking it morphs it into a section menu so the user can jump anywhere. It works against the window or a custom scroll container, and the offset threshold is configurable.",
     source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/scroll-progress.tsx`,
     dependencies: [
-      { name: "motion", icon: createElement(MotionIcon, { className: "h-4 w-4" }) },
+      {
+        name: "motion",
+        icon: createElement(MotionIcon, { className: "h-4 w-4" }),
+      },
     ],
     interaction:
       "Scroll to fill the ring and watch the active section label crossfade in. Click the pill to morph it into a squircle menu, then tap any section to smooth-scroll there. Click outside or press Escape to close.",
@@ -278,7 +300,10 @@ export function Demo() {
       "Code Block generates a complete syntax theme from a single accent hex. Keywords pick up the accent, strings use a lighter tint, comments are de-saturated, and the background scales to match. It follows the page's dark/light mode by default and supports pinning. Copy, line numbers, and line highlighting are all built in.",
     source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/code-block.tsx`,
     dependencies: [
-      { name: "motion", icon: createElement(MotionIcon, { className: "h-4 w-4" }) },
+      {
+        name: "motion",
+        icon: createElement(MotionIcon, { className: "h-4 w-4" }),
+      },
       { name: "prism-react-renderer" },
     ],
     interaction:
@@ -387,7 +412,10 @@ export function Demo() {
       "OTP Input renders a row of animated slots with a sliding caret that moves as you type. Each character rolls into its slot using a spring. Paste, autofill from SMS, and keyboard navigation all work out of the box. Set the status prop to trigger a success ring sequence or an error shake.",
     source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/otp-input.tsx`,
     dependencies: [
-      { name: "motion", icon: createElement(MotionIcon, { className: "h-4 w-4" }) },
+      {
+        name: "motion",
+        icon: createElement(MotionIcon, { className: "h-4 w-4" }),
+      },
     ],
     interaction:
       "Type to fill each slot and move to the next one. Backspace clears a slot in place, then steps back on the next press. Arrow keys move between slots, and a caret slides along with you. Pasting a code, or letting the phone autofill one from a text message, drops it straight in. Set the status to turn the slots green, or shake them red on a wrong code.",
@@ -527,8 +555,7 @@ export function Demo() {
     name: "Flickering Grid",
     href: "/components/flickeringgrid",
     registry: "flickering-grid",
-    description:
-      "A grid that flickers with a subtle animation.",
+    description: "A grid that flickers with a subtle animation.",
     source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/flickering-grid.tsx`,
     dependencies: [{ name: "motion" }, { name: "vaul" }],
     interaction: "Click the trigger to open the drawer and step between views.",
@@ -547,95 +574,89 @@ export function Demo() {
   }`,
   },
   {
-  name: "YouTube Embed",
-  href: "/components/youtubeembed",
-  registry: "youtube-embed",
-  description:
-    "A responsive YouTube embed with autoplay, looping, customizable controls, and an optional masked presentation.",
-  introduction:
-    "YouTube Embed wraps the YouTube iframe player in a responsive container with a configurable aspect ratio. It supports autoplay, looping, muting, branding controls, and an optional radial mask for a more cinematic presentation. Built to drop into landing pages, hero sections, and product showcases with minimal setup.",
-  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/youtube-embed.tsx`,
-  dependencies: [],
-  interaction:
-    "The video begins automatically when autoplay is enabled. Since the embed is intended for decorative or showcase content, pointer interaction is disabled by default.",
-  props: [
-    {
-      name: "videoId",
-      type: "string",
-      required: true,
-      description:
-        "The YouTube video ID to embed. For example, 'DUV0KxkaIQU'.",
-    },
-    {
-      name: "autoPlay",
-      type: "boolean",
-      default: "true",
-      description:
-        "Starts playback automatically when the component mounts.",
-    },
-    {
-      name: "mute",
-      type: "boolean",
-      default: "true",
-      description:
-        "Mutes the video. Autoplay generally requires this to be enabled.",
-    },
-    {
-      name: "controls",
-      type: "boolean",
-      default: "false",
-      description:
-        "Shows or hides the YouTube player controls.",
-    },
-    {
-      name: "loop",
-      type: "boolean",
-      default: "true",
-      description:
-        "Repeats the video continuously after it finishes.",
-    },
-    {
-      name: "modestBranding",
-      type: "boolean",
-      default: "true",
-      description:
-        "Reduces YouTube branding within the player when supported.",
-    },
-    {
-      name: "rel",
-      type: "boolean",
-      default: "false",
-      description:
-        "Shows related videos after playback ends when enabled.",
-    },
-    {
-      name: "aspectRatio",
-      type: "string",
-      default: '"16 / 9"',
-      description:
-        "CSS aspect-ratio applied to the container. Accepts any valid aspect ratio value.",
-    },
-    {
-      name: "mask",
-      type: "boolean",
-      default: "true",
-      description:
-        "Applies the built-in radial mask effect to the embedded video.",
-    },
-    {
-      name: "className",
-      type: "string",
-      description:
-        "Additional classes merged onto the outer container.",
-    },
-    {
-      name: "iframeClassName",
-      type: "string",
-      description:
-        "Additional classes merged onto the iframe element.",
-    },
-  ],
-  usage: `import YoutubeEmbed from "@/components/ui/youtube-embed"
+    name: "YouTube Embed",
+    href: "/components/youtubeembed",
+    registry: "youtube-embed",
+    description:
+      "A responsive YouTube embed with autoplay, looping, customizable controls, and an optional masked presentation.",
+    introduction:
+      "YouTube Embed wraps the YouTube iframe player in a responsive container with a configurable aspect ratio. It supports autoplay, looping, muting, branding controls, and an optional radial mask for a more cinematic presentation. Built to drop into landing pages, hero sections, and product showcases with minimal setup.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/youtube-embed.tsx`,
+    dependencies: [],
+    interaction:
+      "The video begins automatically when autoplay is enabled. Since the embed is intended for decorative or showcase content, pointer interaction is disabled by default.",
+    props: [
+      {
+        name: "videoId",
+        type: "string",
+        required: true,
+        description:
+          "The YouTube video ID to embed. For example, 'DUV0KxkaIQU'.",
+      },
+      {
+        name: "autoPlay",
+        type: "boolean",
+        default: "true",
+        description: "Starts playback automatically when the component mounts.",
+      },
+      {
+        name: "mute",
+        type: "boolean",
+        default: "true",
+        description:
+          "Mutes the video. Autoplay generally requires this to be enabled.",
+      },
+      {
+        name: "controls",
+        type: "boolean",
+        default: "false",
+        description: "Shows or hides the YouTube player controls.",
+      },
+      {
+        name: "loop",
+        type: "boolean",
+        default: "true",
+        description: "Repeats the video continuously after it finishes.",
+      },
+      {
+        name: "modestBranding",
+        type: "boolean",
+        default: "true",
+        description:
+          "Reduces YouTube branding within the player when supported.",
+      },
+      {
+        name: "rel",
+        type: "boolean",
+        default: "false",
+        description: "Shows related videos after playback ends when enabled.",
+      },
+      {
+        name: "aspectRatio",
+        type: "string",
+        default: '"16 / 9"',
+        description:
+          "CSS aspect-ratio applied to the container. Accepts any valid aspect ratio value.",
+      },
+      {
+        name: "mask",
+        type: "boolean",
+        default: "true",
+        description:
+          "Applies the built-in radial mask effect to the embedded video.",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional classes merged onto the outer container.",
+      },
+      {
+        name: "iframeClassName",
+        type: "string",
+        description: "Additional classes merged onto the iframe element.",
+      },
+    ],
+    usage: `import YoutubeEmbed from "@/components/ui/youtube-embed"
 
 export function Demo() {
   return (
@@ -647,104 +668,106 @@ export function Demo() {
     />
   )
 }`,
-},
-{
-  name: "GitHub Calendar",
-  href: "/components/github-calendar",
-  registry: "github-calendar",
-  description:
-    "A fully customizable GitHub-style contributions heatmap for React.",
-  introduction:
-    "GitHub Calendar renders a live contributions heatmap for any GitHub username, styled after the profile activity graph. It supports preset and custom color palettes, adjustable cell size, shape, and spacing, staggered mount animation, and an interactive tooltip. Built for portfolio sites, dashboards, and developer profile pages.",
-  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/github-calendar.tsx`,
-  dependencies: [],
-  interaction:
-    "Hovering a cell shows a tooltip with the contribution count and date when showTooltip is enabled. Clicking a cell fires onCellClick with the underlying day data.",
-  props: [
-    {
-      name: "username",
-      type: "string",
-      required: true,
-      description: "GitHub username to fetch and display contributions for.",
-    },
-    {
-      name: "colorScheme",
-      type: '"green" | "blue" | "purple" | "orange" | "pink" | "dracula" | "halloween"',
-      default: '"blue"',
-      description: "Preset theme palette for the contribution levels.",
-    },
-    {
-      name: "colors",
-      type: "[string, string, string, string, string]",
-      description:
-        "Custom 5-stop color array override, ordered [empty, level1, level2, level3, level4].",
-    },
-    {
-      name: "cellSize",
-      type: "number",
-      default: "16",
-      description: "Width and height of each grid cell in pixels.",
-    },
-    {
-      name: "cellGap",
-      type: "number",
-      default: "4",
-      description: "Spacing between grid cells in pixels.",
-    },
-    {
-      name: "cellShape",
-      type: '"square" | "circle" | "rounded"',
-      default: '"circle"',
-      description: "Shape styling for each contribution cell.",
-    },
-    {
-      name: "showTooltip",
-      type: "boolean",
-      default: "true",
-      description: "Toggle displaying the hover information tooltip.",
-    },
-    {
-      name: "showMonthLabels",
-      type: "boolean",
-      default: "true",
-      description: "Toggle showing month names above columns.",
-    },
-    {
-      name: "showDayLabels",
-      type: "boolean",
-      default: "true",
-      description: "Toggle showing day of week labels on the left (Mon, Wed, Fri).",
-    },
-    {
-      name: "weekStart",
-      type: '"sun" | "mon"',
-      default: '"sun"',
-      description: "Determines which day of the week to start the columns on.",
-    },
-    {
-      name: "animate",
-      type: "boolean",
-      default: "false",
-      description: "Enable staggered mounting scale animation for cells.",
-    },
-    {
-      name: "timeRange",
-      type: '"3-months" | "6-months" | "1-year"',
-      default: '"3-months"',
-      description: "Adjusts the historical date limit shown in the calendar.",
-    },
-    {
-      name: "onCellClick",
-      type: "(day: ContributionDay) => void",
-      description: "Callback fired when a contribution cell is clicked.",
-    },
-    {
-      name: "className",
-      type: "string",
-      description: "Additional classes merged onto the outer container.",
-    },
-  ],
-  usage: `import GithubCalendar from "@/components/ui/github-calendar"
+  },
+  {
+    name: "GitHub Calendar",
+    href: "/components/github-calendar",
+    registry: "github-calendar",
+    description:
+      "A fully customizable GitHub-style contributions heatmap for React.",
+    introduction:
+      "GitHub Calendar renders a live contributions heatmap for any GitHub username, styled after the profile activity graph. It supports preset and custom color palettes, adjustable cell size, shape, and spacing, staggered mount animation, and an interactive tooltip. Built for portfolio sites, dashboards, and developer profile pages.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/github-calendar.tsx`,
+    dependencies: [],
+    interaction:
+      "Hovering a cell shows a tooltip with the contribution count and date when showTooltip is enabled. Clicking a cell fires onCellClick with the underlying day data.",
+    props: [
+      {
+        name: "username",
+        type: "string",
+        required: true,
+        description: "GitHub username to fetch and display contributions for.",
+      },
+      {
+        name: "colorScheme",
+        type: '"green" | "blue" | "purple" | "orange" | "pink" | "dracula" | "halloween"',
+        default: '"blue"',
+        description: "Preset theme palette for the contribution levels.",
+      },
+      {
+        name: "colors",
+        type: "[string, string, string, string, string]",
+        description:
+          "Custom 5-stop color array override, ordered [empty, level1, level2, level3, level4].",
+      },
+      {
+        name: "cellSize",
+        type: "number",
+        default: "16",
+        description: "Width and height of each grid cell in pixels.",
+      },
+      {
+        name: "cellGap",
+        type: "number",
+        default: "4",
+        description: "Spacing between grid cells in pixels.",
+      },
+      {
+        name: "cellShape",
+        type: '"square" | "circle" | "rounded"',
+        default: '"circle"',
+        description: "Shape styling for each contribution cell.",
+      },
+      {
+        name: "showTooltip",
+        type: "boolean",
+        default: "true",
+        description: "Toggle displaying the hover information tooltip.",
+      },
+      {
+        name: "showMonthLabels",
+        type: "boolean",
+        default: "true",
+        description: "Toggle showing month names above columns.",
+      },
+      {
+        name: "showDayLabels",
+        type: "boolean",
+        default: "true",
+        description:
+          "Toggle showing day of week labels on the left (Mon, Wed, Fri).",
+      },
+      {
+        name: "weekStart",
+        type: '"sun" | "mon"',
+        default: '"sun"',
+        description:
+          "Determines which day of the week to start the columns on.",
+      },
+      {
+        name: "animate",
+        type: "boolean",
+        default: "false",
+        description: "Enable staggered mounting scale animation for cells.",
+      },
+      {
+        name: "timeRange",
+        type: '"3-months" | "6-months" | "1-year"',
+        default: '"3-months"',
+        description: "Adjusts the historical date limit shown in the calendar.",
+      },
+      {
+        name: "onCellClick",
+        type: "(day: ContributionDay) => void",
+        description: "Callback fired when a contribution cell is clicked.",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional classes merged onto the outer container.",
+      },
+    ],
+    usage: `import GithubCalendar from "@/components/ui/github-calendar"
 
 export function Demo() {
   return (
@@ -755,93 +778,94 @@ export function Demo() {
     />
   )
 }`,
-},
+  },
 
-{
-  name: "Light Board",
-  href: "/components/lightboard",
-  registry: "lightboard",
-  description:
-    "A scrolling dot-matrix LED board with an optional draw/sketch overlay.",
-  introduction:
-    "LightBoard renders a grid of round 'lights' that display scrolling text using a built-in 5x7 dot-matrix font. The board automatically fills the width of its container and can double as a sketchpad — users can click-and-drag (or hover, in interactive mode) to draw over the lit text. Drawing state and hover state can be used as controlled or uncontrolled.",
-  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/lightboard.tsx`,
-  dependencies: [],
-  interaction:
-    "When disableDrawing is false, clicking and dragging over the board paints cells using the current draw pen (controlledDrawState). When hover state is active, moving the pointer alone paints without needing to hold the mouse down, and the text scroll pauses while the board is being interacted with.",
-  props: [
-    {
-      name: "text",
-      type: "string",
-      default: '""',
-      description:
-        "Text to scroll across the board using the built-in dot-matrix font. Leave empty to use the board purely as a sketchpad.",
-    },
-    {
-      name: "rows",
-      type: "number",
-      default: "10",
-      description: "Number of light rows in the board.",
-    },
-    {
-      name: "lightSize",
-      type: "number",
-      default: "5",
-      description: "Diameter in pixels of each individual light.",
-    },
-    {
-      name: "gap",
-      type: "number",
-      default: "2",
-      description: "Spacing in pixels between lights. Columns are computed automatically from the container width.",
-    },
-    {
-      name: "font",
-      type: '"default"',
-      default: '"default"',
-      description: "Font used to render scrolling text.",
-    },
-    {
-      name: "updateInterval",
-      type: "number",
-      default: "150",
-      description: "Milliseconds between each scroll step.",
-    },
-    {
-      name: "disableDrawing",
-      type: "boolean",
-      default: "true",
-      description: "Disables click/drag/hover drawing on the board.",
-    },
-    {
-      name: "colors",
-      type: "{ background?, textDim?, textBright?, drawLine? }",
-      description: "Overrides for the board background and light colors.",
-    },
-    {
-      name: "controlledDrawState",
-      type: '"0" | "1" | "2" | "3"',
-      description:
-        "The currently selected draw pen. '0' erases; '1'-'3' paint with increasing intensity. Omit to manage internally.",
-    },
-    {
-      name: "onDrawStateChange",
-      type: "(state: PatternCell) => void",
-      description: "Called when the draw pen should change.",
-    },
-    {
-      name: "controlledHoverState",
-      type: "boolean",
-      description:
-        "Whether the board is in interactive mode (pauses scroll, enables hover-to-paint). Omit to manage internally from real pointer hover.",
-    },
-    {
-      name: "onHoverStateChange",
-      type: "(state: boolean) => void",
-      description: "Called when the board's hover/interactive state changes.",
-    },
-  ],
-  usage: `import { LightBoard } from "@/components/ui/lightboard"
+  {
+    name: "Light Board",
+    href: "/components/lightboard",
+    registry: "lightboard",
+    description:
+      "A scrolling dot-matrix LED board with an optional draw/sketch overlay.",
+    introduction:
+      "LightBoard renders a grid of round 'lights' that display scrolling text using a built-in 5x7 dot-matrix font. The board automatically fills the width of its container and can double as a sketchpad — users can click-and-drag (or hover, in interactive mode) to draw over the lit text. Drawing state and hover state can be used as controlled or uncontrolled.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/lightboard.tsx`,
+    dependencies: [],
+    interaction:
+      "When disableDrawing is false, clicking and dragging over the board paints cells using the current draw pen (controlledDrawState). When hover state is active, moving the pointer alone paints without needing to hold the mouse down, and the text scroll pauses while the board is being interacted with.",
+    props: [
+      {
+        name: "text",
+        type: "string",
+        default: '""',
+        description:
+          "Text to scroll across the board using the built-in dot-matrix font. Leave empty to use the board purely as a sketchpad.",
+      },
+      {
+        name: "rows",
+        type: "number",
+        default: "10",
+        description: "Number of light rows in the board.",
+      },
+      {
+        name: "lightSize",
+        type: "number",
+        default: "5",
+        description: "Diameter in pixels of each individual light.",
+      },
+      {
+        name: "gap",
+        type: "number",
+        default: "2",
+        description:
+          "Spacing in pixels between lights. Columns are computed automatically from the container width.",
+      },
+      {
+        name: "font",
+        type: '"default"',
+        default: '"default"',
+        description: "Font used to render scrolling text.",
+      },
+      {
+        name: "updateInterval",
+        type: "number",
+        default: "150",
+        description: "Milliseconds between each scroll step.",
+      },
+      {
+        name: "disableDrawing",
+        type: "boolean",
+        default: "true",
+        description: "Disables click/drag/hover drawing on the board.",
+      },
+      {
+        name: "colors",
+        type: "{ background?, textDim?, textBright?, drawLine? }",
+        description: "Overrides for the board background and light colors.",
+      },
+      {
+        name: "controlledDrawState",
+        type: '"0" | "1" | "2" | "3"',
+        description:
+          "The currently selected draw pen. '0' erases; '1'-'3' paint with increasing intensity. Omit to manage internally.",
+      },
+      {
+        name: "onDrawStateChange",
+        type: "(state: PatternCell) => void",
+        description: "Called when the draw pen should change.",
+      },
+      {
+        name: "controlledHoverState",
+        type: "boolean",
+        description:
+          "Whether the board is in interactive mode (pauses scroll, enables hover-to-paint). Omit to manage internally from real pointer hover.",
+      },
+      {
+        name: "onHoverStateChange",
+        type: "(state: boolean) => void",
+        description: "Called when the board's hover/interactive state changes.",
+      },
+    ],
+    usage: `import { LightBoard } from "@/components/ui/lightboard"
 
 export function Demo() {
   return (
@@ -853,94 +877,96 @@ export function Demo() {
     />
   )
 }`,
-},
-{
-  name: "Animated Beam",
-  href: "/components/animated-beam",
-  registry: "animated-beam",
-  description:
-    "An animated beam of light that travels along a path between two elements.",
-  introduction:
-    "Animated Beam is a visually striking component that creates an animated SVG path between two referenced elements. It is perfect for showcasing integrations, data flows, or connections between different parts of your application. Built with Framer Motion and React, it supports customizable curvature, colors, gradients, and animation timing.",
-  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/animated-beam.tsx`,
-  dependencies: [{ name: "motion" }],
-  interaction:
-    "The beam animates automatically upon mounting. It dynamically recalculates its path when the container or the referenced elements are resized.",
-  props: [
-    {
-      name: "containerRef",
-      type: "React.RefObject<HTMLElement>",
-      required: true,
-      description: "Reference to the container element that wraps both source and target elements.",
-    },
-    {
-      name: "fromRef",
-      type: "React.RefObject<HTMLElement>",
-      required: true,
-      description: "Reference to the source element where the beam starts.",
-    },
-    {
-      name: "toRef",
-      type: "React.RefObject<HTMLElement>",
-      required: true,
-      description: "Reference to the target element where the beam ends.",
-    },
-    {
-      name: "curvature",
-      type: "number",
-      default: "0",
-      description: "The amount of curve in the beam path.",
-    },
-    {
-      name: "reverse",
-      type: "boolean",
-      default: "false",
-      description: "If true, the animation flows from the target to the source.",
-    },
-    {
-      name: "pathColor",
-      type: "string",
-      default: '"gray"',
-      description: "The color of the background path.",
-    },
-    {
-      name: "pathWidth",
-      type: "number",
-      default: "2",
-      description: "The width of the beam path.",
-    },
-    {
-      name: "pathOpacity",
-      type: "number",
-      default: "0.2",
-      description: "The opacity of the background path.",
-    },
-    {
-      name: "gradientStartColor",
-      type: "string",
-      default: '"#ffaa40"',
-      description: "The starting color of the animated gradient.",
-    },
-    {
-      name: "gradientStopColor",
-      type: "string",
-      default: '"#9c40ff"',
-      description: "The ending color of the animated gradient.",
-    },
-    {
-      name: "delay",
-      type: "number",
-      default: "0",
-      description: "Delay before the animation starts.",
-    },
-    {
-      name: "duration",
-      type: "number",
-      default: "random(4-7)",
-      description: "Duration of the beam animation.",
-    },
-  ],
-  usage: `import { useRef } from "react";
+  },
+  {
+    name: "Animated Beam",
+    href: "/components/animated-beam",
+    registry: "animated-beam",
+    description:
+      "An animated beam of light that travels along a path between two elements.",
+    introduction:
+      "Animated Beam is a visually striking component that creates an animated SVG path between two referenced elements. It is perfect for showcasing integrations, data flows, or connections between different parts of your application. Built with Framer Motion and React, it supports customizable curvature, colors, gradients, and animation timing.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/animated-beam.tsx`,
+    dependencies: [{ name: "motion" }],
+    interaction:
+      "The beam animates automatically upon mounting. It dynamically recalculates its path when the container or the referenced elements are resized.",
+    props: [
+      {
+        name: "containerRef",
+        type: "React.RefObject<HTMLElement>",
+        required: true,
+        description:
+          "Reference to the container element that wraps both source and target elements.",
+      },
+      {
+        name: "fromRef",
+        type: "React.RefObject<HTMLElement>",
+        required: true,
+        description: "Reference to the source element where the beam starts.",
+      },
+      {
+        name: "toRef",
+        type: "React.RefObject<HTMLElement>",
+        required: true,
+        description: "Reference to the target element where the beam ends.",
+      },
+      {
+        name: "curvature",
+        type: "number",
+        default: "0",
+        description: "The amount of curve in the beam path.",
+      },
+      {
+        name: "reverse",
+        type: "boolean",
+        default: "false",
+        description:
+          "If true, the animation flows from the target to the source.",
+      },
+      {
+        name: "pathColor",
+        type: "string",
+        default: '"gray"',
+        description: "The color of the background path.",
+      },
+      {
+        name: "pathWidth",
+        type: "number",
+        default: "2",
+        description: "The width of the beam path.",
+      },
+      {
+        name: "pathOpacity",
+        type: "number",
+        default: "0.2",
+        description: "The opacity of the background path.",
+      },
+      {
+        name: "gradientStartColor",
+        type: "string",
+        default: '"#ffaa40"',
+        description: "The starting color of the animated gradient.",
+      },
+      {
+        name: "gradientStopColor",
+        type: "string",
+        default: '"#9c40ff"',
+        description: "The ending color of the animated gradient.",
+      },
+      {
+        name: "delay",
+        type: "number",
+        default: "0",
+        description: "Delay before the animation starts.",
+      },
+      {
+        name: "duration",
+        type: "number",
+        default: "random(4-7)",
+        description: "Duration of the beam animation.",
+      },
+    ],
+    usage: `import { useRef } from "react";
 import { AnimatedBeam } from "@/components/ui/animated-beam";
 
 export function Demo() {
@@ -960,140 +986,149 @@ export function Demo() {
     </div>
   );
 }`,
-},
-{
-  name: "Option Wheel",
-  href: "/components/optionwheel",
-  registry: "option-wheel",
-  description:
-    "A circular selection wheel with smooth physics-based scrolling, blur effects, and optional sound feedback.",
-  introduction:
-    "Option Wheel is a highly interactive selection component that arranges items along a curved path. It features frame-rate independent exponential smoothing for a heavy, physical feel, along with dynamic blur and opacity fades that respond to the item's distance from the center. Perfect for mode selectors, menu wheels, or any creative list-based interaction.",
-  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/option-wheel.tsx`,
-  dependencies: [],
-  interaction:
-    "Users can interact with the wheel by dragging with a pointer, scrolling with a mouse wheel/touchpad, or using arrow keys. Clicking an item will smoothly rotate the wheel to center that selection.",
-  props: [
-    {
-      name: "items",
-      type: "string[]",
-      default: "['Ambient', 'House', 'Techno', ...]",
-      description: "Labels rendered as the wheel options.",
-    },
-    {
-      name: "defaultSelected",
-      type: "number",
-      default: "3",
-      description: "Index of the option selected on mount.",
-    },
-    {
-      name: "onChange",
-      type: "(index: number, item: string) => void",
-      description: "Called whenever the wheel settles on a new option.",
-    },
-    {
-      name: "textColor",
-      type: "string",
-      default: "'#a6a6a6'",
-      description: "Resting color of the option labels.",
-    },
-    {
-      name: "activeColor",
-      type: "string",
-      default: "'#ffffff'",
-      description: "Color an option blends toward as it reaches the middle of the wheel.",
-    },
-    {
-      name: "side",
-      type: "'left' | 'right'",
-      default: "'left'",
-      description: "Edge of the container the wheel curves around.",
-    },
-    {
-      name: "fontSize",
-      type: "number",
-      default: "3",
-      description: "Font size of the option labels in rem.",
-    },
-    {
-      name: "spacing",
-      type: "number",
-      default: "1.4",
-      description: "Vertical distance between options as a multiple of the font size.",
-    },
-    {
-      name: "curve",
-      type: "number",
-      default: "1",
-      description: "Depth of the circular curve; 0 flattens the wheel into a straight list.",
-    },
-    {
-      name: "tilt",
-      type: "number",
-      default: "6",
-      description: "Angle in degrees between neighboring options; higher values curl the wheel tighter.",
-    },
-    {
-      name: "blur",
-      type: "number",
-      default: "2",
-      description: "Blur in pixels added per step away from the middle.",
-    },
-    {
-      name: "fade",
-      type: "number",
-      default: "0.25",
-      description: "Opacity lost per step away from the middle.",
-    },
-    {
-      name: "minOpacity",
-      type: "number",
-      default: "0.05",
-      description: "Opacity floor for the furthest options.",
-    },
-    {
-      name: "smoothing",
-      type: "number",
-      default: "200",
-      description: "Easing time constant in milliseconds; higher values feel heavier.",
-    },
-    {
-      name: "inset",
-      type: "number",
-      default: "80",
-      description: "Padding in pixels between the anchored edge and the centered option.",
-    },
-    {
-      name: "loop",
-      type: "boolean",
-      default: "false",
-      description: "Wrap around infinitely instead of stopping at the first and last option.",
-    },
-    {
-      name: "draggable",
-      type: "boolean",
-      default: "true",
-      description: "Allow dragging the wheel with a pointer, in addition to scroll and arrow keys.",
-    },
-    {
-      name: "soundUrl",
-      type: "string",
-      default: "''",
-      description: "URL of a short tick sound played when the selection changes; empty disables it.",
-    },
-    {
-      name: "soundVolume",
-      type: "number",
-      default: "0.5",
-      description: "Playback volume of the tick sound.",
-    },
-    {
-      name: "className",
-      type: "string",
-      description: "Additional CSS classes for the outer wrapper.",
-    },
-  ],
-  usage: `import OptionWheel from "@/components/ui/option-wheel"
+  },
+  {
+    name: "Option Wheel",
+    href: "/components/optionwheel",
+    registry: "option-wheel",
+    description:
+      "A circular selection wheel with smooth physics-based scrolling, blur effects, and optional sound feedback.",
+    introduction:
+      "Option Wheel is a highly interactive selection component that arranges items along a curved path. It features frame-rate independent exponential smoothing for a heavy, physical feel, along with dynamic blur and opacity fades that respond to the item's distance from the center. Perfect for mode selectors, menu wheels, or any creative list-based interaction.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/option-wheel.tsx`,
+    dependencies: [],
+    interaction:
+      "Users can interact with the wheel by dragging with a pointer, scrolling with a mouse wheel/touchpad, or using arrow keys. Clicking an item will smoothly rotate the wheel to center that selection.",
+    props: [
+      {
+        name: "items",
+        type: "string[]",
+        default: "['Ambient', 'House', 'Techno', ...]",
+        description: "Labels rendered as the wheel options.",
+      },
+      {
+        name: "defaultSelected",
+        type: "number",
+        default: "3",
+        description: "Index of the option selected on mount.",
+      },
+      {
+        name: "onChange",
+        type: "(index: number, item: string) => void",
+        description: "Called whenever the wheel settles on a new option.",
+      },
+      {
+        name: "textColor",
+        type: "string",
+        default: "'#a6a6a6'",
+        description: "Resting color of the option labels.",
+      },
+      {
+        name: "activeColor",
+        type: "string",
+        default: "'#ffffff'",
+        description:
+          "Color an option blends toward as it reaches the middle of the wheel.",
+      },
+      {
+        name: "side",
+        type: "'left' | 'right'",
+        default: "'left'",
+        description: "Edge of the container the wheel curves around.",
+      },
+      {
+        name: "fontSize",
+        type: "number",
+        default: "3",
+        description: "Font size of the option labels in rem.",
+      },
+      {
+        name: "spacing",
+        type: "number",
+        default: "1.4",
+        description:
+          "Vertical distance between options as a multiple of the font size.",
+      },
+      {
+        name: "curve",
+        type: "number",
+        default: "1",
+        description:
+          "Depth of the circular curve; 0 flattens the wheel into a straight list.",
+      },
+      {
+        name: "tilt",
+        type: "number",
+        default: "6",
+        description:
+          "Angle in degrees between neighboring options; higher values curl the wheel tighter.",
+      },
+      {
+        name: "blur",
+        type: "number",
+        default: "2",
+        description: "Blur in pixels added per step away from the middle.",
+      },
+      {
+        name: "fade",
+        type: "number",
+        default: "0.25",
+        description: "Opacity lost per step away from the middle.",
+      },
+      {
+        name: "minOpacity",
+        type: "number",
+        default: "0.05",
+        description: "Opacity floor for the furthest options.",
+      },
+      {
+        name: "smoothing",
+        type: "number",
+        default: "200",
+        description:
+          "Easing time constant in milliseconds; higher values feel heavier.",
+      },
+      {
+        name: "inset",
+        type: "number",
+        default: "80",
+        description:
+          "Padding in pixels between the anchored edge and the centered option.",
+      },
+      {
+        name: "loop",
+        type: "boolean",
+        default: "false",
+        description:
+          "Wrap around infinitely instead of stopping at the first and last option.",
+      },
+      {
+        name: "draggable",
+        type: "boolean",
+        default: "true",
+        description:
+          "Allow dragging the wheel with a pointer, in addition to scroll and arrow keys.",
+      },
+      {
+        name: "soundUrl",
+        type: "string",
+        default: "''",
+        description:
+          "URL of a short tick sound played when the selection changes; empty disables it.",
+      },
+      {
+        name: "soundVolume",
+        type: "number",
+        default: "0.5",
+        description: "Playback volume of the tick sound.",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS classes for the outer wrapper.",
+      },
+    ],
+    usage: `import OptionWheel from "@/components/ui/option-wheel"
 
 export function Demo() {
   return (
@@ -1105,47 +1140,118 @@ export function Demo() {
     </div>
   )
 }`,
-},
-{
-  name: "Year in Dots",
-  href: "/components/yearindots",
-  registry: "year-in-dots",
-  description: "A year progress card that maps every day to an animated dot.",
-  introduction:
-    "Year in Dots turns the current year into a compact visual calendar. Reached days appear dark, future days appear bright, and the first future day pulses to mark the boundary.",
-  source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/year-in-dots.tsx`,
-  dependencies: [],
-  interaction:
-    "Click the card to replay the staggered dot animation. The calendar refreshes when the date changes.",
-  props: [
-    {
-      name: "elapsedColor",
-      type: "string",
-      default: '"#303033"',
-      description: "Color used for reached days.",
-    },
-    {
-      name: "remainingColor",
-      type: "string",
-      default: '"#f7f7f7"',
-      description: "Color used for future days.",
-    },
-    {
-      name: "className",
-      type: "string",
-      description: "Additional CSS classes for the card.",
-    },
-  ],
-  usage: `import YearInDots from "@/components/ui/year-in-dots"
+  },
+  {
+    name: "Motion Tabs",
+    href: "/components/motiontabs",
+    registry: "motion-tabs",
+    description:
+      "A tabbed story card with staged headings and animated navigation states.",
+    introduction:
+      "Motion Tabs presents three or more stories inside a large editorial card. Rounded tabs rise above the surface, headings reveal line by line, and a compact progress indicator tracks the active story.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/motion-tabs.tsx`,
+    dependencies: [
+      {
+        name: "motion",
+        icon: createElement(MotionIcon, { className: "h-4 w-4" }),
+      },
+    ],
+    interaction:
+      "Click a tab to transition between stories. Use the left and right arrow keys while a tab is focused to move through the list.",
+    props: [
+      {
+        name: "items",
+        type: "MotionTabItem[]",
+        required: true,
+        description: "Stories rendered as tabs and animated content panels.",
+      },
+      {
+        name: "value",
+        type: "string",
+        description: "Active tab value for controlled usage.",
+      },
+      {
+        name: "defaultValue",
+        type: "string",
+        description:
+          "Initial active tab for uncontrolled usage. Defaults to the first item.",
+      },
+      {
+        name: "onValueChange",
+        type: "(value: string) => void",
+        description: "Called when the active tab changes.",
+      },
+      {
+        name: "surfaceColor",
+        type: "string",
+        default: '"#faf8f3"',
+        description: "CSS color used for the card and active tab surfaces.",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional classes merged onto the root section.",
+      },
+    ],
+    usage: `import { MotionTabs } from "@/components/ui/motion-tabs"
+
+const items = [
+  {
+    value: "wins",
+    label: "Wins",
+    eyebrow: "01 / Client Stories",
+    title: ["Client", "Wins"],
+    description: "Highlighting the top client wins",
+  },
+  {
+    value: "results",
+    label: "Results",
+    eyebrow: "02 / Proven Impact",
+    title: ["Real", "Results"],
+    description: "Performance that speaks for itself",
+  },
+]
+
+export function Demo() {
+  return <MotionTabs items={items} />
+}`,
+  },
+  {
+    name: "Year in Dots",
+    href: "/components/yearindots",
+    registry: "year-in-dots",
+    description: "A year progress card that maps every day to an animated dot.",
+    introduction:
+      "Year in Dots turns the current year into a compact visual calendar. Reached days appear dark, future days appear bright, and the first future day pulses to mark the boundary.",
+    source: `${REGISTRY_HOMEPAGE}/blob/main/components/ui/year-in-dots.tsx`,
+    dependencies: [],
+    interaction:
+      "Click the card to replay the staggered dot animation. The calendar refreshes when the date changes.",
+    props: [
+      {
+        name: "elapsedColor",
+        type: "string",
+        default: '"#303033"',
+        description: "Color used for reached days.",
+      },
+      {
+        name: "remainingColor",
+        type: "string",
+        default: '"#f7f7f7"',
+        description: "Color used for future days.",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS classes for the card.",
+      },
+    ],
+    usage: `import YearInDots from "@/components/ui/year-in-dots"
 
 export function Demo() {
   return <YearInDots />
 }`,
-},
-
-
-
- 
+  },
 ];
 
 export type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
