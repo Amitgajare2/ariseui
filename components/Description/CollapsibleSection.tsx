@@ -28,14 +28,14 @@ export default function CollapsibleSection({
         aria-expanded={open}
         className="group flex items-center justify-between gap-3 text-left"
       >
-        <p className="text-xs font-medium uppercase tracking-normal text-foreground/40 transition-colors group-hover:text-foreground/60">
+        <p className="text-xs font-medium uppercase tracking-normal text-foreground/60 dark:text-foreground/40 transition-colors group-hover:text-foreground/80 dark:group-hover:text-foreground/60">
           {label}
         </p>
         <motion.span
           initial={false}
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="text-foreground/30 transition-colors group-hover:text-foreground/50"
+          className="text-foreground/50 dark:text-foreground/30 transition-colors group-hover:text-foreground/70 dark:group-hover:text-foreground/50"
         >
           <ChevronDown className="h-3.5 w-3.5" />
         </motion.span>

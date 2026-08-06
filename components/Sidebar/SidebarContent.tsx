@@ -26,36 +26,37 @@ function DashRow({ label, href, number, isActive, isHeader, onClick }: DashRowPr
       href={href}
       onClick={onClick}
       className={cn(
-        "group flex items-center gap-4 py-[7px] transition-all duration-200",
+        "group flex items-center gap-4 py-[7px] transition-all duration-500",
         isActive
           ? "text-[#fcd601]"
           : isHeader
             ? "text-foreground"
-            : "text-foreground/40 hover:text-[#fcd601]",
+            : "text-foreground/70 dark:text-foreground/40 hover:text-[#fcd601]",
       )}
     >
       <span
         className={cn(
-          "block h-px shrink-0 transition-all duration-200",
+          "block shrink-0 transition-all duration-500",
           isActive
-            ? "w-9 bg-[#fcd601]"
+            ? "w-9 h-[2px] bg-[#fcd601]"
             : isHeader
-              ? "w-7 bg-foreground/70"
-              : "w-7 bg-foreground/20 group-hover:w-10 group-hover:bg-[#fcd601]",
+              ? "h-px w-7 bg-foreground/80"
+              : "h-px w-7 bg-foreground/40 dark:bg-foreground/20 group-hover:w-10 group-hover:h-[2px] group-hover:bg-[#fcd601]",
         )}
       />
       <span
         className={cn(
-          "truncate text-sm leading-none transition-transform duration-200",
+          "truncate text-sm leading-none transition-transform duration-500",
           isHeader ? "font-bold" : "font-normal",
+          isActive && !isHeader && "font-semibold",
           !isActive && !isHeader && "group-hover:translate-x-0.5",
         )}
       >
         {number && (
           <span
             className={cn(
-              "mr-2 tabular-nums transition-colors duration-200",
-              isActive ? "text-[#fcd601]" : "opacity-50 group-hover:opacity-100",
+              "mr-2 tabular-nums transition-colors duration-500",
+              isActive ? "text-[#fcd601]" : "opacity-75 dark:opacity-50 group-hover:opacity-100",
             )}
           >
             {number}

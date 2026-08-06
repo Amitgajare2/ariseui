@@ -72,13 +72,13 @@ const DASH_PRESETS: Record<SectionKind, DashPreset> = {
     base: 30,
     bump: 56,
     thickness: 1,
-    className: "bg-muted-foreground/40",
+    className: "bg-foreground/60 dark:bg-muted-foreground/40",
   },
   body: {
     base: 24,
     bump: 50,
     thickness: 1,
-    className: "bg-muted-foreground/40",
+    className: "bg-foreground/60 dark:bg-muted-foreground/40",
   },
 }
 

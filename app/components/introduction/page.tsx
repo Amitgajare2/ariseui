@@ -24,7 +24,7 @@ export default function IntroductionPage() {
 
           <div className="flex flex-col gap-3">
             <SectionLabel>What is Arise UI?</SectionLabel>
-            <p className="text-sm leading-relaxed text-foreground/70">
+            <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
               Arise UI follows the{" "}
               <a
                 href="https://ui.shadcn.com/docs/registry"
@@ -44,8 +44,8 @@ export default function IntroductionPage() {
             <SectionLabel>What&apos;s included</SectionLabel>
             <ul className="flex flex-col gap-2.5">
               {PANEL_INFO.whatIsIncluded.map((item) => (
-                <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-foreground/70">
-                  <span className="mt-0.5 shrink-0 text-foreground/30">•</span>
+                <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
+                  <span className="mt-0.5 shrink-0 text-foreground/50 dark:text-foreground/30">•</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -54,7 +54,7 @@ export default function IntroductionPage() {
 
           <div className="flex flex-col gap-3">
             <SectionLabel>How it works</SectionLabel>
-            <p className="text-sm leading-relaxed text-foreground/70">
+            <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
               The shadcn CLI reads the registry, resolves dependencies, and
               writes component files into{" "}
               <InlineCode>components/ui/</InlineCode>. Required packages
@@ -66,16 +66,16 @@ export default function IntroductionPage() {
 
           <div className="flex flex-col gap-3">
             <SectionLabel>Quickstart</SectionLabel>
-            <p className="text-sm leading-relaxed text-foreground/70">
+            <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
               Arise UI requires a React or Next.js project with shadcn
               configured. If you have not initialized shadcn yet, run:
             </p>
             <CodeLine command="npx shadcn@latest init" />
-            <p className="text-sm leading-relaxed text-foreground/70">
+            <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
               Then add any component with a single command:
             </p>
             <CodeLine command={`npx shadcn add ${REGISTRY_REPO}/scroll-progress`} />
-            <p className="text-sm leading-relaxed text-foreground/70">
+            <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
               Replace <InlineCode>scroll-progress</InlineCode> with any slug
               from the{" "}
               <a
@@ -90,7 +90,7 @@ export default function IntroductionPage() {
 
           <div className="flex flex-col gap-3">
             <SectionLabel>Keep in mind</SectionLabel>
-            <p className="text-sm leading-relaxed text-foreground/70">
+            <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
               {PANEL_INFO.keepInMind}
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function IntroductionPage() {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-xs font-medium uppercase tracking-normal text-foreground/40">
+    <p className="text-xs font-medium uppercase tracking-normal text-foreground/60 dark:text-foreground/40">
       {children}
     </p>
   );

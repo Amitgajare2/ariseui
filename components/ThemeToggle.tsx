@@ -28,10 +28,32 @@ const ContrastIcon = ({ className }: { className?: string }) => (
 export default function ThemeToggle({ className = "" }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
 
+  const toggleTheme = () => {
+    const next = resolvedTheme === "dark" ? "light" : "dark";
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    const apply = () => {
+      const root = document.documentElement;
+      root.classList.remove("light", "dark");
+      root.classList.add(next);
+      root.style.colorScheme = next;
+      setTheme(next);
+    };
+
+    if (reduceMotion || typeof document.startViewTransition !== "function") {
+      apply();
+      return;
+    }
+
+    document.startViewTransition(apply);
+  };
+
   return (
     <button
       type="button"
-      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+      onClick={toggleTheme}
       aria-label="Toggle theme"
       className={cn(
         "cursor-pointer rounded-lg bg-secondary p-2 text-foreground/80 transition-colors hover:text-foreground",

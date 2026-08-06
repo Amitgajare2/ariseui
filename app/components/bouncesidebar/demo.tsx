@@ -141,7 +141,7 @@ export default function BounceSidebarPage() {
           <motion.p
             variants={fadeUp}
             custom={order++}
-            className="mt-2 text-lg text-foreground/40"
+            className="mt-2 text-lg text-foreground/80 dark:text-foreground/60"
           >
             From Arise UI, the free component encyclopedia
           </motion.p>
@@ -174,7 +174,7 @@ export default function BounceSidebarPage() {
                       {block.heading}
                     </h3>
                   )}
-                  <p className="mt-3 font-sans text-sm leading-6 text-foreground/40">
+                  <p className="mt-3 font-sans text-sm leading-6 text-foreground/75 dark:text-foreground/50">
                     {block.text}
                   </p>
                 </motion.div>
