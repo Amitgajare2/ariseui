@@ -33,7 +33,7 @@ function DashRow({
       href={href}
       onClick={onClick}
       style={{
-        backgroundImage: `linear-gradient(${isActive ? "#00aaff" : isHeader ? "#71717a" : "#3f3f46"}, ${isActive ? "#00aaff" : isHeader ? "#71717a" : "#3f3f46"})`,
+        backgroundImage: `linear-gradient(${isActive ? "#00aaff" : "currentColor"}, ${isActive ? "#00aaff" : "currentColor"})`,
         backgroundPosition: "left center",
         backgroundRepeat: "no-repeat",
         backgroundSize: `${isActive ? 56 : 32}px 1px`,
@@ -44,8 +44,8 @@ function DashRow({
         isActive
           ? "text-[#00aaff]"
           : isHeader
-            ? "text-zinc-100"
-            : "text-zinc-500 hover:text-zinc-200",
+            ? "text-foreground/85 dark:text-zinc-100"
+            : "text-muted-foreground/75 hover:text-foreground dark:text-zinc-500 dark:hover:text-zinc-200",
       )}
     >
       <span className="truncate font-normal tracking-[-0.015em]">
@@ -53,7 +53,9 @@ function DashRow({
           <span
             className={cn(
               "mr-1 tabular-nums transition-colors duration-150",
-              isActive ? "text-[#00aaff]" : "text-zinc-500",
+              isActive
+                ? "text-[#00aaff]"
+                : "text-muted-foreground/75 dark:text-zinc-500",
             )}
           >
             {number}
@@ -79,7 +81,7 @@ export default function SidebarContent({
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-[#111] via-[#111]/85 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-sidebar via-sidebar/85 to-transparent dark:from-[#111] dark:via-[#111]/85"
       />
 
       <div className="no-scrollbar flex flex-col overflow-y-auto px-[10px] pb-24 pt-[7px]">
@@ -101,7 +103,7 @@ export default function SidebarContent({
           />
         ))}
 
-        <div className="my-2 ml-11 h-px bg-zinc-800" />
+        <div className="my-2 ml-11 h-px bg-border dark:bg-zinc-800" />
 
         <DashRow
           label="All Components"

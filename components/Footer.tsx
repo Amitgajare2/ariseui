@@ -33,7 +33,7 @@ export default function Footer() {
   return (
     <footer className="relative w-full p-2.5 pt-20">
       <div
-        className="relative w-full overflow-visible rounded-[35px] bg-neutral-950 px-6 pb-10 pt-20 sm:pt-28 text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] sm:px-12"
+        className="relative w-full overflow-visible rounded-[35px] border border-border bg-card px-6 pb-10 pt-20 text-foreground shadow-sm sm:px-12 sm:pt-28 dark:border-transparent dark:bg-neutral-950 dark:text-white dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]"
         style={{ cornerShape: "squircle" } as React.CSSProperties}
       >
         {/* logo pops out over the top edge of the card */}
@@ -45,7 +45,7 @@ export default function Footer() {
 
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-start gap-6 md:grid-cols-[1fr_auto_1fr] md:items-start">
           <div className="order-2 flex flex-row flex-wrap gap-3 md:flex-col md:order-1 md:pt-4 md:items-start text-left">
-            <span className="mb-1 font-runde text-lg font-bold tracking-tight text-white">
+            <span className="mb-1 font-runde text-lg font-bold tracking-tight text-foreground dark:text-white">
               Socials
             </span>
             {SOCIALS.map((social) => (
@@ -54,7 +54,7 @@ export default function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex w-fit items-center gap-2 text-sm font-medium text-white/60 transition-colors duration-150 ease-out hover:text-white sm:text-base"
+                className="group inline-flex w-fit items-center gap-2 text-sm font-medium text-foreground/60 transition-colors duration-150 ease-out hover:text-foreground sm:text-base dark:text-white/60 dark:hover:text-white"
               >
                 {social.label}
                 <ArrowIcon />
@@ -66,7 +66,7 @@ export default function Footer() {
             <h2 className="font-runde text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
               Arise UI
             </h2>
-            <p className="max-w-xl text-balance font-medium text-white/60 text-sm sm:text-lg">
+            <p className="max-w-xl text-balance text-sm font-medium text-foreground/60 sm:text-lg dark:text-white/60">
               A curated collection of rare, ready-to-use components and animations built for your next project.
             </p>
             <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
@@ -80,7 +80,7 @@ export default function Footer() {
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-10 sm:h-12 items-center rounded-full bg-white/8 px-4 sm:px-6 text-sm font-semibold text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.14),inset_0_-1px_2px_0_rgba(0,0,0,0.3)] backdrop-blur-2xl transition-colors duration-150 ease-out hover:bg-white/12"
+                className="flex h-10 items-center rounded-full border border-border bg-background/70 px-4 text-sm font-semibold text-foreground backdrop-blur-2xl transition-colors duration-150 ease-out hover:bg-background sm:h-12 sm:px-6 dark:border-transparent dark:bg-white/8 dark:text-white dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.14),inset_0_-1px_2px_0_rgba(0,0,0,0.3)] dark:hover:bg-white/12"
               >
                 Star on GitHub
               </a>
@@ -106,23 +106,23 @@ export default function Footer() {
           <div className="flex items-center gap-2.5">
             <a
               href="/sitemap.xml"
-              className="text-xs font-medium text-white/50 transition-colors duration-150 ease-out hover:text-white"
+              className="text-xs font-medium text-foreground/50 transition-colors duration-150 ease-out hover:text-foreground dark:text-white/50 dark:hover:text-white"
             >
               Sitemap
             </a>
-            <span aria-hidden="true" className="text-xs text-white/25">
+            <span aria-hidden="true" className="text-xs text-foreground/25 dark:text-white/25">
               &middot;
             </span>
             <a
               href="/robots.txt"
-              className="text-xs font-medium text-white/50 transition-colors duration-150 ease-out hover:text-white"
+              className="text-xs font-medium text-foreground/50 transition-colors duration-150 ease-out hover:text-foreground dark:text-white/50 dark:hover:text-white"
             >
               robots.txt
             </a>
           </div>
 
           <div className="flex items-center">
-            <span className="text-xs font-medium text-white/50">
+            <span className="text-xs font-medium text-foreground/50 dark:text-white/50">
               &copy; 2026 - {new Date().getFullYear()} Arise UI
             </span>
           </div>

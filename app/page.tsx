@@ -20,12 +20,12 @@ export default async function Home() {
     <>
       <Analytics />
       <GooeyNavbar stars={stars} />
-      <section className="relative w-full bg-black p-1.5 md:p-2.5">
+      <section className="relative w-full bg-background p-1.5 md:p-2.5">
         <HeroWrapper>
           {/* main vertical gradient */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 z-0 rounded-[inherit] bg-[linear-gradient(180deg,#fff9df_0%,#ffdfa0_15%,#ff941f_35%,#b33708_55%,#3a0903_72%,#000000_92%)]"
+            className="absolute inset-0 z-0 rounded-[inherit] bg-[linear-gradient(180deg,#fff9df_0%,#ffdfa0_15%,#ff941f_35%,#ef6b18_55%,#f6c87f_75%,#ffffff_94%)] dark:bg-[linear-gradient(180deg,#fff9df_0%,#ffdfa0_15%,#ff941f_35%,#b33708_55%,#3a0903_72%,#000000_92%)]"
           />
           {/* blurred vertical light rays */}
           <div
@@ -35,7 +35,7 @@ export default async function Home() {
           {/* soft highlights and dark vignette */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 z-20 rounded-[inherit] bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.5)_0%,transparent_38%),radial-gradient(ellipse_at_50%_42%,transparent_20%,rgba(0,0,0,0.15)_52%,rgba(0,0,0,0.95)_100%)]"
+            className="absolute inset-0 z-20 rounded-[inherit] bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.55)_0%,transparent_38%),radial-gradient(ellipse_at_50%_42%,transparent_22%,rgba(255,255,255,0.12)_58%,rgba(255,255,255,0.72)_100%)] dark:bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.5)_0%,transparent_38%),radial-gradient(ellipse_at_50%_42%,transparent_20%,rgba(0,0,0,0.15)_52%,rgba(0,0,0,0.95)_100%)]"
           />
           {/* grain texture */}
           <div
