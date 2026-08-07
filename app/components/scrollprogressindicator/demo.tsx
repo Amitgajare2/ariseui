@@ -165,7 +165,7 @@ export default function Page() {
               id={group.id}
               className="mt-10 scroll-mt-12 first:mt-0"
             >
-              <p className="mb-2 text-sm text-foreground/40">{group.eyebrow}</p>
+              <p className="mb-2 text-sm text-foreground/65 dark:text-foreground/40">{group.eyebrow}</p>
               {groupIndex === 0 ? (
                 <h1 className="font-cal text-5xl font-medium tracking-wider text-foreground">
                   {group.title}
@@ -175,7 +175,7 @@ export default function Page() {
                   {group.title}
                 </h2>
               )}
-              <p className="mt-2 text-lg text-foreground/40">
+              <p className="mt-2 text-lg text-foreground/80 dark:text-foreground/60">
                 {group.description}
               </p>
 
@@ -186,13 +186,13 @@ export default function Page() {
                     id={item.id}
                     className="scroll-mt-12"
                   >
-                    <p className="mb-1 text-sm text-foreground/40">
+                    <p className="mb-1 text-sm text-foreground/65 dark:text-foreground/40">
                       {item.eyebrow}
                     </p>
                     <h3 className="font-cal text-xl font-medium text-foreground/90">
                       {item.title}
                     </h3>
-                    <p className="mt-1 font-sans text-sm leading-6 text-foreground/40">
+                    <p className="mt-1 font-sans text-sm leading-6 text-foreground/75 dark:text-foreground/50">
                       {item.description}
                     </p>
                   </section>

@@ -24,7 +24,7 @@ export default function InstallingPage() {
 
           <div className="flex flex-col gap-3">
             <SectionLabel>Step 1: Set up shadcn</SectionLabel>
-            <p className="text-sm leading-relaxed text-foreground/70">
+            <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
               Initialize shadcn in your project. Skip this step if shadcn is
               already configured.
             </p>
@@ -33,7 +33,7 @@ export default function InstallingPage() {
 
           <div className="flex flex-col gap-3">
             <SectionLabel>Step 2: Add a component</SectionLabel>
-            <p className="text-sm leading-relaxed text-foreground/70">
+            <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
               Select a component from the sidebar and run its install command.
               The CLI copies the source into{" "}
               <InlineCode>components/ui/</InlineCode> and installs peer
@@ -44,13 +44,13 @@ export default function InstallingPage() {
 
           <div className="flex flex-col gap-3">
             <SectionLabel>Package managers</SectionLabel>
-            <p className="text-sm leading-relaxed text-foreground/70">
+            <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
               The shadcn CLI supports npm, pnpm, yarn, and bun.
             </p>
             <div className="flex flex-col gap-2">
               {PANEL_INFO.pmVariants.map(({ label, command }) => (
                 <div key={label} className="flex flex-col gap-1.5">
-                  <span className="text-xs text-foreground/40">{label}</span>
+                  <span className="text-xs text-foreground/60 dark:text-foreground/40">{label}</span>
                   <CodeLine command={command} />
                 </div>
               ))}
@@ -59,7 +59,7 @@ export default function InstallingPage() {
 
           <div className="flex flex-col gap-3">
             <SectionLabel>All components</SectionLabel>
-            <p className="text-sm leading-relaxed text-foreground/70">
+            <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
               Every component in the registry. Use the copy button to grab the
               install command.
             </p>
@@ -85,7 +85,7 @@ export default function InstallingPage() {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-xs font-medium uppercase tracking-normal text-foreground/40">
+    <p className="text-xs font-medium uppercase tracking-normal text-foreground/60 dark:text-foreground/40">
       {children}
     </p>
   );

@@ -357,7 +357,7 @@ export default function Page() {
               id={group.id}
               className="mt-10 scroll-mt-12 first:mt-0"
             >
-              <p className="mb-2 text-sm text-foreground/40">
+              <p className="mb-2 text-sm text-foreground/65 dark:text-foreground/40">
                 {group.eyebrow}
               </p>
               {groupIndex === 0 ? (
@@ -369,7 +369,7 @@ export default function Page() {
                   {group.title}
                 </h2>
               )}
-              <p className="mt-2 text-lg text-foreground/40">
+              <p className="mt-2 text-lg text-foreground/80 dark:text-foreground/60">
                 {group.description}
               </p>
 
@@ -379,7 +379,7 @@ export default function Page() {
                     id="reference-props"
                     className="scroll-mt-12"
                   >
-                    <p className="font-sans text-sm leading-6 text-foreground/40">
+                    <p className="font-sans text-sm leading-6 text-foreground/75 dark:text-foreground/50">
                       Pass <code>sections</code>, <code>side</code>,{" "}
                       <code>className</code>, and <code>activeOffset</code>.
                       The section ids should match elements in the document.
@@ -389,7 +389,7 @@ export default function Page() {
                     id="reference-output"
                     className="scroll-mt-12"
                   >
-                    <p className="font-sans text-sm leading-6 text-foreground/40">
+                    <p className="font-sans text-sm leading-6 text-foreground/75 dark:text-foreground/50">
                       The component renders an accessible navigation rail where
                       each dash is a button tied to its matching content block.
                     </p>
@@ -403,7 +403,7 @@ export default function Page() {
                       id={item.id}
                       className="scroll-mt-12"
                     >
-                      <p className="font-sans text-sm leading-6 text-foreground/40">
+                      <p className="font-sans text-sm leading-6 text-foreground/75 dark:text-foreground/50">
                         {item.description}
                       </p>
                     </section>

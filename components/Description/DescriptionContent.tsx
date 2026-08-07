@@ -19,7 +19,7 @@ type DescriptionContentProps = {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-xs font-medium uppercase tracking-normal text-foreground/40">
+    <p className="text-xs font-medium uppercase tracking-normal text-foreground/60 dark:text-foreground/40">
       {children}
     </p>
   );
@@ -53,7 +53,7 @@ export default function DescriptionContent({
 
       {item?.interaction && (
         <DocSection label="Interaction Type" defaultOpen>
-          <p className="text-sm leading-relaxed text-foreground/70">
+          <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
             {item.interaction}
           </p>
         </DocSection>
@@ -61,7 +61,7 @@ export default function DescriptionContent({
 
       {item?.props && item.props.length > 0 && (
         <DocSection label="Props" defaultOpen>
-          <p className="-mt-1 mb-3 text-sm leading-relaxed text-foreground/70">
+          <p className="-mt-1 mb-3 text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
             Options you can pass to customize this component.
           </p>
           <PropsTable props={item.props} />
@@ -82,21 +82,21 @@ export default function DescriptionContent({
 
       {item?.registry && showSourceHint && (
         <DocSection label="Source Code">
-          <p className="text-sm leading-relaxed text-foreground/70">
+          <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
             {PANEL_INFO.sourceHint}
           </p>
         </DocSection>
       )}
 
       <DocSection label="Keep in mind">
-        <p className="text-sm leading-relaxed text-foreground/70">
+        <p className="text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
           {PANEL_INFO.keepInMind}
         </p>
       </DocSection>
 
       {item?.credits && item.credits.length > 0 && (
         <DocSection label="Credits">
-          <ul className="flex flex-col gap-2 text-sm leading-relaxed text-foreground/70">
+          <ul className="flex flex-col gap-2 text-sm leading-relaxed text-foreground/80 dark:text-foreground/70">
             {item.credits.map((credit) => (
               <li key={credit} className="flex gap-2">
                 <span className="text-foreground/40">•</span>
