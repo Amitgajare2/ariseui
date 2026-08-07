@@ -47,7 +47,8 @@ const SparkleIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const pill = "rounded-full border-apple bg-neutral-900";
+const pill =
+  "rounded-full border border-black/8 bg-white/90 shadow-sm backdrop-blur-xl dark:border-apple dark:bg-neutral-900 dark:shadow-none";
 
 export default function GooeyNavbar({ stars }: { stars?: number | null }) {
   const pathname = usePathname();
@@ -118,7 +119,7 @@ export default function GooeyNavbar({ stars }: { stars?: number | null }) {
             className={cn(pill, "flex h-12 items-center gap-2 px-4")}
           >
             <img src="/logos/AriseUI.svg" alt="" className="h-5 w-5" />
-            <span className="font-runde text-md font-semibold text-white">
+            <span className="font-runde text-md font-semibold text-foreground dark:text-white">
               Arise UI
             </span>
           </Link>
@@ -134,14 +135,14 @@ export default function GooeyNavbar({ stars }: { stars?: number | null }) {
         >
           {LINKS.map((link, i) => (
             <Fragment key={link.href}>
-              {i > 0 && <span className="h-4 w-px bg-white/15" />}
+              {i > 0 && <span className="h-4 w-px bg-black/10 dark:bg-white/15" />}
               <Link
                 href={link.href}
                 className={cn(
                   "px-3.5 text-sm",
                   pathname === link.href
-                    ? "text-white"
-                    : "text-white/60 transition-colors duration-150 ease-out hover:text-white",
+                    ? "text-foreground dark:text-white"
+                    : "text-foreground/55 transition-colors duration-150 ease-out hover:text-foreground dark:text-white/60 dark:hover:text-white",
                 )}
               >
                 {link.label}
@@ -166,7 +167,7 @@ export default function GooeyNavbar({ stars }: { stars?: number | null }) {
             onBlur={() => setStarHovered(false)}
             className={cn(
               pill,
-              "flex h-12 items-center transition-colors duration-200 ease-out hover:bg-neutral-800",
+              "flex h-12 items-center transition-colors duration-200 ease-out hover:bg-neutral-100 dark:hover:bg-neutral-800",
             )}
           >
             <span className="relative flex h-12 w-12 items-center justify-center">
@@ -181,7 +182,7 @@ export default function GooeyNavbar({ stars }: { stars?: number | null }) {
                 transition={reduceMotion ? { duration: 0 } : morphTransition}
                 className="flex items-center justify-center"
               >
-                <GithubIcon className="h-6 w-6 text-white" />
+                <GithubIcon className="h-6 w-6 text-foreground dark:text-white" />
               </motion.span>
               <motion.span
                 initial={false}
@@ -249,7 +250,7 @@ export default function GooeyNavbar({ stars }: { stars?: number | null }) {
             </span>
 
             {stars != null && (
-              <span className="pr-4 font-runde text-sm font-medium tabular-nums text-white/80">
+              <span className="pr-4 font-runde text-sm font-medium tabular-nums text-foreground/70 dark:text-white/80">
                 {stars}
               </span>
             )}
@@ -258,7 +259,7 @@ export default function GooeyNavbar({ stars }: { stars?: number | null }) {
           <ThemeToggle
             className={cn(
               pill,
-              "flex h-12 w-12 items-center justify-center p-0 text-white/80 hover:bg-neutral-800 hover:text-white [&_svg]:h-6 [&_svg]:w-6",
+              "flex h-12 w-12 items-center justify-center p-0 text-foreground/70 hover:bg-neutral-100 hover:text-foreground dark:text-white/80 dark:hover:bg-neutral-800 dark:hover:text-white [&_svg]:h-6 [&_svg]:w-6",
             )}
           />
         </motion.div>
@@ -286,7 +287,7 @@ export default function GooeyNavbar({ stars }: { stars?: number | null }) {
                   opacity: menuOpen && i === 1 ? 0 : 1,
                 }}
                 transition={reduceMotion ? { duration: 0 } : morphSpring}
-                className="h-0.5 w-full bg-white"
+                className="h-0.5 w-full bg-foreground dark:bg-white"
               />
             ))}
           </span>
